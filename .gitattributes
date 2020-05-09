@@ -1,0 +1,24 @@
+# make git detect all text files and auto-normalize them (convert 'crlf to' 'lf')
+# declare this setting first so that subsequent lines can override it
+* text=auto
+
+# these file types are text; they should be normalized
+*.css   text
+*.html  text
+*.js    text
+*.json  text
+*.md    text
+*.pug   text
+*.scss  text
+*.sh    text
+*.svg   text
+*.yaml  text
+
+# these file types are binary; they should not be normalized
+*.gif   binary
+*.ico   binary
+*.jpg   binary
+*.jpeg  binary
+*.pdf   binary
+*.png   binary
+*.webp  binary

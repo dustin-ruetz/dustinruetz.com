@@ -1,0 +1,36 @@
+{
+  "name": "dustinruetz.com",
+  "version": "0.0.0-semantically-released",
+  "description": "Dustin Ruetz's website.",
+  "scripts": {
+    "format": "dr-scripts format",
+    "lint": "dr-scripts lint",
+    "test": "dr-scripts test",
+    "test:coverage": "dr-scripts test --coverage"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "dr-scripts commit-msg",
+      "pre-commit": "dr-scripts pre-commit"
+    }
+  },
+  "homepage": "https://github.com/dustin-ruetz/dustinruetz.com/#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dustin-ruetz/dustinruetz.com.git"
+  },
+  "author": "Dustin Ruetz",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 12",
+    "npm": ">= 6"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "dr-scripts": "^2.1.3"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/dr-scripts/src/config/.eslintrc.js"
+  },
+  "prettier": "./node_modules/dr-scripts/src/config/.prettierrc.js"
+}
