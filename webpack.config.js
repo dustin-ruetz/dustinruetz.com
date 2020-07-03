@@ -33,6 +33,8 @@ module.exports = {
     // print info when server starts listening for connections on the specified port
     onListening: () => {
       /* eslint-disable no-console */
+      console.log('Webpack configuration file: ./webpack.config.js')
+      console.log('') // print an empty line
       console.log('Application available:')
       console.log(`https://development.dustinruetz.com:${PORT}`)
       /* eslint-enable no-console */
