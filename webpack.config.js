@@ -5,9 +5,9 @@ function createPage(route) {
   // https://webpack.js.org/plugins/html-webpack-plugin/
   const page = new htmlWebpackPlugin({
     filename:
-      // enable routes with trailing slashes, i.e. domain.com/page/
+      // enable routes with trailing slashes, i.e. domainname.com/pagename/
       route === 'home' ? 'index.html' : `${route}/index.html`,
-    // do not inject all assets into the template
+    // do not inject all assets into the template (i.e. prevent pages from loading every script)
     inject: false,
     template: `./src/pages/${route}/${route}.pug`,
   })
