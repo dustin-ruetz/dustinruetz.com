@@ -1,4 +1,5 @@
 const {readFileSync} = require('fs')
+const path = require('path')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 
 function createPage(route) {
@@ -50,6 +51,10 @@ module.exports = {
       // https://github.com/pugjs/pug-loader/
       {test: /\.pug$/, use: 'pug-loader'},
     ],
+  },
+  output: {
+    filename: '[name].js',
+    path: path.resolve(__dirname, './dist/'),
   },
   plugins: routes.map((route) => createPage(route)),
 }
