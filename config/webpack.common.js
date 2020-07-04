@@ -1,4 +1,3 @@
-const {readFileSync} = require('fs')
 const path = require('path')
 const copyWebpackPlugin = require('copy-webpack-plugin')
 const htmlWebpackPlugin = require('html-webpack-plugin')
@@ -17,33 +16,8 @@ function createPage(route) {
 }
 
 const routes = ['contact', 'home']
-const PORT = 4444
 
 module.exports = {
-  // https://webpack.js.org/configuration/dev-server/
-  devServer: {
-    // enable gzip compression for everything served
-    compress: true,
-    // define certicate and key to use HTTPS in local development
-    https: {
-      cert: readFileSync('./ssl/public.cert'),
-      key: readFileSync('./ssl/private.key'),
-    },
-    // suppress Webpack messages and bundle information (errors and warnings will still be shown)
-    noInfo: true,
-    // print info when server starts listening for connections on the specified port
-    onListening: () => {
-      /* eslint-disable no-console */
-      console.log('Webpack configuration file: ./webpack.config.js')
-      console.log('') // print an empty line
-      console.log('Application available:')
-      console.log(`https://development.dustinruetz.com:${PORT}`)
-      /* eslint-enable no-console */
-    },
-    port: PORT,
-    // specify host to fix "invalid host header" error
-    public: 'development.dustinruetz.com',
-  },
   // reduce the array of routes to create the Webpack entry points
   entry: routes.reduce((routesObject, route) => {
     routesObject[route] = `./src/pages/${route}/${route}.js`
@@ -57,13 +31,13 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, './www/'),
+    path: path.resolve(__dirname, '../www/'),
   },
   plugins: [
     ...routes.map((route) => createPage(route)),
     // https://webpack.js.org/plugins/copy-webpack-plugin/
     new copyWebpackPlugin({
-      patterns: [{from: './src/config/CNAME', to: './'}],
+      patterns: [{from: './src/config/CNAME', to: '../www/'}],
     }),
   ],
 }
