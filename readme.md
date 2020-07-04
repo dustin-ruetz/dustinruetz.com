@@ -23,6 +23,23 @@ Dustin Ruetz's website.
 
 From the root of the repo use `npm run dev` to start the dev server with hot reloading.
 
+## Build
+
+From the root of the repo use `npm run build` to compile the site to the `./www/` output directory of static files.
+
+## Hosting
+
+The repo is configured so that the `gh-pages` branch is a Git worktree that tracks the `./www/` directory; GitHub Pages provides hosting of the site's files by sourcing this branch.
+
+- [Using git worktree to deploy GitHub Pages][ghp-using-git-worktree]
+- [Managing a custom domain for your GitHub Pages site][ghp-custom-domain] (especially the sections on [configuring a subdomain][ghp-configure-subdomain] and [configuring an apex domain][ghp-configure-apex-domain]).
+
+**Note:** To enable secure redirects (from `http://` or the `www` subdomain to `https://`) it's important that the build script copy the CNAME text file (with a vaule of `www.dustinruetz.com`) to the root of the output directory.
+
+[ghp-configure-apex-domain]: https://docs.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/#configuring-an-apex-domain
+[ghp-configure-subdomain]: https://docs.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/#configuring-a-subdomain
+[ghp-custom-domain]: https://docs.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/
+[ghp-using-git-worktree]: https://sangsoonam.github.io/2019/02/08/using-git-worktree-to-deploy-github-pages.html
 [mkcert]: https://github.com/FiloSottile/mkcert/
 [npm]: https://www.npmjs.com/get-npm/
 [nodejs]: https://nodejs.org/en/download/

@@ -1,5 +1,6 @@
 const {readFileSync} = require('fs')
 const path = require('path')
+const copyWebpackPlugin = require('copy-webpack-plugin')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 
 function createPage(route) {
@@ -58,5 +59,11 @@ module.exports = {
     filename: '[name].js',
     path: path.resolve(__dirname, './www/'),
   },
-  plugins: routes.map((route) => createPage(route)),
+  plugins: [
+    ...routes.map((route) => createPage(route)),
+    // https://webpack.js.org/plugins/copy-webpack-plugin/
+    new copyWebpackPlugin({
+      patterns: [{from: './src/config/CNAME', to: './'}],
+    }),
+  ],
 }

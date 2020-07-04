@@ -29,6 +29,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "copy-webpack-plugin": "^6.0.3",
     "dr-scripts": "^2.1.4",
     "html-webpack-plugin": "^4.3.0",
     "pug": "^3.0.0",
