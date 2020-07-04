@@ -15,9 +15,34 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
+      # use GitHub Pages to host the site's files by sourcing from the gh-pages branch
+      # adapted from "Using git worktree to deploy GitHub Pages"
+      # https://sangsoonam.github.io/2019/02/08/using-git-worktree-to-deploy-github-pages.html
+      - name: Git configure identity
+        run: |
+          git config user.email "build-github-action@dustinruetz.com"
+          git config user.name "build GitHub Action by Dustin Ruetz"
+      - name: Git checkout orphaned gh-pages branch
+        run: |
+          git checkout --orphan gh-pages
+          git reset --hard
+          git commit --allow-empty -m "feat: initial commit for gh-pages branch"
+          git checkout master
+      - name: Create Git worktree
+        run: |
+          rm -rf ./www/
+          git worktree add ./www/ gh-pages
       - name: Install dependencies
-        run: npm install
+        run: npm ci
       - name: Build site
         run: npm run build
-      - name: Configure gh-pages branch as Git worktree
-        run: git branch && ls -l
+      - name: Deploy site
+        run: |
+          cd ./www/
+          git add --all
+          git commit -m "build: dustinruetz.com on `date +\"%Y-%b-%d at %T UTC\"`"
+          git push origin gh-pages --force
+      - name: Remove Git worktree
+        run: |
+          git worktree remove ./www/
+          git worktree prune

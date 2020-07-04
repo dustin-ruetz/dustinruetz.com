@@ -29,7 +29,7 @@ From the root of the repo use `npm run build` to compile the site to the `./www/
 
 ## Hosting
 
-The repo is configured so that the `gh-pages` branch is a Git worktree that tracks the `./www/` directory; GitHub Pages provides hosting of the site's files by sourcing this branch.
+The repo is configured so that the `gh-pages` branch is a Git worktree that tracks the `./www/` directory; GitHub Pages hosts the site's files by sourcing from this branch.
 
 - [Using git worktree to deploy GitHub Pages][ghp-using-git-worktree]
 - [Managing a custom domain for your GitHub Pages site][ghp-custom-domain] (especially the sections on [configuring a subdomain][ghp-configure-subdomain] and [configuring an apex domain][ghp-configure-apex-domain]).
