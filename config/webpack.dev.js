@@ -16,6 +16,8 @@ module.exports = webpackMerge(webpackConfigCommon, {
       cert: readFileSync('./ssl/public.cert'),
       key: readFileSync('./ssl/private.key'),
     },
+    // reload the page when file changes are detected (`devServer.hot` option must be disabled)
+    liveReload: true,
     // suppress Webpack messages and bundle information (errors and warnings will still be shown)
     noInfo: true,
     // print info when server starts listening for connections on the specified port
