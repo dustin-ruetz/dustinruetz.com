@@ -27,9 +27,10 @@ module.exports = {
   module: {
     rules: [
       // https://webpack.js.org/loaders/css-loader/
+      // https://github.com/webpack-contrib/sass-loader
       {
-        test: /\.css$/,
-        use: [miniCssExtractPlugin.loader, 'css-loader'],
+        test: /\.scss$/,
+        use: [miniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       // https://github.com/pugjs/pug-loader/
       {test: /\.pug$/, use: 'pug-loader'},
@@ -53,7 +54,7 @@ module.exports = {
     // https://webpack.js.org/plugins/mini-css-extract-plugin/
     new miniCssExtractPlugin({
       // bundle all CSS in one file because this is a small site
-      filename: 'styles.css',
+      filename: './styles.css',
     }),
   ],
 }
