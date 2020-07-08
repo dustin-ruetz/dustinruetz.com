@@ -1,6 +1,7 @@
-mixin head(page)
+mixin head(pageName)
+  - const isHomepage = pageName === 'home'
   link(
-    href="https://unpkg.com/mvp.css"
+    href=(isHomepage ? './styles.css' : '../styles.css')
     rel="stylesheet"
   )
   meta(charset="utf-8")
@@ -9,6 +10,6 @@ mixin head(page)
   //- https://flaviocopes.com/javascript-async-defer/
   script(
     defer
-    src= page==='home' ? `./${page}.js` : `../${page}.js`
+    src=`./${pageName}.js`
   )
-  title=page==='home' ? 'dustinruetz.com' : `${page} | dustinruetz.com`
+  title=(isHomepage ? 'dustinruetz.com' : `${pageName} | dustinruetz.com`)

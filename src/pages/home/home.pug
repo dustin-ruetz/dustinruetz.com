@@ -1,9 +1,10 @@
-include ../../components/head.pug
+extends ../../components/page/page.pug
+include ../../components/head/head.pug
 
-doctype html
-html(lang="en")
+block head
   +head("home")
-  body
-    h1 Hello, dustinruetz.com!
-    p This site is a work-in-progress.
-    a(href="/contact/") Go to /contact/
+
+block main
+  h1 Hello, dustinruetz.com!
+  p This site is a work-in-progress.
+  a(href="/contact/") Go to /contact/

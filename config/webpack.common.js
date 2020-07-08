@@ -1,13 +1,14 @@
 const path = require('path')
 const copyWebpackPlugin = require('copy-webpack-plugin')
 const htmlWebpackPlugin = require('html-webpack-plugin')
+const miniCssExtractPlugin = require('mini-css-extract-plugin')
 
 function createPage(route) {
   // https://webpack.js.org/plugins/html-webpack-plugin/
   const page = new htmlWebpackPlugin({
-    filename:
-      // enable routes with trailing slashes, i.e. domainname.com/pagename/
-      route === 'home' ? 'index.html' : `${route}/index.html`,
+    // specify how and where HTML files should be outputted
+    // to enable routes with trailing slashes
+    filename: route === 'home' ? './index.html' : `./${route}/index.html`,
     // do not inject all assets into the template (i.e. prevent pages from loading every script)
     inject: false,
     template: `./src/pages/${route}/${route}.pug`,
@@ -25,19 +26,34 @@ module.exports = {
   }, {}),
   module: {
     rules: [
+      // https://webpack.js.org/loaders/css-loader/
+      {
+        test: /\.css$/,
+        use: [miniCssExtractPlugin.loader, 'css-loader'],
+      },
       // https://github.com/pugjs/pug-loader/
       {test: /\.pug$/, use: 'pug-loader'},
     ],
   },
   output: {
-    filename: '[name].js',
+    // specify how and where JS bundle files should be outputted
+    // and name them the same as the route for easier debugging
+    filename: (pathData) =>
+      pathData.chunk.name === 'home' ? './[name].js' : './[name]/[name].js',
     path: path.resolve(__dirname, '../www/'),
   },
   plugins: [
     ...routes.map((route) => createPage(route)),
     // https://webpack.js.org/plugins/copy-webpack-plugin/
     new copyWebpackPlugin({
+      // copy the CNAME text file to the root of the output directory
+      // to enable secure redirects when hosting with GitHub Pages
       patterns: [{from: './src/config/CNAME', to: '../www/'}],
+    }),
+    // https://webpack.js.org/plugins/mini-css-extract-plugin/
+    new miniCssExtractPlugin({
+      // bundle all CSS in one file because this is a small site
+      filename: 'styles.css',
     }),
   ],
 }
