@@ -19,8 +19,6 @@ function createPage(route) {
 const routes = ['home']
 
 module.exports = {
-  // https://webpack.js.org/configuration/entry-context/
-  context: path.resolve(__dirname, '../'),
   // reduce the array of routes to create the Webpack entry points
   entry: routes.reduce((routesObject, route) => {
     routesObject[route] = `./src/pages/${route}/${route}.js`
