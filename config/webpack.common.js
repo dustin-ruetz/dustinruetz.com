@@ -16,9 +16,11 @@ function createPage(route) {
   return page
 }
 
-const routes = ['contact', 'home']
+const routes = ['home']
 
 module.exports = {
+  // https://webpack.js.org/configuration/entry-context/
+  context: path.resolve(__dirname, '../'),
   // reduce the array of routes to create the Webpack entry points
   entry: routes.reduce((routesObject, route) => {
     routesObject[route] = `./src/pages/${route}/${route}.js`
@@ -27,10 +29,33 @@ module.exports = {
   module: {
     rules: [
       // https://webpack.js.org/loaders/css-loader/
-      // https://github.com/webpack-contrib/sass-loader
+      // https://webpack.js.org/loaders/sass-loader/
       {
         test: /\.scss$/,
         use: [miniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
+      // https://webpack.js.org/loaders/file-loader/
+      {
+        test: /\.(png)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: (resourcePath) => {
+              const assetRelativePath = resourcePath.split('dustinruetz.com')[1]
+              const isHomepageAsset = assetRelativePath.includes('/home/')
+
+              // preserve directory/filename structure of all assets in order to
+              // output cleanly mapped directory/file names on build
+              const assetOutputPath = isHomepageAsset
+                ? // output homepage assets to the root of the output directory
+                  assetRelativePath.replace('/src/pages/home/', './')
+                : // output other page assets to their respective page directories
+                  assetRelativePath.replace('/src/pages/', './')
+
+              return assetOutputPath
+            },
+          },
+        },
       },
       // https://github.com/pugjs/pug-loader/
       {test: /\.pug$/, use: 'pug-loader'},
