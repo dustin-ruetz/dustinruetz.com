@@ -1,5 +1,5 @@
 const {readFileSync} = require('fs')
-const webpackMerge = require('webpack-merge')
+const webpackMerge = require('webpack-merge').merge
 const webpackConfigCommon = require('./webpack.common.js')
 
 const PORT = 4444
