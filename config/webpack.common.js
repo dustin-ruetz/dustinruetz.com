@@ -40,17 +40,23 @@ module.exports = {
           options: {
             name: (resourcePath) => {
               const assetRelativePath = resourcePath.split('dustinruetz.com')[1]
-              const isHomepageAsset = assetRelativePath.includes('/home/')
 
-              // preserve directory/filename structure of all assets in order to
+              const assetType =
+                (assetRelativePath.includes('/favicons/') && 'favicons') ||
+                (assetRelativePath.includes('/home/') && 'home')
+
+              // preserve directory/filename structure of assets in order to
               // output cleanly mapped directory/file names on build
-              const assetOutputPath = isHomepageAsset
-                ? // output homepage assets to the root of the output directory
-                  assetRelativePath.replace('/src/pages/home/', './')
-                : // output other page assets to their respective page directories
-                  assetRelativePath.replace('/src/pages/', './')
-
-              return assetOutputPath
+              switch (assetType) {
+                // output favicons and homepage assets to the root of the output directory
+                case 'favicons':
+                  return assetRelativePath.replace('/src/', './')
+                case 'home':
+                  return assetRelativePath.replace('/src/pages/home/', './')
+                // output all other assets as nested within their respective page directories
+                default:
+                  return assetRelativePath.replace('/src/pages/', './')
+              }
             },
           },
         },

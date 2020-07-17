@@ -1,5 +1,12 @@
 mixin head(pageName)
   - const isHomepage = pageName === 'home'
+  - require('../../favicons/favicon-yellow-180x180.png')
+  link(
+    href="/favicons/favicon-yellow-180x180.png"
+    rel="icon"
+    sizes="180x180"
+    type="image/png"
+  )
   link(
     href=(isHomepage ? './styles.css' : '../styles.css')
     rel="stylesheet"
