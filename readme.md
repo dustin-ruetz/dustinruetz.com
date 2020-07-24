@@ -2,8 +2,18 @@
 
 Dustin Ruetz's website.
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Installation](#installation)
+  - [Application](#application)
+  - [Use HTTPS in local development](#use-https-in-local-development)
+- [Development](#development)
+- [Build](#build)
+- [Hosting](#hosting)
+- [Notes](#notes)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Installation
 
@@ -42,6 +52,19 @@ The repo is configured so that the `gh-pages` branch is a Git worktree that trac
 
 **Note:** To enable secure redirects (from `http://` or the `www` subdomain to `https://`) it's important that the build script copy the CNAME text file (with a value of `www.dustinruetz.com`) to the root of the output directory.
 
+## Notes
+
+- Attempting to `require()` a string variable causes Pug/Webpack to throw an error, but requiring a template literal (specifically a string literal containing an embedded expression) works. Example:
+  - Doesn't work: `require(imageFilename)`
+  - Does work: `` require(`./images/${imageFilename}`) ``
+- You can use the `!{variable}` syntax (i.e. the [Pug interpolation][pug-interpolation] feature) to buffer unescaped values into your template files. This is especially useful when combined with [Webpack's svg-inline-loader][webpack-svg-inline-loader] to output SVG code directly into the compiled HTML. Example:
+
+```pug
+- const icon = require('./icons/icon.svg')
+//- this will output the icon.svg code as an <svg/> HTML element
+figure !{icon}
+```
+
 [ga-build]: /.github/workflows/build.yaml
 [ghp-configure-apex-domain]: https://docs.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/#configuring-an-apex-domain
 [ghp-configure-subdomain]: https://docs.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/#configuring-a-subdomain
@@ -50,3 +73,5 @@ The repo is configured so that the `gh-pages` branch is a Git worktree that trac
 [mkcert]: https://github.com/FiloSottile/mkcert/
 [npm]: https://www.npmjs.com/get-npm/
 [nodejs]: https://nodejs.org/en/download/
+[pug-interpolation]: https://pugjs.org/language/interpolation.html
+[webpack-svg-inline-loader]: https://webpack.js.org/loaders/svg-inline-loader/
