@@ -1,0 +1,14 @@
+- const {routes} = require('../../routes/routes.js')
+
+nav.nav
+  ul.nav__links
+    each route in routes
+      li.nav__link-container
+        a(
+          class="nav__link"
+          href=route.href
+        )
+          - const icon = require(`./icons/${route.icon}.svg`)
+          //- buffer unescaped SVG code directly into the Pug template
+          figure !{icon}
+            figcaption=(route.label)

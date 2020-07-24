@@ -1,0 +1,53 @@
+@use "../../config/colors.scss";
+
+.nav {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+
+  @function set-link-border($color) {
+    @return 0.1rem solid $color;
+  }
+
+  &__links {
+    display: flex;
+    justify-content: space-between;
+    border-top: set-link-border(colors.$black-1);
+  }
+
+  &__link-container {
+    // set `width: 100%` to make all of these flex children equal width
+    width: 100%;
+    padding: 0.8rem 0;
+    border-right: set-link-border(colors.$black-1);
+    text-align: center;
+    &:last-child {
+      // set `border-right: transparent` to maintain equal width on the last-child
+      border-right: set-link-border(transparent);
+    }
+  }
+
+  &__link {
+    display: block;
+    color: colors.$grey-2;
+    // color: colors.$grey-1; // dh.com
+    // TODO: Roboto font
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    text-decoration: none;
+  }
+
+  &__link-icon {
+    width: 2rem;
+    fill: colors.$grey-2;
+    // fill: colors.$white-fff; // dh.com
+  }
+
+  &__link:hover {
+    color: colors.$gold; // dh.com
+
+    .nav__link-icon {
+      fill: colors.$gold; // dh.com
+    }
+  }
+}

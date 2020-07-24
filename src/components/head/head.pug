@@ -1,5 +1,9 @@
 mixin head(pageName)
-  - const isHomepage = pageName === 'home'
+  -
+    const assets = ['css', 'js'].reduce((assetsObject, filetype) => {
+      assetsObject[filetype] = `/${pageName}/${pageName}.${filetype}`
+      return assetsObject
+    }, {})
   - require('../../favicons/favicon-yellow-180x180.png')
   link(
     href="/favicons/favicon-yellow-180x180.png"
@@ -8,15 +12,19 @@ mixin head(pageName)
     type="image/png"
   )
   link(
-    href=(isHomepage ? './styles.css' : '../styles.css')
+    href=(assets.css)
     rel="stylesheet"
   )
   meta(charset="utf-8")
-  meta(content="width=device-width, initial-scale=1.0", name="viewport")
+  meta(
+    content="width=device-width, initial-scale=1.0"
+    name="viewport"
+  )
   //- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/#Attributes
   //- https://flaviocopes.com/javascript-async-defer/
   script(
     defer
-    src=`./${pageName}.js`
+    src=(assets.js)
   )
+  - const isHomepage = pageName === 'home'
   title=(isHomepage ? 'dustinruetz.com' : `${pageName} | dustinruetz.com`)

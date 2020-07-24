@@ -1,0 +1,23 @@
+extends ../../components/page/page.pug
+include ../../components/head/head.pug
+
+block head
+  +head("404")
+
+block main
+  div.error-404
+    h1 page not found
+    p 404 error
+    -
+      const youAreBeingMonitoredImage = {
+        // require the image so that Webpack processes it
+        module: require('./images/you-are-being-monitored.png'),
+        // get the image path relative to the site's structure
+        src: function() {
+          return this.module.default.replace('.', '')
+        }
+      }
+    img(
+      alt=""
+      src=(youAreBeingMonitoredImage.src())
+    )

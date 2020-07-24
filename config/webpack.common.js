@@ -16,7 +16,7 @@ function createPage(route) {
   return page
 }
 
-const routes = ['home']
+const routes = ['404', 'home']
 
 module.exports = {
   // reduce the array of routes to create the Webpack entry points
@@ -42,17 +42,14 @@ module.exports = {
               const assetRelativePath = resourcePath.split('dustinruetz.com')[1]
 
               const assetType =
-                (assetRelativePath.includes('/favicons/') && 'favicons') ||
-                (assetRelativePath.includes('/home/') && 'home')
+                assetRelativePath.includes('/favicons/') && 'favicons'
 
-              // preserve directory/filename structure of assets in order to
-              // output cleanly mapped directory/file names on build
+              // preserve directory/filename structure of assets as much as possible
+              // in order to output cleanly mapped directory/file names on build
               switch (assetType) {
-                // output favicons and homepage assets to the root of the output directory
+                // output favicons to the root of the output directory
                 case 'favicons':
                   return assetRelativePath.replace('/src/', './')
-                case 'home':
-                  return assetRelativePath.replace('/src/pages/home/', './')
                 // output all other assets as nested within their respective page directories
                 default:
                   return assetRelativePath.replace('/src/pages/', './')
@@ -63,13 +60,17 @@ module.exports = {
       },
       // https://github.com/pugjs/pug-loader/
       {test: /\.pug$/, use: 'pug-loader'},
+      // https://webpack.js.org/loaders/svg-inline-loader/
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader',
+      },
     ],
   },
   output: {
     // specify how and where JS bundle files should be outputted
     // and name them the same as the route for easier debugging
-    filename: (pathData) =>
-      pathData.chunk.name === 'home' ? './[name].js' : './[name]/[name].js',
+    filename: './[name]/[name].js',
     path: path.resolve(__dirname, '../www/'),
   },
   plugins: [
@@ -82,8 +83,9 @@ module.exports = {
     }),
     // https://webpack.js.org/plugins/mini-css-extract-plugin/
     new miniCssExtractPlugin({
-      // bundle all CSS in one file because this is a small site
-      filename: './styles.css',
+      // specify how and where CSS bundle files should be outputted
+      // and name them the same as the route for easier debugging
+      filename: './[name]/[name].css',
     }),
   ],
 }
