@@ -1,10 +1,11 @@
 extends ../../components/page/page.pug
 include ../../components/head/head.pug
+include ../../components/heading/heading.pug
 
 block head
   +head("home")
 
 block main
   div.homepage
-    h1 dustinruetz.com
+    +heading("h1")="dustinruetz.com"
     p This site is currently under construction; please come back soon!

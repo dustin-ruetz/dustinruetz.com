@@ -1,5 +1,6 @@
 extends ../../components/page/page.pug
 include ../../components/head/head.pug
+include ../../components/heading/heading.pug
 include ../../components/img/img.pug
 
 block head
@@ -7,7 +8,7 @@ block head
 
 block main
   div.error-404
-    h1 page not found
+    +heading("h1")="page not found"
     p 404 error
     -
       const youAreBeingMonitoredImage = {
