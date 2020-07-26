@@ -6,6 +6,7 @@ block head
   +head("home")
 
 block main
+  - const content = require('./home.json')
   div.homepage
-    +heading("h1")="dustinruetz.com"
-    p This site is currently under construction; please come back soon!
+    +heading("h1")=(content.title)
+    p=(content.description)

@@ -7,11 +7,13 @@ block head
   +head("404")
 
 block main
+  - const content = require('./404.json')
   div.error-404
-    +heading("h1")="page not found"
-    p 404 error
+    +heading("h1")=(content.title)
+    p=(content.description)
     -
       const youAreBeingMonitoredImage = {
+        alt: content.image.alt,
         // require the image so that Webpack processes it
         module: require('./images/you-are-being-monitored.png'),
         // get the image path relative to the site's structure
@@ -19,4 +21,4 @@ block main
           return this.module.default.replace('.', '')
         }
       }
-    +img({alt: "", src: youAreBeingMonitoredImage.src()})
+    +img({alt: youAreBeingMonitoredImage.alt, src: youAreBeingMonitoredImage.src()})
