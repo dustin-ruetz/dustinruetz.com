@@ -3,4 +3,5 @@ require('./reset.scss')
 // styles needed on every page
 require('./page.scss')
 // styles needed for components that appear on every page
+require('../img/img.scss')
 require('../nav/nav.scss')

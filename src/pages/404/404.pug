@@ -1,5 +1,6 @@
 extends ../../components/page/page.pug
 include ../../components/head/head.pug
+include ../../components/img/img.pug
 
 block head
   +head("404")
@@ -17,7 +18,4 @@ block main
           return this.module.default.replace('.', '')
         }
       }
-    img(
-      alt=""
-      src=(youAreBeingMonitoredImage.src())
-    )
+    +img({alt: "", src: youAreBeingMonitoredImage.src()})
