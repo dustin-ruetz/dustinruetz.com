@@ -1,3 +1,9 @@
+@use "../../config/colors.scss";
+
+.heading {
+  color: colors.$white-fff;
+}
+
 h1 {
   font-size: 3rem; // dh.com
 
