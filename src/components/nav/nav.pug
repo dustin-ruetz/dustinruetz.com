@@ -6,7 +6,13 @@ nav.nav
         a.nav__link(
           href=route.href
         )
-          - const icon = require(`./icons/${route.icon}.svg`)
+          -
+            const routeIcon = {
+              module: require(`./icons/${route.icon}.svg`),
+              svgCode: function() {
+                return this.module.replace('svg', 'svg class="nav__link-icon"')
+              }
+            }
           //- buffer unescaped SVG code directly into the Pug template
-          figure !{icon}
+          figure !{routeIcon.svgCode()}
             figcaption=(route.label)
