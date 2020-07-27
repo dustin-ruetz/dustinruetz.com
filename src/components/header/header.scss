@@ -1,0 +1,17 @@
+@use "../../config/colors.scss";
+
+.header {
+  &__link-icon {
+    display: block;
+    width: 6rem;
+    background-color: colors.$blue;
+    color: colors.$black-2;
+    // TODO: Roboto font
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 6rem;
+    text-align: center;
+    text-decoration: none;
+  }
+}

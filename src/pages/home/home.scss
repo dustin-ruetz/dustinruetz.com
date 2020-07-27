@@ -1,2 +1,13 @@
+@use "../../config/colors.scss";
+
 .homepage {
+  &__heroTitle {
+    padding-top: 4rem;
+    padding-bottom: 8rem;
+    color: colors.$white-fff;
+    font-size: 3.8rem;
+    font-weight: 900;
+    letter-spacing: -0.2rem;
+    line-height: 4rem;
+  }
 }

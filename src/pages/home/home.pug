@@ -1,6 +1,5 @@
 extends ../../components/page/page.pug
 include ../../components/head/head.pug
-include ../../components/heading/heading.pug
 
 block head
   +head("home")
@@ -8,5 +7,6 @@ block head
 block main
   - const content = require('./home.json')
   div.homepage
-    +heading("h1")=(content.title)
+    h1.homepage__heroTitle
+      =(content.title)
     p=(content.description)
