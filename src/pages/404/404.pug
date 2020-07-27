@@ -11,14 +11,4 @@ block main
   div.error-404
     +heading("h1")=(content.title)
     p=(content.description)
-    -
-      const youAreBeingMonitoredImage = {
-        alt: content.image.alt,
-        // require the image so that Webpack processes it
-        module: require('./images/you-are-being-monitored.png'),
-        // get the image path relative to the site's structure
-        src: function() {
-          return this.module.default.replace('.', '')
-        }
-      }
-    +img({alt: youAreBeingMonitoredImage.alt, src: youAreBeingMonitoredImage.src()})
+    +img({alt: content.image.alt, src: content.image.src})

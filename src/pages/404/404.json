@@ -2,6 +2,7 @@
   "title": "page not found",
   "description": "404 error",
   "image": {
-    "alt": ""
+    "alt": "",
+    "src": "/404/images/you-are-being-monitored.png"
   }
 }

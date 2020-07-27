@@ -1,7 +1,6 @@
-- const {routes} = require('../../routes/routes.js')
-
 nav.nav
   ul.nav__links
+    - const {routes} = require('../../routes/routes.js')
     each route in routes
       li.nav__link-container
         a.nav__link(

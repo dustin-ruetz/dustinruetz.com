@@ -4,9 +4,9 @@ mixin head(pageName)
       assetsObject[filetype] = `/${pageName}/${pageName}.${filetype}`
       return assetsObject
     }, {})
-  - require('../../favicons/favicon-blue-180x180.png')
+    //- refer to PNG rule in Webpack common config for how this path is determined
   link(
-    href="/favicons/favicon-blue-180x180.png"
+    href="/components/head/favicons/favicon-blue-180x180.png"
     rel="icon"
     sizes="180x180"
     type="image/png"

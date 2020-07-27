@@ -47,7 +47,6 @@ module.exports = {
               // preserve directory/filename structure of assets as much as possible
               // in order to output cleanly mapped directory/file names on build
               switch (assetType) {
-                // output favicons to the root of the output directory
                 case 'favicons':
                   return assetRelativePath.replace('/src/', './')
                 // output all other assets as nested within their respective page directories
