@@ -31,7 +31,7 @@
   "dependencies": {},
   "devDependencies": {
     "copy-webpack-plugin": "^6.0.3",
-    "css-loader": "^3.6.0",
+    "css-loader": "^4.1.0",
     "dr-scripts": "^2.1.5",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
@@ -41,7 +41,7 @@
     "sass": "^1.26.10",
     "sass-loader": "^9.0.2",
     "svg-inline-loader": "^0.8.2",
-    "webpack": "^4.43.0",
+    "webpack": "^4.44.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.0.9"
