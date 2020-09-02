@@ -16,14 +16,10 @@ body {
   margin: 0;
   background-color: colors.$black-2;
   color: colors.$grey-2;
-  // TODO: Georgia font
-  font-family: Georgia, serif;
+  // use Georgia as a fallback font due to wide availability on macOS and Windows
+  // https://www.cssfontstack.com/Georgia
+  font-family: 'Droid Serif', Georgia, serif;
   font-size: 1.8rem;
   line-height: 1.5;
-}
-
-.page-container {
-  max-width: 1200px;
-  padding: 20px;
-  margin: 0 auto;
+  text-rendering: optimizeLegibility;
 }

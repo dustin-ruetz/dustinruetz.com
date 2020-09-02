@@ -1,9 +1,9 @@
 doctype html
 html(lang="en")
-  head
-    block head
+  block content
+    //- require page's JSON content here when extending this template
+  block head
   body
     include ../header/header.pug
     include ../nav/nav.pug
-    main.page-container
-      block main
+    block main

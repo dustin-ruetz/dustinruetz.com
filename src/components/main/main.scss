@@ -1,0 +1,13 @@
+.main {
+  max-width: 120rem;
+  padding: 0 2rem;
+  margin: 0 auto;
+  // set different maximum widths for specific pages
+  &--home {
+    @media screen and (min-width: 667px) {
+      width: 83.33%;
+      max-width: 140rem;
+      padding: 0;
+    }
+  }
+}

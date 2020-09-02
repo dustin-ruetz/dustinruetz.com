@@ -1,0 +1,7 @@
+mixin main(args = {})
+  - const {setClassModifier} = args
+  main(
+    class="main"
+    class=(setClassModifier && `main--${setClassModifier}`)
+  )
+    block

@@ -1,30 +1,48 @@
 mixin head(pageName)
-  -
-    const assets = ['css', 'js'].reduce((assetsObject, filetype) => {
-      assetsObject[filetype] = `/${pageName}/${pageName}.${filetype}`
-      return assetsObject
-    }, {})
+  head
+    -
+      const assets = ['css', 'js'].reduce((assetsObject, filetype) => {
+        assetsObject[filetype] = `/${pageName}/${pageName}.${filetype}`
+        return assetsObject
+      }, {})
     //- refer to PNG rule in Webpack common config for how this path is determined
-  link(
-    href="/components/head/favicons/favicon-blue-180x180.png"
-    rel="icon"
-    sizes="180x180"
-    type="image/png"
-  )
-  link(
-    href=(assets.css)
-    rel="stylesheet"
-  )
-  meta(charset="utf-8")
-  meta(
-    content="width=device-width, initial-scale=1.0"
-    name="viewport"
-  )
-  //- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/#Attributes
-  //- https://flaviocopes.com/javascript-async-defer/
-  script(
-    defer
-    src=(assets.js)
-  )
-  - const isHomepage = pageName === 'home'
-  title=(isHomepage ? 'dustinruetz.com' : `${pageName} | dustinruetz.com`)
+    link(
+      href="/components/head/favicons/favicon-blue-180x180.png"
+      rel="icon"
+      sizes="180x180"
+      type="image/png"
+    )
+    -
+      const remoteFonts = {
+        baseUrl: 'https://fonts.googleapis.com/css',
+        fonts: {
+          droidSerif: 'family=Droid+Serif:400,700',
+        },
+        options: {
+          display: 'display=swap',
+        },
+        href: function() {
+          return `${this.baseUrl}?${this.fonts.droidSerif}&${this.options.display}`
+        }
+      }
+    link(
+      href=(remoteFonts.href())
+      rel="stylesheet"
+    )
+    link(
+      href=(assets.css)
+      rel="stylesheet"
+    )
+    meta(charset="utf-8")
+    meta(
+      content="width=device-width, initial-scale=1.0"
+      name="viewport"
+    )
+    //- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/#Attributes
+    //- https://flaviocopes.com/javascript-async-defer/
+    script(
+      defer
+      src=(assets.js)
+    )
+    - const isHomepage = pageName === 'home'
+    title=(isHomepage ? 'dustinruetz.com' : `${pageName} | dustinruetz.com`)
