@@ -14,5 +14,6 @@ nav.nav
               }
             }
           //- buffer unescaped SVG code directly into the Pug template
-          figure !{routeIcon.svgCode()}
+          figure
+            | !{routeIcon.svgCode()}
             figcaption=(route.label)
