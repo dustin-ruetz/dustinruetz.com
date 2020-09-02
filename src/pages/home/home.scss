@@ -1,13 +1,153 @@
 @use "../../config/colors.scss";
 
-.homepage {
-  &__heroTitle {
-    padding-top: 4rem;
-    padding-bottom: 8rem;
+.home {
+  &__hero-title {
+    padding: 8rem 0;
+    display: flex;
+    flex-direction: column;
     color: colors.$white-fff;
-    font-size: 3.8rem;
+    font-size: calc(4rem + 155 * (100vw - 32rem) / 1080);
     font-weight: 900;
-    letter-spacing: -0.2rem;
-    line-height: 4rem;
+    letter-spacing: calc(-0.125rem - 10 * (100vw - 32rem) / 1080);
+    line-height: 0.9;
+    // hide overflow on x-axis to prevent odd scrolling on mobile during line animations
+    overflow-x: hidden;
+
+    @media screen and (min-width: 667px) {
+      font-size: calc(4rem + 130 * (100vw - 32rem) / 1080);
+    }
+    @media screen and (min-width: 1400px) {
+      font-size: 17rem;
+      letter-spacing: -1.2rem;
+    }
+    @media screen and (min-width: 1600px) {
+      font-size: 19.5rem;
+    }
+  }
+
+  &__hero-title-line {
+    margin: 0.2rem 0;
+    position: relative;
+  }
+
+  &__hero-title-line-animation {
+    @keyframes hero-title-line-animation {
+      0% {
+        width: 0;
+        left: 0;
+        opacity: 0;
+      }
+      50% {
+        width: 100%;
+        left: 0;
+        opacity: 1;
+      }
+      55% {
+        animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        width: 100%;
+        left: auto;
+        right: 0;
+        opacity: 1;
+        transform: translateX(0);
+      }
+      100% {
+        animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        width: 0;
+        left: auto;
+        right: 0;
+        opacity: 0;
+        transform: translateX(20rem);
+      }
+    }
+
+    animation-duration: 1.85s;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    animation-name: hero-title-line-animation;
+    height: 100%;
+    background-color: colors.$white-fff;
+    position: absolute;
+    transform: translateX(0);
+
+    @function set-animation-delay($line-number) {
+      @return $line-number * 200ms;
+    }
+    // use class modifiers to specify line numbers because CSS
+    // doesn't support *-of-type pseudo-selectors on classes
+    &--line-1 {
+      animation-delay: set-animation-delay(1);
+    }
+    &--line-2 {
+      animation-delay: set-animation-delay(2);
+    }
+    &--line-3 {
+      animation-delay: set-animation-delay(3);
+    }
+  }
+
+  &__hero-title-line-content {
+    @keyframes hero-title-line-content {
+      0% {
+        left: 0;
+        opacity: 0;
+      }
+      80% {
+        left: 5rem;
+        opacity: 0;
+      }
+      100% {
+        animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        text-shadow: -2rem 1rem 1rem rgba(0, 0, 0, 0.3),
+          0 2rem 5rem rgba(0, 0, 0, 0.3);
+        left: 0;
+        opacity: 1;
+      }
+    }
+
+    // animation-duration: 1.85s;
+    animation-duration: 1.5s;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    animation-name: hero-title-line-content;
+    position: relative;
+    opacity: 0;
+
+    @function set-animation-delay($line-number) {
+      @return $line-number * 200ms + 100ms;
+    }
+    // use class modifiers to specify line numbers because CSS
+    // doesn't support *-of-type pseudo-selectors on classes
+    &--line-1 {
+      animation-delay: set-animation-delay(1);
+    }
+    &--line-2 {
+      animation-delay: set-animation-delay(2);
+    }
+    &--line-3 {
+      animation-delay: set-animation-delay(3);
+    }
+  }
+
+  &__hero-title-line-content-asterix {
+    // font-size percentage relative to hero-title-line-content parent element
+    font-size: 80%;
+  }
+
+  &__hero-asterix {
+    @keyframes hero-title-asterix {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    animation-name: hero-title-asterix;
+    animation-delay: 3s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    font-size: 1.4rem;
+    opacity: 0;
   }
 }

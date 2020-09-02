@@ -1,12 +1,32 @@
 extends ../../components/page/page.pug
 include ../../components/head/head.pug
+include ../../components/main/main.pug
+
+block content
+  - const content = require('./home.json')
 
 block head
   +head("home")
 
 block main
-  - const content = require('./home.json')
-  div.homepage
-    h1.homepage__heroTitle
-      =(content.title)
-    p=(content.description)
+  +main({setClassModifier: "home"})
+    h1.home__hero-title
+      each line, index in content.heroTitle.lines
+        span.home__hero-title-line
+          //- use class modifiers to specify line numbers because CSS
+          //- doesn't support *-of-type pseudo-selectors on classes
+          span(
+            class="home__hero-title-line-animation"
+            class=`home__hero-title-line-animation--line-${index + 1}`
+          )
+          span(
+            class="home__hero-title-line-content"
+            class=`home__hero-title-line-content--line-${index + 1}`
+          )
+            -
+              const lineContent = line.includes('*')
+                ? line.replace('*', '<span class="home__hero-title-line-content-asterix">*</span>')
+                : line
+            | !{lineContent}
+    p.home__hero-asterix
+      =(content.heroTitle.asterix)

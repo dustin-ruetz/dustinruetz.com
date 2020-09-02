@@ -1,4 +1,6 @@
 {
-  "title": "dustinruetz.com",
-  "description": "This site is currently under construction; please come back soon!"
+  "heroTitle": {
+    "lines": ["Web dev.", "Music. Coffee.", "Biking. Beer.*"],
+    "asterix": "* priorities subject to change at any time"
+  }
 }
