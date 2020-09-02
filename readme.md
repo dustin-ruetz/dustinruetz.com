@@ -57,15 +57,16 @@ The repo is configured so that the `gh-pages` branch is a Git worktree that trac
 - Attempting to `require()` a string variable causes Pug/Webpack to throw an error, but requiring a template literal (specifically a string literal containing an embedded expression) works. Example:
   - Doesn't work: `require(imageFilename)`
   - Does work: `` require(`./images/${imageFilename}`) ``
-- You can use the `!{variable}` syntax (i.e. the [Pug interpolation][pug-interpolation] feature) to buffer unescaped values into your template files. This is useful when combined with [Webpack's svg-inline-loader][webpack-svg-inline-loader] to output SVG code directly into the compiled HTML. Example:
+- Use the `!{variable}` syntax (i.e. the [Pug interpolation][pug-interpolation] feature) to buffer unescaped values into your template files. This is useful when combined with [Webpack's svg-inline-loader][webpack-svg-inline-loader] to output SVG code directly into the compiled HTML. Example:
 
 ```pug
 - const icon = require('./icons/icon.svg')
 //- this will output the icon.svg code as an <svg/> HTML element
-figure !{icon}
+figure
+  | !{icon}
 ```
 
-- Sass implementations don't provide URL rewriting, and [this issue also applies to Webpack's sass-loader][webpack-sass-loader-url-problems]. To solve this issue we can use [Webpack's resolve-url-loader][webpack-resolve-url-loader], which rewrites relative paths in `url()` statements relative to the original source file; this is useful when loading fonts via CSS.
+- Sass implementations don't provide URL rewriting, and [this issue also applies to Webpack's sass-loader][webpack-sass-loader-url-problems]. Use [Webpack's resolve-url-loader][webpack-resolve-url-loader] to solve this issue, which rewrites relative paths in `url()` statements relative to the original source file; this is useful when loading fonts via CSS.
 
 [ga-build]: /.github/workflows/build.yaml
 [ghp-configure-apex-domain]: https://docs.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/#configuring-an-apex-domain
