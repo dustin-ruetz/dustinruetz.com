@@ -28,29 +28,45 @@ module.exports = {
     rules: [
       // images
       // https://webpack.js.org/loaders/file-loader/
+      // https://github.com/tcoopman/image-webpack-loader/
       {
         test: /\.(png)$/,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: (resourcePath) => {
-              const assetRelativePath = resourcePath.split('dustinruetz.com')[1]
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: (resourcePath) => {
+                const assetRelativePath = resourcePath.split(
+                  'dustinruetz.com',
+                )[1]
 
-              const assetType =
-                assetRelativePath.includes('/favicons/') && 'favicons'
+                const assetType =
+                  assetRelativePath.includes('/favicons/') && 'favicons'
 
-              // preserve directory/filename structure of assets as much as possible
-              // in order to output cleanly mapped directory/file names on build
-              switch (assetType) {
-                case 'favicons':
-                  return assetRelativePath.replace('/src/', './')
-                // output all other assets as nested within their respective page directories
-                default:
-                  return assetRelativePath.replace('/src/pages/', './')
-              }
+                // preserve directory/filename structure of assets as much as possible
+                // in order to output cleanly mapped directory/file names on build
+                switch (assetType) {
+                  case 'favicons':
+                    return assetRelativePath.replace('/src/', './')
+                  // output all other assets as nested within their respective page directories
+                  default:
+                    return assetRelativePath.replace('/src/pages/', './')
+                }
+              },
             },
           },
-        },
+          {
+            loader: 'image-webpack-loader',
+            /**
+             * the image-webpack-loader docs recommend setting `options.disable = true` while
+             * working in your development environment in order to speed up compilations
+             *
+             * I've chosen to keep image compression enabled in development in order to maintain more similarity
+             * between my development and production environments; keeping it enabled also gives me
+             * more accurate information in the browser on metrics like file size and loading time
+             */
+          },
+        ],
       },
       // SVGs
       // https://webpack.js.org/loaders/svg-inline-loader/
