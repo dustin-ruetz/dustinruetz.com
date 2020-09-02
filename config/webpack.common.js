@@ -26,12 +26,7 @@ module.exports = {
   }, {}),
   module: {
     rules: [
-      // https://webpack.js.org/loaders/css-loader/
-      // https://webpack.js.org/loaders/sass-loader/
-      {
-        test: /\.scss$/,
-        use: [miniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-      },
+      // images
       // https://webpack.js.org/loaders/file-loader/
       {
         test: /\.(png)$/,
@@ -57,13 +52,23 @@ module.exports = {
           },
         },
       },
-      // https://github.com/pugjs/pug-loader/
-      {test: /\.pug$/, use: 'pug-loader'},
+      // SVGs
       // https://webpack.js.org/loaders/svg-inline-loader/
       {
         test: /\.svg$/,
         loader: 'svg-inline-loader',
       },
+      // styles
+      // https://webpack.js.org/plugins/mini-css-extract-plugin/
+      // https://webpack.js.org/loaders/css-loader/
+      // https://webpack.js.org/loaders/sass-loader/
+      {
+        test: /\.scss$/,
+        use: [miniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
+      // templates
+      // https://github.com/pugjs/pug-loader/
+      {test: /\.pug$/, use: 'pug-loader'},
     ],
   },
   output: {
