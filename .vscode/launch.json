@@ -1,0 +1,12 @@
+{
+  "configurations": [
+    {
+      "type": "firefox",
+      "request": "launch",
+      "reAttach": true,
+      "name": "Launch development.dustinruetz.com",
+      "url": "https://development.dustinruetz.com:4444",
+      "webRoot": "${workspaceFolder}"
+    }
+  ]
+}
