@@ -1,5 +1,5 @@
-mixin main(args = {})
-  - const {setClassModifier} = args
+mixin main(params = {})
+  - const {setClassModifier} = params
   main(
     class="main"
     class=(setClassModifier && `main--${setClassModifier}`)
