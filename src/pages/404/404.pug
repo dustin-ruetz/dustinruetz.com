@@ -2,13 +2,17 @@ extends ../../components/page/page.pug
 include ../../components/head/head.pug
 include ../../components/heading/heading.pug
 include ../../components/img/img.pug
+include ../../components/main/main.pug
+
+block content
+  - const content = require('./404.json')
 
 block head
   +head("404")
 
 block main
-  - const content = require('./404.json')
-  div.error-404
-    +heading("h1")=(content.title)
-    p=(content.description)
-    +img({alt: content.image.alt, src: content.image.src})
+  +main
+    div.error-404
+      +heading("h1")=(content.title)
+      p=(content.description)
+      +img({alt: content.image.alt, src: content.image.src})
