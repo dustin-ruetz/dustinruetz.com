@@ -23,10 +23,14 @@ block main
             class="home__hero-title-line-content"
             class=`home__hero-title-line-content--line-${index + 1}`
           )
-            -
-              const lineContent = line.includes('*')
-                ? line.replace('*', '<span class="home__hero-title-line-content-asterix">*</span>')
-                : line
-            | !{lineContent}
+            //- wrap each character from the hero title in its own HTML element in order to
+            //- to create overlapping text-shadow on each character via CSS
+            - const heroTitleCharacters = line.split("")
+            each character in heroTitleCharacters
+              span(
+                class="home__hero-title-character"
+                class=(character === "*" && "home__hero-title-asterix")
+              )
+                =(character)
     p.home__hero-asterix
       =(content.heroTitle.asterix)

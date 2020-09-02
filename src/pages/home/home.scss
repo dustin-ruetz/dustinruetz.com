@@ -18,7 +18,7 @@
     }
     @media screen and (min-width: 1400px) {
       font-size: 17rem;
-      letter-spacing: -1.2rem;
+      letter-spacing: -1.5rem;
     }
     @media screen and (min-width: 1600px) {
       font-size: 19.5rem;
@@ -98,8 +98,6 @@
       }
       100% {
         animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        text-shadow: -2rem 1rem 1rem rgba(0, 0, 0, 0.3),
-          0 2rem 5rem rgba(0, 0, 0, 0.3);
         left: 0;
         opacity: 1;
       }
@@ -129,7 +127,12 @@
     }
   }
 
-  &__hero-title-line-content-asterix {
+  &__hero-title-character {
+    text-shadow: colors.$black-000-with-shadow -2rem 1rem 1rem,
+      colors.$black-000-with-shadow 0 2rem 5rem;
+  }
+
+  &__hero-title-asterix {
     // font-size percentage relative to hero-title-line-content parent element
     font-size: 80%;
   }
