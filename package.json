@@ -32,7 +32,7 @@
   "devDependencies": {
     "copy-webpack-plugin": "^6.1.0",
     "css-loader": "^4.2.2",
-    "dr-scripts": "^2.1.5",
+    "dr-scripts": "^2.2.0",
     "file-loader": "^6.1.0",
     "html-webpack-plugin": "^4.4.1",
     "image-webpack-loader": "^6.0.0",
@@ -40,7 +40,7 @@
     "pug": "^3.0.0",
     "pug-loader": "^2.4.0",
     "sass": "^1.26.10",
-    "sass-loader": "^10.0.1",
+    "sass-loader": "^10.0.2",
     "svg-inline-loader": "^0.8.2",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
