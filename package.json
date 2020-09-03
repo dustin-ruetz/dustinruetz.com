@@ -5,7 +5,7 @@
   "scripts": {
     "build": "webpack --config ./config/webpack.prod.js",
     "build:local": "rm -rf ./www/ && webpack --config ./config/webpack.prod.js",
-    "dev": "webpack-dev-server --config ./config/webpack.dev.js",
+    "dev": "nodemon --watch ./config/ --exec 'webpack-dev-server --config ./config/webpack.dev.js'",
     "format": "dr-scripts format",
     "lint": "dr-scripts lint",
     "test": "dr-scripts test",
@@ -37,6 +37,7 @@
     "html-webpack-plugin": "^4.4.1",
     "image-webpack-loader": "^6.0.0",
     "mini-css-extract-plugin": "^0.11.0",
+    "nodemon": "^2.0.4",
     "pug": "^3.0.0",
     "pug-loader": "^2.4.0",
     "sass": "^1.26.10",
