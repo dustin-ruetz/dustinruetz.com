@@ -1,4 +1,14 @@
-mixin head(pageName)
+mixin head(params = {})
+  -
+    const {pageName, pageTitle} = params
+    if (typeof pageName !== 'string')
+      throw new Error(`+head({pageName}) must be of type string; received ${typeof pageName}.`)
+    if (!pageName)
+      throw new Error(`+head({pageName}) requires a non-empty string argument; received ${pageName}.`)
+    if (typeof pageTitle !== 'string')
+      throw new Error(`+head({pageTitle}) must be of type string; received ${typeof pageTitle}.`)
+    if (!pageTitle)
+      throw new Error(`+head({pageTitle}) requires a non-empty string argument; received ${pageTitle}.`)
   head
     -
       const assets = ['css', 'js'].reduce((assetsObject, filetype) => {
@@ -44,5 +54,5 @@ mixin head(pageName)
       defer
       src=(assets.js)
     )
-    - const isHomepage = pageName === 'home'
-    title=(isHomepage ? 'dustinruetz.com' : `${pageName} | dustinruetz.com`)
+    - const isHomepage = pageTitle === 'dustinruetz.com'
+    title=(isHomepage ? pageTitle : `${pageTitle} | dustinruetz.com`)

@@ -1,5 +1,9 @@
 mixin main(params = {})
-  - const {setClassModifier} = params
+  -
+    const {setClassModifier} = params
+    //- arguments for optional parameters (setClassModifier) are allowed to be undefined
+    if (typeof setClassModifier !== 'string' && typeof setClassModifier !== 'undefined')
+      throw new Error(`+main({setClassModifier}) must be of type string/undefined; received ${typeof setClassModifier}.`)
   main(
     class="main"
     class=(setClassModifier && `main--${setClassModifier}`)
