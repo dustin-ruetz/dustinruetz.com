@@ -2,6 +2,9 @@ const {readFileSync} = require('fs')
 const webpackMerge = require('webpack-merge').merge
 const webpackConfigCommon = require('./webpack.common.js')
 
+// eslint-disable-next-line no-console
+const logEmptyLine = () => console.log('')
+
 const PORT = 4444
 
 module.exports = webpackMerge(webpackConfigCommon, {
@@ -23,12 +26,14 @@ module.exports = webpackMerge(webpackConfigCommon, {
     // print info when server starts listening for connections on the specified port
     onListening: () => {
       /* eslint-disable no-console */
+      logEmptyLine()
       console.log('Webpack configuration files:')
       console.log('  ./config/webpack.common.js')
       console.log('  ./config/webpack.dev.js')
-      console.log('') // print an empty line
+      logEmptyLine()
       console.log('Application available:')
       console.log(`https://development.dustinruetz.com:${PORT}`)
+      logEmptyLine()
       /* eslint-enable no-console */
     },
     port: PORT,
