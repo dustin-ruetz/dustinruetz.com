@@ -41,4 +41,10 @@ module.exports = webpackMerge(webpackConfigCommon, {
   },
   // https://webpack.js.org/guides/development/#using-source-maps
   devtool: 'inline-source-map',
+  // plugins: [
+  //   // https://webpack.js.org/plugins/define-plugin/
+  //   new webpack.DefinePlugin({
+  //     'process.env.SITE_ENV': JSON.stringify('development'),
+  //   }),
+  // ],
 })
