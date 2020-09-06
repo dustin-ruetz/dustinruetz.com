@@ -1,11 +1,10 @@
 const {readFileSync} = require('fs')
 const webpackMerge = require('webpack-merge').merge
+const {getURL, URL} = require('../src/config/constants.js')
 const webpackConfigCommon = require('./webpack.common.js')
 
 // eslint-disable-next-line no-console
 const logEmptyLine = () => console.log('')
-
-const PORT = 4444
 
 module.exports = webpackMerge(webpackConfigCommon, {
   // https://webpack.js.org/guides/development/
@@ -32,13 +31,13 @@ module.exports = webpackMerge(webpackConfigCommon, {
       console.log('  ./config/webpack.dev.js')
       logEmptyLine()
       console.log('Application available:')
-      console.log(`https://development.dustinruetz.com:${PORT}`)
+      console.log(getURL('development'))
       logEmptyLine()
       /* eslint-enable no-console */
     },
-    port: PORT,
+    port: URL.PORT,
     // specify host to fix "invalid host header" error
-    public: 'development.dustinruetz.com',
+    public: `${URL.SUBDOMAIN.development}.${URL.DOMAIN}`,
   },
   // https://webpack.js.org/guides/development/#using-source-maps
   devtool: 'inline-source-map',

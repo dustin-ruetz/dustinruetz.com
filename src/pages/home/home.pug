@@ -6,7 +6,8 @@ block content
   - const content = require('./home.json')
 
 block head
-  +head({pageName: "home", pageTitle: "dustinruetz.com"})
+  - const {URL} = require('../../config/constants.js')
+  +head({pageName: "home", pageTitle: URL.DOMAIN})
 
 block main
   +main({setClassModifier: "home"})

@@ -2,6 +2,7 @@ const path = require('path')
 const copyWebpackPlugin = require('copy-webpack-plugin')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const miniCssExtractPlugin = require('mini-css-extract-plugin')
+const {URL} = require('../src/config/constants.js')
 
 function createPage(route) {
   // https://webpack.js.org/plugins/html-webpack-plugin/
@@ -36,9 +37,9 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: (resourcePath) => {
-                const assetRelativePath = resourcePath.split(
-                  'dustinruetz.com',
-                )[1]
+                // use the domain constant to split the path; this assumes that
+                // directory/repo name === domain name
+                const assetRelativePath = resourcePath.split(URL.DOMAIN)[1]
 
                 const assetType =
                   assetRelativePath.includes('/favicons/') && 'favicons'
