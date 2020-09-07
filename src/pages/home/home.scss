@@ -60,11 +60,11 @@
       }
     }
 
-    animation-duration: 1.85s;
-    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation-duration: 1850ms;
     animation-direction: alternate;
     animation-fill-mode: forwards;
     animation-name: hero-title-line-animation;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     height: 100%;
     background-color: colors.$white-fff;
     position: absolute;
@@ -103,8 +103,7 @@
       }
     }
 
-    // animation-duration: 1.85s;
-    animation-duration: 1.5s;
+    animation-duration: 1500ms;
     animation-direction: alternate;
     animation-fill-mode: forwards;
     animation-name: hero-title-line-content;
@@ -132,13 +131,8 @@
       colors.$black-000-with-shadow 0 2rem 5rem;
   }
 
-  &__hero-title-asterix {
-    // font-size percentage relative to hero-title-line-content parent element
-    font-size: 80%;
-  }
-
   &__hero-asterix {
-    @keyframes hero-title-asterix {
+    @keyframes hero-asterix {
       0% {
         opacity: 0;
       }
@@ -146,11 +140,17 @@
         opacity: 1;
       }
     }
-    animation-name: hero-title-asterix;
-    animation-delay: 3s;
-    animation-duration: 0.5s;
+
+    // show the hero asterix content after the hero title animations are done
+    animation-delay: 2750ms;
+    animation-duration: 500ms;
     animation-fill-mode: forwards;
+    animation-name: hero-asterix;
     font-size: 1.4rem;
     opacity: 0;
+
+    @media screen and (min-width: 667px) {
+      font-size: 1.8rem;
+    }
   }
 }

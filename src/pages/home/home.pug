@@ -27,10 +27,7 @@ block main
             //- to create overlapping text-shadow on each character via CSS
             - const heroTitleCharacters = line.split("")
             each character in heroTitleCharacters
-              span(
-                class="home__hero-title-character"
-                class=(character === "*" && "home__hero-title-asterix")
-              )
+              span.home__hero-title-character
                 =(character)
     p.home__hero-asterix
       =(content.heroTitle.asterix)
