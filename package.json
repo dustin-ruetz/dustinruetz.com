@@ -5,7 +5,7 @@
   "scripts": {
     "build": "webpack --config ./config/webpack.prod.js",
     "build:local": "rm -rf ./www/ && webpack --config ./config/webpack.prod.js",
-    "dev": "nodemon --watch ./config/ --exec 'webpack-dev-server --config ./config/webpack.dev.js'",
+    "dev": "nodemon --config ./config/nodemon.json",
     "format": "dr-scripts format",
     "lint": "dr-scripts lint",
     "test": "dr-scripts test",
