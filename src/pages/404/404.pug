@@ -8,7 +8,7 @@ block content
   - const content = require('./404.json')
 
 block head
-  +head({pageName: "404", pageTitle: "404"})
+  +head({pageName: "404", pageTitle: content.pageTitle})
 
 block main
   +main
