@@ -1,0 +1,24 @@
+-
+  const content = require('./external-links.json')
+  content.links.forEach((link) => {
+    link.icon = `${link.name.toLowerCase()}.svg`
+  })
+
+ul.external-links
+  each link in content.links
+    li.external-links__link-container
+      a.external-links__link(
+        href=(link.href)
+        target="_blank"
+        title=(link.name)
+      )
+        -
+          const linkIcon = {
+            module: require(`./icons/${link.icon}`),
+            svgCode: function() {
+              return this.module.replace('svg', 'svg class="external-links__link-icon"')
+            }
+          }
+        figure
+          //- buffer unescaped SVG code directly into the Pug template
+          | !{linkIcon.svgCode()}
