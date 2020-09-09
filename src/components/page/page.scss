@@ -19,9 +19,18 @@ body {
   // use Georgia as a fallback font due to wide availability on macOS and Windows
   // https://www.cssfontstack.com/Georgia
   font-family: 'Droid Serif', Georgia, serif;
-  font-size: 1.8rem;
-  line-height: 1.5;
+  $font-size: 1.8rem;
+  font-size: $font-size;
+  line-height: 1.8;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+
+  @media screen and (min-width: 1400px) {
+    font-size: calc($font-size + 5.4 * ((100vw - 140rem) / 280));
+  }
+
+  @media screen and (min-width: 1680px) {
+    font-size: 2.4rem;
+  }
 }
