@@ -1,0 +1,41 @@
+@use "../../config/colors.scss";
+@use "../nav/nav.scss";
+
+.footer {
+  padding-bottom: calc(#{nav.$nav-mobile-height} + 4rem);
+  color: colors.$grey;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.4rem;
+  text-align: center;
+
+  &__copyright {
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      margin: 0 auto;
+    }
+
+    $margin-top-bottom: 2.5rem;
+
+    // decorative rotated square
+    &:before {
+      $square-dimension: 3.5rem;
+      height: $square-dimension;
+      width: $square-dimension;
+      border: 1px solid colors.$blue;
+      margin-bottom: $margin-top-bottom;
+      rotate: 45deg;
+    }
+
+    // decorative line
+    &:after {
+      height: 0.1rem;
+      width: 12.5%;
+      max-width: 21rem;
+      margin-top: $margin-top-bottom;
+      margin-bottom: $margin-top-bottom;
+      background-color: colors.$blue;
+    }
+  }
+}
