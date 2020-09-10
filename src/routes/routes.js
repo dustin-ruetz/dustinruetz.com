@@ -12,15 +12,16 @@ Object.keys(routes).forEach((routeKey) => {
     case '/': {
       const routeName = 'home'
       route.href = routeKey
-      route.icon = routeName
-      route.label = routeName.toUpperCase()
+      route.icon = `${routeName}.svg`
+      route.label = routeName
       break
     }
-    default:
+    default: {
       route.href = `/${routeKey}/`
-      route.icon = routeKey
-      route.label = routeKey.toUpperCase()
+      route.icon = `${routeKey}.svg`
+      route.label = routeKey
       break
+    }
   }
 })
 
