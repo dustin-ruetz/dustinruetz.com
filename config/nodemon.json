@@ -5,5 +5,6 @@
   "// watch-2": "dev server must be restarted after:",
   "// ./config/": "1) making changes to nodemon/Webpack configuration files",
   "// ./package.json": "2) installing new/updating existing NPM packages and modifying NPM scripts",
-  "watch": ["./config/", "./package.json"]
+  "// ./package-lock.json": "3) fixing security issues identified by NPM audit",
+  "watch": ["./config/", "./package.json", "./package-lock.json"]
 }
