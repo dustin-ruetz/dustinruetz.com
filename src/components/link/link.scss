@@ -1,0 +1,32 @@
+@use "../../config/colors.scss";
+
+.link {
+  border-bottom: 1px solid colors.$blue;
+  color: colors.$white-fff;
+  outline: 1px solid transparent;
+  position: relative;
+  text-decoration: none;
+  transition: outline 250ms ease-out;
+
+  // :after + :hover = sliding link underline effect
+  &:after {
+    content: '';
+    height: 0.2rem;
+    width: 0;
+    background-color: colors.$blue;
+    position: absolute;
+    left: 0;
+    bottom: -0.1rem;
+    transition: width 250ms ease-out;
+  }
+
+  &:focus {
+    outline: 1px dashed colors.$blue;
+  }
+
+  &:hover {
+    &:after {
+      width: 100%;
+    }
+  }
+}

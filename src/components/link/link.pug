@@ -1,0 +1,14 @@
+mixin link(params = {})
+  -
+    const {href, label} = params
+    if (typeof href !== 'string')
+      throw new Error(`+link({href}) must be of type string; received ${typeof href}.`)
+    if (!href)
+      throw new Error(`+link({href}) requires a non-empty string argument; received ${href}.`)
+    if (typeof label !== 'string')
+      throw new Error(`+link({label}) must be of type string; received ${typeof label}.`)
+    if (!label)
+      throw new Error(`+link({label}) requires a non-empty string argument; received ${label}.`)
+  a.link(
+    href=(href)
+  )=(label)
