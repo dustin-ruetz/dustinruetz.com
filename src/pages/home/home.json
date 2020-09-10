@@ -3,5 +3,30 @@
   "heroTitle": {
     "lines": ["Web dev.", "Music. Coffee.", "Biking. Beer.*"],
     "asterix": "* priorities subject to change at any time"
+  },
+  "aboutMe": {
+    "title": {
+      "sentence": "Hello! 👋 My name is **name**, and I am a **occupation** living in **city**, Canada.",
+      "name": "Dustin Ruetz",
+      "occupation": "full-stack JavaScript developer",
+      "city": "Toronto"
+    },
+    "paragraph": {
+      "sentence": "Currently I work at **company** (a subsidiary of **companyParent**) where I use **technology1** and **technology2** to build web applications. (Fun fact: I also happen to be one of those weirdo devs who likes writing both **technology3** _and_ **technology4** files.) Outside of work my interests include discovering the classics of **interest1**, staying up-to-date with **interest2**, and **interest3** regardless of season.",
+      "company": "Koodo Mobile",
+      "companyParent": "TELUS",
+      "technology1": "React",
+      "technology2": "Express",
+      "technology3": "unit tests",
+      "emphasizedAnd": "and",
+      "technology4": "Webpack config",
+      "interest1": "blues/jazz/R&B/rock",
+      "interest2": "technology news",
+      "interest3": "enjoying the outdoors"
+    },
+    "link": {
+      "href": "/about/",
+      "label": "Learn more about me."
+    }
   }
 }

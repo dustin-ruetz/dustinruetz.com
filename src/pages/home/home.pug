@@ -1,5 +1,6 @@
 extends ../../components/page/page.pug
 include ../../components/head/head.pug
+include ../../components/link/link.pug
 include ../../components/main/main.pug
 
 block content
@@ -31,3 +32,31 @@ block main
                 =(character)
     p.home__hero-asterix
       =(content.heroTitle.asterix)
+    div.home__external-links
+      include ../../components/external-links/external-links.pug
+    div.home__about-me
+      -
+        const emphasizeText = (text) => `<em>${text}</em>`
+        const strongText = (text) => `<strong class="home__about-me-strong-text">${text}</strong>`
+      p.home__about-me-title
+        -
+          const aboutMeTitle = content.aboutMe.title.sentence
+            .replace("**name**", strongText(content.aboutMe.title.name))
+            .replace("**occupation**", strongText(content.aboutMe.title.occupation))
+            .replace("**city**", strongText(content.aboutMe.title.city))
+        | !{aboutMeTitle}
+      p.home__about-me-paragraph
+        -
+          const aboutMeParagraph = content.aboutMe.paragraph.sentence
+            .replace("**company**", strongText(content.aboutMe.paragraph.company))
+            .replace("**companyParent**", strongText(content.aboutMe.paragraph.companyParent))
+            .replace("**technology1**", strongText(content.aboutMe.paragraph.technology1))
+            .replace("**technology2**", strongText(content.aboutMe.paragraph.technology2))
+            .replace("_and_", emphasizeText(content.aboutMe.paragraph.emphasizedAnd))
+            .replace("**technology3**", strongText(content.aboutMe.paragraph.technology3))
+            .replace("**technology4**", strongText(content.aboutMe.paragraph.technology4))
+            .replace("**interest1**", strongText(content.aboutMe.paragraph.interest1))
+            .replace("**interest2**", strongText(content.aboutMe.paragraph.interest2))
+            .replace("**interest3**", strongText(content.aboutMe.paragraph.interest3))
+        | !{aboutMeParagraph}
+      +link({href: content.aboutMe.link.href, label: content.aboutMe.link.label})
