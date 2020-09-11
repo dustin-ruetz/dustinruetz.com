@@ -160,7 +160,7 @@
     @keyframes external-links {
       0% {
         opacity: 0;
-        left: 10%;
+        left: 10vh;
       }
       100% {
         opacity: 1;
@@ -177,7 +177,7 @@
     padding-left: calc(#{$decorative-line-width} + 1rem);
     opacity: 0;
     position: relative;
-    left: 10%;
+    left: 10vh;
     z-index: z-index.$home-external-links;
 
     .external-links {
@@ -207,7 +207,7 @@
     @keyframes about-me {
       0% {
         opacity: 0;
-        top: 10%;
+        top: 10vh;
       }
       100% {
         opacity: 1;
@@ -223,7 +223,7 @@
     padding: 4rem 0;
     opacity: 0;
     position: relative;
-    top: 10%;
+    top: 10vh;
 
     @media screen and (min-width: 667px) {
       width: 87.5%;
