@@ -17,7 +17,7 @@ function createPage(route) {
   return page
 }
 
-const routes = ['404', 'home']
+const routes = ['404', 'contact', 'home']
 
 module.exports = {
   // reduce the array of routes to create the Webpack entry points

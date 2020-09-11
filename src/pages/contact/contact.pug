@@ -1,0 +1,20 @@
+extends ../../components/page/page.pug
+include ../../components/head/head.pug
+include ../../components/heading/heading.pug
+include ../../components/main/main.pug
+
+block content
+  - const content = require('./contact.json')
+
+block head
+  +head({pageName: "contact", pageTitle: content.pageTitle})
+
+block main
+  +main
+    +heading({level: "h1"})=(content.pageTitle)
+    -
+      const emailLink = (emailAddress) => `<a class="link" href="mailto:${emailAddress}">${emailAddress}</a>`
+      const contactParagraph = content.paragraph.sentence
+        .replace('{emailAddress}', emailLink(content.paragraph.emailAddress))
+    p
+      | !{contactParagraph}
