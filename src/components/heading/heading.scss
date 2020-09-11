@@ -4,10 +4,14 @@
   color: colors.$white-fff;
 }
 
-h1 {
-  font-size: 3rem; // dh.com
+.h1 {
+  margin: 4rem 0;
+  font-size: calc(3rem + 55 * ((100vw - 32rem) / 1360));
+  font-weight: 900;
+  letter-spacing: -0.1rem;
+  line-height: 1.26;
 
-  @media screen and (min-width: 678px) {
-    font-size: 7.5rem; // dh.com
+  @media screen and (min-width: 1680px) {
+    font-size: 8.4rem;
   }
 }
