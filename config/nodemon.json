@@ -1,10 +1,8 @@
 {
-  "// exec": "use nodemon to start the development server with its associated configuration",
-  "exec": "webpack-dev-server --config ./config/webpack.dev.js",
   "// watch-1": "path to files/folders to watch relative to where nodemon is executed, i.e. the root of the repo",
   "// watch-2": "dev server must be restarted after:",
   "// ./config/": "1) making changes to nodemon/Webpack configuration files",
-  "// ./package.json": "2) installing new/updating existing NPM packages and modifying NPM scripts",
+  "// ./package.json": "2) installing new/updating existing NPM packages",
   "// ./package-lock.json": "3) fixing security issues identified by NPM audit",
   "watch": ["./config/", "./package.json", "./package-lock.json"]
 }

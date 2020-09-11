@@ -28,7 +28,7 @@ Dustin Ruetz's website.
 1. Prerequisite: Have [mkcert][mkcert] installed.
 2. From the root of the repo, run the following command to generate a certificate and a key (note that the `./ssl/` directory is listed in `.gitignore` to keep these files out of version control):
    ```
-   mkdir ./ssl/ && mkcert -cert-file ./ssl/public.cert -key-file ./ssl/private.key development.dustinruetz.com
+   mkdir ./ssl/ && mkcert -cert-file ./ssl/public.crt -key-file ./ssl/private.key development.dustinruetz.com
    ```
 3. Add the following line to your `hosts` file:
    ```
