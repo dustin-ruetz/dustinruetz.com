@@ -2,7 +2,9 @@
 @use "../nav/nav.scss";
 
 .footer {
-  padding-bottom: calc(#{nav.$nav-mobile-height} + 4rem);
+  $padding-dimension: 4rem;
+  padding-top: $padding-dimension;
+  padding-bottom: calc(#{nav.$nav-mobile-height} + #{$padding-dimension});
   color: colors.$grey;
   font-family: Roboto, Helvetica, Arial, sans-serif;
   font-size: 1.4rem;
@@ -25,7 +27,10 @@
       width: $square-dimension;
       border: 1px solid colors.$blue;
       margin-bottom: $margin-top-bottom;
-      rotate: 45deg;
+      // use `transform` instead of `rotate` because the latter is
+      // still experimental and not widely-supported in browsers
+      // https://caniuse.com/?search=rotate
+      transform: rotate(45deg);
     }
 
     // decorative line
