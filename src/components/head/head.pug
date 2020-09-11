@@ -54,6 +54,7 @@ mixin head(params = {})
       defer
       src=(assets.js)
     )
-    - const {URL} = require('../../config/constants.js')
-    - const isHomepage = pageTitle === URL.DOMAIN
-    title=(isHomepage ? pageTitle : `${pageTitle} | ${URL.DOMAIN}`)
+    -
+      const {DOMAIN} = require('../../config/constants.js')
+      const isHomepage = pageTitle === DOMAIN
+    title=(isHomepage ? pageTitle : `${pageTitle} | ${DOMAIN}`)
