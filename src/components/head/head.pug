@@ -23,19 +23,18 @@ mixin head(params = {})
       type="image/png"
     )
     -
+      //- https://developers.google.com/fonts/docs/css2/
       const remoteFonts = {
-        baseUrl: 'https://fonts.googleapis.com/css',
+        baseUrl: 'https://fonts.googleapis.com/css2',
         fonts: {
-          droidSerif: 'Droid+Serif:400,700',
-          roboto: 'Roboto:400,700',
+          droidSerif: 'family=Droid+Serif:wght@400;700',
+          roboto: 'family=Roboto:wght@400;700',
         },
         options: {
           display: 'display=swap',
         },
         href: function() {
-          return this.baseUrl
-          + `?family=${this.fonts.droidSerif}|${this.fonts.roboto}`
-          + `&${this.options.display}`
+          return `${this.baseUrl}?${this.fonts.droidSerif}&${this.fonts.roboto}&${this.options.display}`
         }
       }
     link(
