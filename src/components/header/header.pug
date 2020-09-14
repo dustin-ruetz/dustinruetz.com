@@ -1,3 +1,8 @@
-header
-  a.header__link-icon(href="/")
-    ="DR"
+-
+  const {NAME} = require('../../config/constants.js')
+  const content = require('./header.json')
+
+header.header
+  a.header__link(href="/")
+    span.header__link-icon=(content.iconText)
+    span.header__link-name=(NAME)

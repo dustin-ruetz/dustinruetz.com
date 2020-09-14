@@ -2,16 +2,39 @@
 @use "../../config/fonts.scss";
 
 .header {
+  @media screen and (min-width: 667px) {
+    padding: 2rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding: 4rem;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    // set `width: max-content` to prevent link from spanning the entire viewport width
+    width: max-content;
+    font-family: fonts.$roboto;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
   &__link-icon {
-    display: block;
-    width: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    $link-icon-dimension: 6rem;
+    height: $link-icon-dimension;
+    width: $link-icon-dimension;
     background-color: colors.$blue;
     color: colors.$black-2;
-    font-family: fonts.$roboto;
-    font-weight: 700;
-    font-size: 1.8rem;
-    line-height: 6rem;
     text-align: center;
-    text-decoration: none;
+  }
+
+  &__link-name {
+    padding: 0 2rem;
+    color: colors.$white-fff;
   }
 }
