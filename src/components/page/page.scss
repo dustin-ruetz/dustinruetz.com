@@ -1,4 +1,5 @@
 @use "../../config/colors.scss";
+@use "../../config/fonts.scss";
 
 html {
   box-sizing: border-box;
@@ -18,7 +19,7 @@ body {
   color: colors.$grey-2;
   // use Georgia as a fallback font due to wide availability on macOS and Windows
   // https://www.cssfontstack.com/Georgia
-  font-family: 'Droid Serif', Georgia, serif;
+  font-family: fonts.$droid-serif;
   $font-size: 1.8rem;
   font-size: $font-size;
   line-height: 1.8;

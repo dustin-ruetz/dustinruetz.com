@@ -26,13 +26,16 @@ mixin head(params = {})
       const remoteFonts = {
         baseUrl: 'https://fonts.googleapis.com/css',
         fonts: {
-          droidSerif: 'family=Droid+Serif:400,700',
+          droidSerif: 'Droid+Serif:400,700',
+          roboto: 'Roboto:400,700',
         },
         options: {
           display: 'display=swap',
         },
         href: function() {
-          return `${this.baseUrl}?${this.fonts.droidSerif}&${this.options.display}`
+          return this.baseUrl
+          + `?family=${this.fonts.droidSerif}|${this.fonts.roboto}`
+          + `&${this.options.display}`
         }
       }
     link(
