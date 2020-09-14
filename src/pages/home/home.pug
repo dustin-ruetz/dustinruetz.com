@@ -4,7 +4,9 @@ include ../../components/link/link.pug
 include ../../components/main/main.pug
 
 block content
-  - const content = require('./home.json')
+  -
+    const {NAME} = require('../../config/constants.js')
+    const content = require('./home.json')
 
 block head
   +head({pageName: "home", pageTitle: content.pageTitle})
@@ -41,7 +43,7 @@ block main
       p.home__about-me-title
         -
           const aboutMeTitle = content.aboutMe.title.sentence
-            .replace("**name**", strongText(content.aboutMe.title.name))
+            .replace("**name**", strongText(NAME))
             .replace("**occupation**", strongText(content.aboutMe.title.occupation))
             .replace("**city**", strongText(content.aboutMe.title.city))
         | !{aboutMeTitle}

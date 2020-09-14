@@ -7,7 +7,6 @@
   "aboutMe": {
     "title": {
       "sentence": "Hello! 👋 My name is **name**, and I am a **occupation** living in **city**, Canada.",
-      "name": "Dustin Ruetz",
       "occupation": "full-stack JavaScript developer",
       "city": "Toronto"
     },
