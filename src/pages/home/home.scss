@@ -11,8 +11,6 @@
     font-weight: 900;
     letter-spacing: calc(-0.125rem - 10 * (100vw - 32rem) / 1080);
     line-height: 0.9;
-    // hide overflow on x-axis to prevent odd scrolling on mobile during line animations
-    overflow-x: hidden;
 
     @media screen and (min-width: 667px) {
       font-size: calc(4rem + 130 * (100vw - 32rem) / 1080);

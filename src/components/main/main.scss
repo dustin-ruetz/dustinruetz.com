@@ -2,8 +2,13 @@
   max-width: 120rem;
   padding: 0 2rem;
   margin: 0 auto;
+
   // set different maximum widths for specific pages
   &--home {
+    // hide overflow on both x- and y-axis to prevent over-scrolling during line animations;
+    // over-scrolling is caused by position top/left/right animation changes in home.scss
+    overflow: hidden;
+
     @media screen and (min-width: 667px) {
       width: 83.3%;
       max-width: 140rem;
