@@ -3,6 +3,11 @@
   padding: 0 2rem;
   margin: 0 auto;
 
+  // set `min-height` in order to space out main content and footer
+  @media screen and (min-width: 667px) {
+    min-height: 42vh;
+  }
+
   // set different maximum widths for specific pages
   &--home {
     // hide overflow on both x- and y-axis to prevent over-scrolling during line animations;
