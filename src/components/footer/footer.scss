@@ -11,6 +11,10 @@
   font-size: 1.4rem;
   text-align: center;
 
+  @media screen and (min-width: 667px) {
+    padding-bottom: $padding-dimension;
+  }
+
   &__copyright {
     &:before,
     &:after {
