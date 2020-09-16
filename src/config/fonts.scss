@@ -1,2 +1,7 @@
+// use fallback fonts that are widely available on macOS and Windows:
+// * https://www.cssfontstack.com/Arial (macOS, Windows)
+// * https://www.cssfontstack.com/Georgia (macOS, Windows)
+// * https://www.cssfontstack.com/Helvetica (macOS)
+
 $droid-serif: 'Droid Serif', Georgia, serif;
 $roboto: Roboto, Helvetica, Arial, sans-serif;

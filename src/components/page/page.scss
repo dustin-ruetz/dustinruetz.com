@@ -17,8 +17,6 @@ body {
   margin: 0;
   background-color: colors.$black-2;
   color: colors.$grey-2;
-  // use Georgia as a fallback font due to wide availability on macOS and Windows
-  // https://www.cssfontstack.com/Georgia
   font-family: fonts.$droid-serif;
   $font-size: 1.8rem;
   font-size: $font-size;
