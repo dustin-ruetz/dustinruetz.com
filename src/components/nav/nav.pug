@@ -3,10 +3,8 @@
 nav.nav
   ul.nav__links
     each route in routes
-      li.nav__link-container
-        a.nav__link(
-          href=(route.href)
-        )
+      li.nav__link-container(class=`nav__link-container--${route.label}`)
+        a.nav__link(href=route.href)
           -
             const routeIcon = {
               module: require(`./icons/${route.icon}`),
@@ -17,4 +15,4 @@ nav.nav
           figure
             //- buffer unescaped SVG code directly into the Pug template
             | !{routeIcon.svgCode()}
-            figcaption=(route.label)
+            figcaption= route.label
