@@ -1,0 +1,47 @@
+extends ../../components/page/page.pug
+include ../../components/head/head.pug
+include ../../components/heading/heading.pug
+include ../../components/img/img.pug
+include ../../components/list/list.pug
+include ../../components/main/main.pug
+
+block content
+  -
+    const {NAME} = require('../../config/constants.js')
+    const content = require('./about.json')
+
+block head
+  +head({pageName: "about", pageTitle: content.pageTitle})
+
+block main
+  +main({setClassModifier: 'about'})
+    +heading({level: "h1"})= content.pageTitle
+    - const introSentence = content.introSentence.replace('{name}', NAME)
+    p= introSentence
+    p= content.namePronunciation
+    .about__image-bio-container
+      .about__image-container
+        -
+          const unitalicizeText = (text) => `<span class="img__caption--unitalicize">${text}</span>`
+          const caption = content.image.caption.replace('_award_', unitalicizeText(content.image.award))
+        +img({alt: content.image.alt, caption, src: content.image.src})
+      .about__bio-container
+        -
+          const currentYear = new Date().getFullYear()
+          const {webDevFirstYear} = content.shortBio
+          let webDevTotalYears
+          switch (currentYear - webDevFirstYear) {
+            case 4: webDevTotalYears = 'four'; break;
+            case 5: webDevTotalYears = 'five'; break;
+            case 6: webDevTotalYears = 'six'; break;
+            case 7: webDevTotalYears = 'seven'; break;
+            case 8: webDevTotalYears = 'eight'; break;
+            case 9: webDevTotalYears = 'nine'; break;
+            default: webDevTotalYears = currentYear - webDevFirstYear; break;
+          }
+          const shortBioSentence = content.shortBio.sentence
+            .replace('{webDevFirstYear}', webDevFirstYear)
+            .replace('{webDevTotalYears}', webDevTotalYears)
+        p= shortBioSentence
+        p= content.skillsAndTech.introSentence
+        +list({type: 'ul', items: content.skillsAndTech.items})

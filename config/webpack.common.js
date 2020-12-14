@@ -17,7 +17,7 @@ function createPage(route) {
   return page
 }
 
-const routes = ['404', 'contact', 'home']
+const routes = ['404', 'about', 'contact', 'home']
 
 module.exports = {
   // reduce the array of routes to create the Webpack entry points
@@ -31,7 +31,7 @@ module.exports = {
       // https://webpack.js.org/loaders/file-loader/
       // https://github.com/tcoopman/image-webpack-loader/
       {
-        test: /\.(png)$/,
+        test: /\.(jpg|png)$/,
         use: [
           {
             loader: 'file-loader',

@@ -1,0 +1,27 @@
+.main--about {
+  p,
+  .about__image-container {
+    margin-bottom: 2rem;
+  }
+
+  @media screen and (min-width: 1200px) {
+    .about__image-container {
+      margin-bottom: unset;
+    }
+  }
+}
+
+.about {
+  @media screen and (min-width: 1200px) {
+    &__image-bio-container {
+      display: flex;
+      justify-content: space-around;
+    }
+    &__image-container {
+      width: 36%;
+    }
+    &__bio-container {
+      width: 56%;
+    }
+  }
+}
