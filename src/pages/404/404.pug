@@ -12,7 +12,7 @@ block head
 
 block main
   +main
-    div.error-404
-      +heading({level: "h1"})=(content.title)
-      p=(content.description)
+    .error-404
+      +heading({level: "h1"})= content.title
+      p= content.description
       +img({alt: content.image.alt, src: content.image.src})

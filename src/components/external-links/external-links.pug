@@ -8,9 +8,9 @@ ul.external-links
   each link in content.links
     li.external-links__link-container
       a.external-links__link(
-        href=(link.href)
+        href=link.href
         target="_blank"
-        title=(link.name)
+        title=link.name
       )
         -
           const linkIcon = {

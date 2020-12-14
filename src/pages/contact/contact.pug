@@ -11,10 +11,11 @@ block head
 
 block main
   +main
-    +heading({level: "h1"})=(content.pageTitle)
+    +heading({level: "h1"})= content.pageTitle
     -
       const emailLink = (emailAddress) => `<a class="link" href="mailto:${emailAddress}">${emailAddress}</a>`
       const contactParagraph = content.paragraph.sentence
         .replace('{emailAddress}', emailLink(content.paragraph.emailAddress))
     p
+      //- buffer unescaped code directly into the Pug template
       | !{contactParagraph}

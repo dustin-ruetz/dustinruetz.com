@@ -38,11 +38,11 @@ mixin head(params = {})
         }
       }
     link(
-      href=(remoteFonts.href())
+      href=remoteFonts.href()
       rel="stylesheet"
     )
     link(
-      href=(assets.css)
+      href=assets.css
       rel="stylesheet"
     )
     meta(charset="utf-8")
@@ -54,9 +54,9 @@ mixin head(params = {})
     //- https://flaviocopes.com/javascript-async-defer/
     script(
       defer
-      src=(assets.js)
+      src=assets.js
     )
     -
       const {DOMAIN} = require('../../config/constants.js')
       const isHomepage = pageTitle === DOMAIN
-    title=(isHomepage ? pageTitle : `${pageTitle} | ${DOMAIN}`)
+    title= isHomepage ? pageTitle : `${pageTitle} | ${DOMAIN}`
