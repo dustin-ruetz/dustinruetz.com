@@ -1,6 +1,22 @@
+@use "../../config/colors.scss";
+
 .img {
   &__image {
     max-height: 500px;
     max-width: 100%;
+    border: 1px solid colors.$blue;
+  }
+
+  &__caption {
+    font-size: 1.4rem;
+    font-style: italic;
+
+    &--unitalicize {
+      font-style: normal;
+    }
+
+    @media screen and (min-width: 1400px) {
+      font-size: 1.6rem;
+    }
   }
 }
