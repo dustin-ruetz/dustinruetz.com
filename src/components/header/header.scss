@@ -3,6 +3,8 @@
 
 .header {
   @media screen and (min-width: 667px) {
+    display: flex;
+    justify-content: space-between;
     padding: 2rem;
   }
 
@@ -12,13 +14,24 @@
 
   &__link {
     display: flex;
-    align-items: center;
     // set `width: max-content` to prevent link from spanning the entire viewport width
     width: max-content;
+    outline: 1px dashed transparent;
     font-family: fonts.$roboto;
     font-size: 1.8rem;
     font-weight: 700;
     text-decoration: none;
+    transition: outline 250ms ease-out;
+
+    &:focus {
+      outline: 1px dashed colors.$blue;
+    }
+
+    &:hover {
+      .header__link-name {
+        color: colors.$blue;
+      }
+    }
   }
 
   &__link-icon {
@@ -34,7 +47,12 @@
   }
 
   &__link-name {
+    // set `display: flex` and `align-items: center` to make header__link-name the same height
+    // as header__link-icon (which makes header__link into a rectangular target box)
+    display: flex;
+    align-items: center;
     padding: 0 2rem;
     color: colors.$white-fff;
+    transition: color 250ms ease-out;
   }
 }
