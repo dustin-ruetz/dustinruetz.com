@@ -5,6 +5,7 @@
 footer.footer
   p.footer__copyright
     span= content.copyright
-    span.footer__copyright-year
+    - const currentYear = new Date().getFullYear()
+    span= ` ${currentYear} `
     span= NAME
   include ../external-links/external-links.pug
