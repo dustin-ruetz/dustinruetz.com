@@ -37,7 +37,7 @@ Dustin Ruetz's website.
 
 ## Development
 
-From the root of the repo use `npm run dev` to start the development server with live reloading.
+From the root of the repo use `npm run dev` to start the development servers (i.e. local and network) with live reloading.
 
 ## Build
 

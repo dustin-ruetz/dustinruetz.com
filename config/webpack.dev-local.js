@@ -2,7 +2,7 @@ const {readFileSync} = require('fs')
 const webpackMerge = require('webpack-merge').merge
 const {getURL, URL} = require('../src/config/url.js')
 const webpackConfigCommon = require('./webpack.common.js')
-const webpackConfigDev = require('./webpack-config-dev.js')
+const webpackConfigDev = require('./webpack.dev.js')
 
 module.exports = webpackMerge(webpackConfigCommon, webpackConfigDev, {
   devServer: {
@@ -11,10 +11,9 @@ module.exports = webpackMerge(webpackConfigCommon, webpackConfigDev, {
       cert: readFileSync('./ssl/public.crt'),
       key: readFileSync('./ssl/private.key'),
     },
+    // print info when server starts listening for connections on the specified port
     onListening: () => {
       /* eslint-disable no-console */
-      console.log('  ./config/webpack.dev-local.js')
-      console.log('') // print empty line
       console.log('Local server:')
       console.log(`  ${getURL('local')}`)
       console.log('') // print empty line

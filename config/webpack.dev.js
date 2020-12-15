@@ -10,15 +10,6 @@ module.exports = {
     liveReload: true,
     // suppress Webpack messages and bundle information (errors and warnings will still be shown)
     noInfo: true,
-    // print info when server starts listening for connections on the specified port
-    onListening: () => {
-      /* eslint-disable no-console */
-      console.log('') // print empty line
-      console.log('Webpack configuration files:')
-      console.log('  ./config/webpack.common.js')
-      console.log('  ./config/webpack-config-dev.js')
-      /* eslint-enable no-console */
-    },
   },
   // https://webpack.js.org/guides/development/#using-source-maps
   devtool: 'inline-source-map',

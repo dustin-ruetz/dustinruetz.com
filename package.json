@@ -5,11 +5,13 @@
   "scripts": {
     "build": "webpack --config ./config/webpack.prod.js",
     "build:local": "rm -rf ./www/ && webpack --config ./config/webpack.prod.js",
-    "dev:local": "npm run nodemon -- --exec 'webpack serve --config ./config/webpack.dev-local.js'",
-    "dev:network": "npm run nodemon -- --exec 'webpack serve --config ./config/webpack.dev-network.js'",
+    "// dev-1": "use Nodemon to operate/restart both development servers",
+    "// dev-2": "note that the single ampersand (&) runs the scripts in parallel",
+    "dev": "nodemon --config ./config/nodemon.json --exec 'npm run dev:local & npm run dev:network'",
+    "dev:local": "webpack serve --config ./config/webpack.dev-local.js",
+    "dev:network": "webpack serve --config ./config/webpack.dev-network.js",
     "format": "dr-scripts format",
     "lint": "dr-scripts lint",
-    "nodemon": "nodemon --config ./config/nodemon.json",
     "test": "dr-scripts test",
     "test:coverage": "dr-scripts test --coverage"
   },
