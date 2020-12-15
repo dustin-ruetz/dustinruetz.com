@@ -3,6 +3,9 @@ const webpackMerge = require('webpack-merge').merge
 const {getURL, URL} = require('../src/config/url.js')
 const webpackConfigCommon = require('./webpack.common.js')
 const webpackConfigDev = require('./webpack.dev.js')
+const {logURL} = require('./utils/log-url.js')
+
+const localURL = getURL('local')
 
 module.exports = webpackMerge(webpackConfigCommon, webpackConfigDev, {
   devServer: {
@@ -15,7 +18,7 @@ module.exports = webpackMerge(webpackConfigCommon, webpackConfigDev, {
     onListening: () => {
       /* eslint-disable no-console */
       console.log('Local server:')
-      console.log(`  ${getURL('local')}`)
+      logURL(localURL)
       console.log('') // print empty line
       /* eslint-enable no-console */
     },
