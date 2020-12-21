@@ -6,6 +6,8 @@
 
   @media screen and (min-width: 1200px) {
     .about__image-container {
+      display: flex;
+      align-items: center;
       margin-bottom: unset;
     }
   }
