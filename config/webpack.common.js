@@ -1,8 +1,36 @@
+const {readdirSync, statSync} = require('fs')
 const path = require('path')
 const copyWebpackPlugin = require('copy-webpack-plugin')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const miniCssExtractPlugin = require('mini-css-extract-plugin')
 const {DOMAIN} = require('../src/config/constants.js')
+
+/**
+ * note that `getRoutes()` uses two synchronous Node.js filesystem methods: `readdirSync` and `statSync`
+ *
+ * while this means that the function blocks the main thread during execution, this isn't
+ * a concern because it's only run locally via the Webpack build and development scripts
+ *
+ * originally I had `getRoutes()` using asynchronous fs methods, but the combination of
+ * Webpack config files and webpack-merge did not work well with async code/promises
+ */
+function getRoutes() {
+  const pagesDirectory = path.resolve(__dirname, '../src/pages/')
+  const pagesDirectoryItems = readdirSync(pagesDirectory)
+
+  const routes = []
+
+  pagesDirectoryItems.forEach((item) => {
+    const itemPath = path.join(pagesDirectory, item)
+    const itemIsDirectory = statSync(itemPath).isDirectory()
+
+    if (itemIsDirectory) {
+      routes.push(item)
+    }
+  })
+
+  return routes
+}
 
 function createPage(route) {
   // https://webpack.js.org/plugins/html-webpack-plugin/
@@ -17,11 +45,9 @@ function createPage(route) {
   return page
 }
 
-const routes = ['404', 'about', 'contact', 'home']
-
 module.exports = {
-  // reduce the array of routes to create the Webpack entry points
-  entry: routes.reduce((routesObject, route) => {
+  // reduce the array of routes to create the Webpack entry points object
+  entry: getRoutes().reduce((routesObject, route) => {
     routesObject[route] = `./src/pages/${route}/${route}.js`
     return routesObject
   }, {}),
@@ -95,7 +121,9 @@ module.exports = {
     path: path.resolve(__dirname, '../www/'),
   },
   plugins: [
-    ...routes.map((route) => createPage(route)),
+    // take the resulting mapped array of routes and spread each item as its own plugin;
+    // essentially this compiles to `createPage('route1'), createPage('route2'), (etc.)`
+    ...getRoutes().map((route) => createPage(route)),
     // https://webpack.js.org/plugins/copy-webpack-plugin/
     new copyWebpackPlugin({
       // copy the CNAME text file to the root of the output directory
