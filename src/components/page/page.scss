@@ -26,11 +26,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 
-  @media screen and (min-width: 1400px) {
-    font-size: calc(#{$font-size} + 5.4 * ((100vw - 140rem) / 280));
-  }
-
-  @media screen and (min-width: 1680px) {
-    font-size: 2.4rem;
+  @media screen and (min-width: 768px) {
+    font-size: 2rem;
   }
 }
