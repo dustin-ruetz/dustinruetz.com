@@ -1,21 +1,20 @@
 @use "../../config/colors.scss";
 @use "../../config/fonts.scss";
+@use "../../config/spacing.scss";
 @use "../nav/nav.scss";
 
-$footer-padding: 4rem;
-
 .footer {
-  padding-top: $footer-padding;
+  padding-top: spacing.$s-4;
   // footer `padding-bottom` must account for the nav height
   // (nav is `position: fixed` to the bottom of the page)
-  padding-bottom: calc(#{nav.$nav-mobile-height} + #{$footer-padding});
+  padding-bottom: calc(#{nav.$nav-mobile-height} + #{spacing.$s-4});
   color: colors.$grey;
   font-family: fonts.$roboto;
   font-size: 1.4rem;
   text-align: center;
 
   @media screen and (min-width: 667px) {
-    padding-bottom: $footer-padding;
+    padding-bottom: spacing.$s-4;
   }
 
   &__copyright {

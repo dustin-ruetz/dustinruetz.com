@@ -5,4 +5,5 @@ mixin main(params = {})
     if (typeof setClassModifier !== 'string' && typeof setClassModifier !== 'undefined')
       throw new Error(`+main({setClassModifier}) must be of type string/undefined; received ${typeof setClassModifier}.`)
   main(class="main" class=setClassModifier && `main--${setClassModifier}`)
-    block
+    .main__inner
+      block

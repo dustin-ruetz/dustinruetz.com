@@ -1,11 +1,12 @@
 @use "../../config/colors.scss";
+@use "../../config/spacing.scss";
 
 .heading {
   color: colors.$white-fff;
 }
 
 .h1 {
-  margin: 4rem 0;
+  margin-bottom: spacing.$s-4;
   font-size: calc(3rem + 55 * ((100vw - 32rem) / 1360));
   font-weight: 900;
   letter-spacing: -0.1rem;

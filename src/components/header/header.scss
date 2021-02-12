@@ -1,15 +1,30 @@
 @use "../../config/colors.scss";
 @use "../../config/fonts.scss";
+@use "../../config/spacing.scss";
 
 .header {
   @media screen and (min-width: 667px) {
-    display: flex;
-    justify-content: space-between;
-    padding: 2rem;
+    padding: spacing.$s-2;
+
+    &__inner {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   @media screen and (min-width: 1024px) {
-    padding: 4rem;
+    padding: spacing.$s-4;
+  }
+
+  // remove `padding-left/right` when it's no longer necessary due to .header__inner `max-width`
+  @media screen and (min-width: 1280px) {
+    padding-left: unset;
+    padding-right: unset;
+
+    &__inner {
+      max-width: 120rem;
+      margin: 0 auto;
+    }
   }
 
   &__link {

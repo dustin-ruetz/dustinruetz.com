@@ -3,7 +3,8 @@
   const content = require('./header.json')
 
 header.header
-  a.header__link(href="/")
-    span.header__link-icon= content.iconText
-    span.header__link-name= NAME
-  include ../nav/nav.pug
+  .header__inner
+    a.header__link(href="/")
+      span.header__link-icon= content.iconText
+      span.header__link-name= NAME
+    include ../nav/nav.pug

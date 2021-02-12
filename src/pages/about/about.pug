@@ -14,17 +14,16 @@ block head
   +head({pageName: "about", pageTitle: content.pageTitle})
 
 block main
-  +main({setClassModifier: 'about'})
+  +main
     +heading({level: "h1"})= content.pageTitle
     - const introSentence = content.introSentence.replace('{name}', NAME)
-    p= introSentence
-    p= content.namePronunciation
+    p.about__intro-sentence= introSentence
     .about__image-bio-container
       .about__image-container
         -
           const unitalicizeText = (text) => `<span class="img__caption--unitalicize">${text}</span>`
           const caption = content.image.caption.replace('_award_', unitalicizeText(content.image.award))
-        +img({alt: content.image.alt, caption, src: content.image.src})
+        +img({alt: content.image.alt, src: content.image.src, caption})
       .about__bio-container
         -
           const currentYear = new Date().getFullYear()
@@ -42,5 +41,7 @@ block main
             .replace('{webDevFirstYear}', webDevFirstYear)
             .replace('{webDevTotalYears}', webDevTotalYears)
         p= shortBioSentence
-        p= content.skillsAndTech.introSentence
-        +list({type: 'ul', items: content.skillsAndTech.items})
+    p.about__skills-and-tech-intro-sentence= content.skillsAndTech.introSentence
+    .about__skills-and-tech-list-container
+      +list({type: 'ul', items: content.skillsAndTech.items})
+    p.about__name-pronunciation= content.namePronunciation

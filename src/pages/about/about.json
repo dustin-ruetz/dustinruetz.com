@@ -1,10 +1,9 @@
 {
   "pageTitle": "About",
-  "introSentence": "Hello! 👋 I'm {name}.",
-  "namePronunciation": "(Wondering how to say my last name? It's pronounced \"Ritz\", like the swanky hotels; no affiliation.)",
+  "introSentence": "Hello! 👋 I'm {name}.*",
   "image": {
     "alt": "",
-    "caption": "Pictured: Accepting the prestigious and completely real _award_ \"award\" at Koodo Mobile.",
+    "caption": "Pictured: Me accepting the prestigious and completely real _award_ \"award\" at Koodo Mobile.",
     "award": "Digital CEO",
     "src": "/about/images/digital-ceo-award-2250x2250-grayscale.jpg"
   },
@@ -17,9 +16,10 @@
     "items": [
       "Backend: Express",
       "Database: MongoDB",
-      "Framework: Next.js",
+      "Framework: Gatsby, Next.js",
       "Frontend: Pug, React, Sass",
       "Tooling: Jest, Webpack"
     ]
-  }
+  },
+  "namePronunciation": "* Wondering how to say my last name? It's pronounced \"Ritz\", like the swanky hotels; no affiliation."
 }

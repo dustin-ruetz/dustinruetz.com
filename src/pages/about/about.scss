@@ -1,29 +1,42 @@
-.main--about {
-  p,
-  .about__image-container {
-    margin-bottom: 2rem;
-  }
-
-  @media screen and (min-width: 1200px) {
-    .about__image-container {
-      display: flex;
-      align-items: center;
-      margin-bottom: unset;
-    }
-  }
-}
+@use "../../config/spacing.scss";
 
 .about {
-  @media screen and (min-width: 1200px) {
+  &__intro-sentence,
+  &__image-bio-container,
+  &__image-container,
+  &__skills-and-tech-intro-sentence,
+  &__skills-and-tech-list-container {
+    margin-bottom: spacing.$s-2;
+  }
+
+  &__image-container {
+    max-width: 40rem;
+  }
+
+  &__name-pronunciation {
+    font-size: 1.4rem;
+  }
+
+  @media screen and (min-width: 440px) {
+    &__image-container {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
     &__image-bio-container {
       display: flex;
-      justify-content: space-around;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      margin: 2.5rem 0;
     }
     &__image-container {
-      width: 36%;
+      width: 35%;
+      margin: unset;
     }
     &__bio-container {
-      width: 56%;
+      width: 60%;
     }
   }
 }
