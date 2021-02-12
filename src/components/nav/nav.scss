@@ -21,11 +21,14 @@ $nav-mobile-height: $nav-line-height + $link-border + $link-padding-top-bottom +
   z-index: z-index.$nav;
   line-height: $nav-line-height;
 
+  // unset the styles when the tablet/desktop viewport becomes active
   @media screen and (min-width: 667px) {
     height: unset;
     width: unset;
     background-color: unset;
     position: unset;
+    bottom: unset;
+    z-index: unset;
   }
 
   @function set-link-border($color) {
