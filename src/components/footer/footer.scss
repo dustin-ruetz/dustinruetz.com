@@ -2,17 +2,20 @@
 @use "../../config/fonts.scss";
 @use "../nav/nav.scss";
 
+$footer-padding: 4rem;
+
 .footer {
-  $padding-dimension: 4rem;
-  padding-top: $padding-dimension;
-  padding-bottom: calc(#{nav.$nav-mobile-height} + #{$padding-dimension});
+  padding-top: $footer-padding;
+  // footer `padding-bottom` must account for the nav height
+  // (nav is `position: fixed` to the bottom of the page)
+  padding-bottom: calc(#{nav.$nav-mobile-height} + #{$footer-padding});
   color: colors.$grey;
   font-family: fonts.$roboto;
   font-size: 1.4rem;
   text-align: center;
 
   @media screen and (min-width: 667px) {
-    padding-bottom: $padding-dimension;
+    padding-bottom: $footer-padding;
   }
 
   &__copyright {
@@ -23,15 +26,15 @@
       margin: 0 auto;
     }
 
-    $margin-top-bottom: 2.5rem;
+    $decorative-icon-margin: 2.5rem;
+    $decorative-icon-square-dimension: 3.5rem;
 
     // decorative rotated square
     &:before {
-      $square-dimension: 3.5rem;
-      height: $square-dimension;
-      width: $square-dimension;
+      height: $decorative-icon-square-dimension;
+      width: $decorative-icon-square-dimension;
       border: 1px solid colors.$blue;
-      margin-bottom: $margin-top-bottom;
+      margin-bottom: $decorative-icon-margin;
       // use `transform` instead of `rotate` because the latter is
       // still experimental and not widely-supported in browsers
       // https://caniuse.com/?search=rotate
@@ -43,8 +46,8 @@
       height: 0.1rem;
       width: 12.5%;
       max-width: 21rem;
-      margin-top: $margin-top-bottom;
-      margin-bottom: $margin-top-bottom;
+      margin-top: $decorative-icon-margin;
+      margin-bottom: $decorative-icon-margin;
       background-color: colors.$blue;
     }
   }

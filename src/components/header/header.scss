@@ -34,16 +34,16 @@
     }
   }
 
+  $link-icon-dimension: 6rem;
+
   &__link-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    $link-icon-dimension: 6rem;
     height: $link-icon-dimension;
     width: $link-icon-dimension;
     background-color: colors.$blue;
     color: colors.$black-2;
-    text-align: center;
   }
 
   &__link-name {

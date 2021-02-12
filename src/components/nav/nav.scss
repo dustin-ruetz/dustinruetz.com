@@ -7,7 +7,7 @@ $link-border: 0.1rem;
 $link-padding-top-bottom: 0.8rem;
 $link-font-size: 1rem;
 $link-icon-dimension: 2rem;
-// sum of nav-/link-related dimensions + 0.3rem = 5.8rem
+// sum of mobile nav-/link-related dimensions + 0.3rem = 5.8rem
 $nav-mobile-height: $nav-line-height + $link-border + $link-padding-top-bottom +
   $link-font-size + $link-icon-dimension + 0.3rem;
 
