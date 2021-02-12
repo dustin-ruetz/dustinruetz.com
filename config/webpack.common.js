@@ -18,15 +18,10 @@ function getRoutes() {
   const pagesDirectory = path.resolve(__dirname, '../src/pages/')
   const pagesDirectoryItems = readdirSync(pagesDirectory)
 
-  const routes = []
-
-  pagesDirectoryItems.forEach((item) => {
+  const routes = pagesDirectoryItems.filter((item) => {
     const itemPath = path.join(pagesDirectory, item)
     const itemIsDirectory = statSync(itemPath).isDirectory()
-
-    if (itemIsDirectory) {
-      routes.push(item)
-    }
+    return itemIsDirectory
   })
 
   return routes
@@ -35,8 +30,7 @@ function getRoutes() {
 function createPage(route) {
   // https://webpack.js.org/plugins/html-webpack-plugin/
   const page = new htmlWebpackPlugin({
-    // specify how and where HTML files should be outputted
-    // to enable routes with trailing slashes
+    // specify how and where HTML files should be outputted to enable routes with trailing slashes
     filename: route === 'home' ? './index.html' : `./${route}/index.html`,
     // do not inject all assets into the template (i.e. prevent pages from loading every script)
     inject: false,
