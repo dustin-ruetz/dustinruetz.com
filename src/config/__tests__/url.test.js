@@ -51,7 +51,7 @@ test('URL configuration', () => {
   expect(URL.port.production).toEqual(null)
 
   /**
-   * NOTE: can't assert that `typeof variable === 'null` due to
+   * NOTE: can't assert that `typeof variable === 'null'` due to
    * an error in the original JavaScript language specification
    * https://stackoverflow.com/questions/18808226/why-is-typeof-null-object
    */
