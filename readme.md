@@ -11,6 +11,8 @@ Dustin Ruetz's website.
 - [Development](#development)
 - [Build](#build)
 - [Hosting](#hosting)
+  - [GitHub Pages/Git worktree](#github-pagesgit-worktree)
+  - [Domain registrar DNS records](#domain-registrar-dns-records)
 - [Notes](#notes)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -47,10 +49,19 @@ From the root of the repo use `npm run build` to compile the site to the `./www/
 
 The repo is configured so that the `gh-pages` branch is a Git worktree that tracks the `./www/` directory; GitHub Pages hosts the site's files by sourcing from this branch. Continuous deployment/integration is handled by the [`build` GitHub Action][ga-build]; the site is compiled and deployed every time a commit is pushed to the `master` branch.
 
-- [Using git worktree to deploy GitHub Pages][ghp-using-git-worktree]
-- [Managing a custom domain for your GitHub Pages site][ghp-custom-domain] (especially the [configuring a subdomain][ghp-configure-subdomain] and [configuring an apex domain][ghp-configure-apex-domain] sections)
+### GitHub Pages/Git worktree
 
-**Note:** To enable secure redirects (from `http://` or the `www` subdomain to `https://`) it's important that the build script copy the CNAME text file (with a value of `www.dustinruetz.com`) to the root of the output directory.
+- [Managing a custom domain for your GitHub Pages site][ghp-custom-domain] (especially the [configuring a subdomain][ghp-configure-subdomain] and [configuring an apex domain][ghp-configure-apex-domain] sections)
+- Note: To enable secure redirects (from the apex domain with no protocol/subdomain/`http`/`http://www`/`www` to `https://www`) it's important that the build script copy the CNAME file (with a value of `www.dustinruetz.com`) to the root of the output directory.
+- [Using git worktree to deploy GitHub Pages][ghp-using-git-worktree]
+
+### Domain registrar DNS records
+
+- Search "{name of domain registrar} DNS record types" for detailed documentation on how to configure the A and CNAME records.
+- Configure four A records, one for each of GitHub Pages' four IP addresses; "host" is `@`, "value" is the IP address.
+  - Note: An A record (Address record) associates an apex domain with an IPv4 address.
+- Configure one CNAME record; "host" is `www`, "value" is `dustin-ruetz.github.io`.
+  - Note: A trailing period (".") may be automatically appended to the CNAME domain value; this syntax is valid.
 
 ## Notes
 
