@@ -1,4 +1,6 @@
 mixin head(params = {})
+  //- refer to webpack.common.js `createPage` function for how
+  //- <head/>'s CSS <link/> and JS <script/> are injected
   -
     const {pageName, pageTitle} = params
     if (typeof pageName !== 'string')
@@ -10,12 +12,7 @@ mixin head(params = {})
     if (!pageTitle)
       throw new Error(`+head({pageTitle}) requires a non-empty string argument; received ${pageTitle}.`)
   head
-    -
-      const assets = ['css', 'js'].reduce((assetsObject, filetype) => {
-        assetsObject[filetype] = `/${pageName}/${pageName}.${filetype}`
-        return assetsObject
-      }, {})
-    //- refer to PNG rule in Webpack common config for how this path is determined
+    //- refer to webpack.common.js PNG rule for how this path is determined
     link(
       href="/components/head/favicons/favicon-blue-180x180.png"
       rel="icon"
@@ -41,20 +38,10 @@ mixin head(params = {})
       href=remoteFonts.href()
       rel="stylesheet"
     )
-    link(
-      href=assets.css
-      rel="stylesheet"
-    )
     meta(charset="utf-8")
     meta(
       content="width=device-width, initial-scale=1.0"
       name="viewport"
-    )
-    //- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/#Attributes
-    //- https://flaviocopes.com/javascript-async-defer/
-    script(
-      defer
-      src=assets.js
     )
     -
       const {DOMAIN} = require('../../config/constants.js')

@@ -30,14 +30,38 @@ function getRoutes() {
 function createPage(route) {
   // https://webpack.js.org/plugins/html-webpack-plugin/
   const page = new htmlWebpackPlugin({
+    // set `chunks` and `inject` to insert the route-specific script and stylesheet in the <head>
+    // (if `chunks` is not set then every route's CSS and JS bundle files will be injected)
+    chunks: [route],
+    inject: 'head',
     // specify how and where HTML files should be outputted to enable routes with trailing slashes
     filename: route === 'home' ? './index.html' : `./${route}/index.html`,
-    // do not inject all assets into the template (i.e. prevent pages from loading every script)
-    inject: false,
+    // set the base path that will be prepended to <link href/> and <script src/> tag attributes
+    publicPath: '/',
+    /**
+     * set `scriptLoading` to output <script defer/> tag attributes
+     * in order to avoid parser-blocking JavaScript code
+     *
+     * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/#Attributes
+     * https://flaviocopes.com/javascript-async-defer/
+     */
+    scriptLoading: 'defer', // default = 'defer'
     template: `./src/pages/${route}/${route}.pug`,
   })
   return page
 }
+
+/**
+ * specify how and where CSS and JS bundle files should be outputted
+ *
+ * 1. use the entrypoint/route-specific JS filename (ex: about.js, home.js, etc.)
+ *    to set both the filepath and the first part of the filename
+ * 2. use the file's contenthash to set the second part of the filename
+ *    (useful for cache-busting when the contents of the file change)
+ *
+ * https://webpack.js.org/configuration/output/#template-strings
+ */
+const filenameTemplate = '[name]/[name].[contenthash]'
 
 module.exports = {
   // reduce the array of routes to create the Webpack entry points object
@@ -109,9 +133,7 @@ module.exports = {
     ],
   },
   output: {
-    // specify how and where JS bundle files should be outputted
-    // and name them the same as the route for easier debugging
-    filename: './[name]/[name].js',
+    filename: `${filenameTemplate}.js`,
     path: path.resolve(__dirname, '../www/'),
   },
   plugins: [
@@ -126,9 +148,7 @@ module.exports = {
     }),
     // https://webpack.js.org/plugins/mini-css-extract-plugin/
     new miniCssExtractPlugin({
-      // specify how and where CSS bundle files should be outputted
-      // and name them the same as the route for easier debugging
-      filename: './[name]/[name].css',
+      filename: `${filenameTemplate}.css`,
     }),
   ],
 }
