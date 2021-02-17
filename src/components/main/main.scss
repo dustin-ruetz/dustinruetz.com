@@ -24,14 +24,4 @@
     padding-left: unset;
     padding-right: unset;
   }
-
-  // use BEM modifier class to apply different styles to specific pages
-  &--home {
-    // homepage requires additional padding due to the large hero elements
-    padding-top: spacing.$s-8;
-    padding-bottom: spacing.$s-8;
-    // hide overflow on both x- and y-axis to prevent over-scrolling during line animations;
-    // over-scrolling is caused by position top/left/right animation changes in home.scss
-    overflow: hidden;
-  }
 }

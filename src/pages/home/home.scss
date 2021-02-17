@@ -2,6 +2,16 @@
 @use "../../config/spacing.scss";
 @use "../../config/z-index.scss";
 
+// use class modifier to apply different styles specific to the homepage <main/> element
+.main--home {
+  // homepage requires additional padding due to the large hero elements
+  padding-top: spacing.$s-8;
+  padding-bottom: spacing.$s-8;
+  // hide overflow on both x- and y-axis to prevent over-scrolling during line animations;
+  // over-scrolling is caused by position top/left/right animation changes
+  overflow: hidden;
+}
+
 .home {
   &__hero-title {
     display: flex;
