@@ -1,6 +1,8 @@
-mixin img(params = {})
+mixin img(params = {border: true})
   -
-    const {alt, caption, src} = params
+    //- required arguments
+    const {alt, src} = params
+
     if (typeof alt !== 'string')
       throw new Error(`+img({alt}) must be of type string; received ${typeof alt}.`)
     if (!alt && alt !== '')
@@ -9,11 +11,24 @@ mixin img(params = {})
       throw new Error(`+img({src}) must be of type string; received ${typeof src}.`)
     if (!src)
       throw new Error(`+img({src}) requires a non-empty string argument; received ${src}.`)
-    //- arguments for optional parameters (caption) are allowed to be undefined
+
+    //- optional arguments (can be undefined)
+    let {border} = params
+    const {caption} = params
+
+    if (typeof border !== 'boolean' && typeof border !== 'undefined')
+      throw new Error(`+img({border}) must be of type boolean; received ${typeof border}.`)
+    //- default `border` to true unless it's explicitly set to false
+    if (border !== false)
+      border = true
+
     if (typeof caption !== 'string' && typeof caption !== 'undefined')
       throw new Error(`+img({caption}) must be of type string/undefined; received ${typeof caption}.`)
+
   figure
-    img.img__image(
+    img(
+      class="img__image"
+      class=border ? 'img__image--border' : null
       alt=alt
       src=src
     )

@@ -4,7 +4,10 @@
   &__image {
     // set `max-width: 100%` to prevent images from expanding beyond their containers
     max-width: 100%;
-    border: 1px solid colors.$blue;
+
+    &--border {
+      border: 1px solid colors.$blue;
+    }
   }
 
   &__caption {
