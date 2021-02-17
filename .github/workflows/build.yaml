@@ -45,10 +45,10 @@ jobs:
           git add --all
           git commit -m "build: dustinruetz.com on `date +\"%Y-%b-%d at %T UTC\"`"
           git push origin gh-pages --force
-      # note that the below `cd ./../` isn't necessary when running this command on GitHub Actions,
-      # but it does resolve an error if you're trying to deploy the site from your local machine
+      # note: if you're trying to deploy the site from your local machine and you receive a
+      # `fatal: not a git repository` error when running `git worktree remove ./www/`,
+      # run `cd ./../` and then try to remove the worktree again after that
       - name: Remove Git worktree
         run: |
-          cd ./../
           git worktree remove ./www/
           git worktree prune
