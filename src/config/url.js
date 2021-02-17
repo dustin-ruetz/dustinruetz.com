@@ -32,11 +32,11 @@ const URL = {
 function getURL(environment) {
   switch (environment) {
     case 'local':
-      return `${URL.protocol.local}://${URL.subdomain.local}.${URL.domain.local}:${URL.port.local}/`
+      return `${URL.protocol.local}://${URL.subdomain.local}.${URL.domain.local}:${URL.port.local}`
     case 'network':
-      return `${URL.protocol.network}://${URL.domain.network}:${URL.port.network}/`
+      return `${URL.protocol.network}://${URL.domain.network}:${URL.port.network}`
     case 'production':
-      return `${URL.protocol.production}://${URL.subdomain.production}.${URL.domain.production}/`
+      return `${URL.protocol.production}://${URL.subdomain.production}.${URL.domain.production}`
     default: {
       const invalidEnvironmentArg =
         typeof environment === 'string' ? `'${environment}'` : environment

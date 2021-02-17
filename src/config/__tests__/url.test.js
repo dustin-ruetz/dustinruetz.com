@@ -2,17 +2,17 @@ const {getURL, URL} = require('../url.js')
 
 test('getURL function', () => {
   // verify that it returns the correct local development URL
-  expect(getURL('local')).toEqual('https://development.dustinruetz.com:4444/')
+  expect(getURL('local')).toEqual('https://development.dustinruetz.com:4444')
 
   // verify that it returns the correct network development URL
   const networkURL = getURL('network')
   // TODO: figure out how to mock Node.js os.networkInterfaces module
   // expect(networkURL).toEqual('http://a.valid.IPv4.address:5555')
   expect(networkURL).toContain('http://')
-  expect(networkURL).toContain(':5555/')
+  expect(networkURL).toContain(':5555')
 
   // verify that it returns the correct production URL
-  expect(getURL('production')).toEqual('https://www.dustinruetz.com/')
+  expect(getURL('production')).toEqual('https://www.dustinruetz.com')
 
   // verify that it throws an error when passed a non-existent environment
   expect(() => getURL('invalidEnvironmentArg')).toThrow(
