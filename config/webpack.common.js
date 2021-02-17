@@ -135,8 +135,6 @@ module.exports = {
     ],
   },
   output: {
-    // set `clean` to delete directories/files that are no longer being required
-    clean: true,
     filename: `${filenameTemplate}.js`,
     path: path.resolve(__dirname, '../www/'),
   },
