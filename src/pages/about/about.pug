@@ -23,7 +23,7 @@ block main
         -
           const unitalicizeText = (text) => `<span class="img__caption--unitalicize">${text}</span>`
           const caption = content.image.caption.replace('_award_', unitalicizeText(content.image.award))
-        +img({alt: content.image.alt, src: content.image.src, caption})
+        +img({alt: content.image.alt, src: require('./images/digital-ceo-award-2250x2250-grayscale.jpg').default, caption})
       .about__bio-container
         -
           const currentYear = new Date().getFullYear()
