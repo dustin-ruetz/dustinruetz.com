@@ -34,7 +34,16 @@ function createPage(route) {
     chunks: [route],
     inject: 'head',
     // specify how and where HTML files should be outputted to enable routes with trailing slashes
-    filename: route === 'home' ? './index.html' : `./${route}/index.html`,
+    filename: () => {
+      // prettier-ignore
+      switch (route) {
+        // 404 page must be placed in the root of the output directory with the '404.html'
+        // filename in order to use the 'custom 404 page' feature of GitHub Pages
+        case '404': return './404.html'
+        case 'home': return './index.html'
+        default: return `./${route}/index.html`
+      }
+    },
     // set the base path that will be prepended to <link href/> and <script src/> tag attributes
     publicPath: '/',
     /**

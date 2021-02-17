@@ -6,6 +6,16 @@ module.exports = {
   devServer: {
     // enable gzip compression for everything served
     compress: true,
+    // serve the '404 page not found' HTML file in the event of a 404 error
+    historyApiFallback: {
+      rewrites: [
+        {
+          from: /./,
+          // refer to webpack.common.js `createPage` function for how this path is determined
+          to: '/404.html',
+        },
+      ],
+    },
     // reload the page when file changes are detected (`devServer.hot` option must be disabled)
     liveReload: true,
     // suppress Webpack messages and bundle information (errors and warnings will still be shown)
