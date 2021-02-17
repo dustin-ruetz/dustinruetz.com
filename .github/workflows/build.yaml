@@ -22,6 +22,9 @@ jobs:
         run: |
           git config user.email "build-github-action@dustinruetz.com"
           git config user.name "build GitHub Action by Dustin Ruetz"
+      # note that if ever the GitHub Actions pipeline is broken/erroring/unavailable,
+      # you can still deploy the site by running the individual commands below
+      # from the root of the repo using the terminal on your local machine
       - name: Git checkout orphaned gh-pages branch
         run: |
           git checkout --orphan gh-pages
@@ -42,7 +45,10 @@ jobs:
           git add --all
           git commit -m "build: dustinruetz.com on `date +\"%Y-%b-%d at %T UTC\"`"
           git push origin gh-pages --force
+      # note that the below `cd ./../` isn't necessary when running this command on GitHub Actions,
+      # but it does resolve an error if you're trying to deploy the site from your local machine
       - name: Remove Git worktree
         run: |
+          cd ./../
           git worktree remove ./www/
           git worktree prune
