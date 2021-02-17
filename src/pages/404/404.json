@@ -1,8 +1,11 @@
 {
   "pageTitle": "Page not found",
-  "title": "page not found",
-  "description": "404 error",
+  "description": "The requested page {requestedPage} was not found on this server.",
   "image": {
-    "alt": ""
+    "alt": "The 'you are being monitored' internet meme. One stick figure cowers in fear of another stick figure, the latter of which is menacingly holding a heavy CRT computer monitor over their head as though they are going to use it as a bludgeon."
+  },
+  "homepageLink": {
+    "href": "/",
+    "label": "Let's go home."
   }
 }

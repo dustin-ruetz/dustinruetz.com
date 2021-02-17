@@ -1,8 +1,21 @@
+@use "../../config/spacing.scss";
+
 .error-404 {
-  height: calc(100vh - 15.6rem);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  text-align: center;
+  &__description-link-container {
+    margin-bottom: spacing.$s-4;
+  }
+
+  &__description {
+    margin-bottom: spacing.$s-2;
+  }
+
+  &__requested-page {
+    font-family: monospace;
+    text-decoration: underline;
+  }
+
+  &__image-container {
+    max-width: 40rem;
+    margin: 0 auto;
+  }
 }

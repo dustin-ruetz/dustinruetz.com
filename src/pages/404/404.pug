@@ -2,6 +2,7 @@ extends ../../components/page/page.pug
 include ../../components/head/head.pug
 include ../../components/heading/heading.pug
 include ../../components/img/img.pug
+include ../../components/link/link.pug
 include ../../components/main/main.pug
 
 block content
@@ -13,6 +14,10 @@ block head
 block main
   +main
     .error-404
-      +heading({level: "h1"})= content.title
-      p= content.description
-      +img({alt: content.image.alt, src: require('./images/you-are-being-monitored.png').default})
+      +heading({level: "h1"})= content.pageTitle
+      .error-404__description-link-container
+        p.error-404__description= content.description
+        +link({href: content.homepageLink.href, label: content.homepageLink.label})
+      .error-404__image-container
+        //- swapped image's dominant color from yellow to blue using lunapic.com 'do-replace-color' action
+        +img({alt: content.image.alt, src: require('./images/you-are-being-monitored-blue.png').default, border: false})
