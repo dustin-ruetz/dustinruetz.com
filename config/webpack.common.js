@@ -3,7 +3,6 @@ const path = require('path')
 const copyWebpackPlugin = require('copy-webpack-plugin')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const miniCssExtractPlugin = require('mini-css-extract-plugin')
-const {DOMAIN} = require('../src/config/constants.js')
 
 /**
  * note that `getRoutes()` uses two synchronous Node.js filesystem methods: `readdirSync` and `statSync`
@@ -80,22 +79,25 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: (resourcePath) => {
-                // use the domain constant to split the path; this assumes that
-                // directory/repo name === domain name
-                const assetRelativePath = resourcePath.split(DOMAIN)[1]
-
-                const assetType =
-                  assetRelativePath.includes('/favicons/') && 'favicons'
+              /**
+               * use `name` and `outputPath` to specify how and where images should be outputted
+               *
+               * 1. use the image's filepath to set the URL path from which it's served
+               * 2. use the image's filename and contenthash to set its URL filename
+               *    (useful for cache-busting when the contents of the file change)
+               */
+              name: '[path][name].[contenthash].[ext]',
+              outputPath: (url) => {
+                const assetType = url.includes('/favicons/') && 'favicons'
 
                 // preserve directory/filename structure of assets as much as possible
                 // in order to output cleanly mapped directory/file names on build
                 switch (assetType) {
                   case 'favicons':
-                    return assetRelativePath.replace('/src/', './')
+                    return url.replace('src/', '')
                   // output all other assets as nested within their respective page directories
                   default:
-                    return assetRelativePath.replace('/src/pages/', './')
+                    return url.replace('src/pages/', '')
                 }
               },
             },

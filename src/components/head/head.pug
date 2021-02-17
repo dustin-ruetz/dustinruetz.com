@@ -12,9 +12,11 @@ mixin head(params = {})
     if (!pageTitle)
       throw new Error(`+head({pageTitle}) requires a non-empty string argument; received ${pageTitle}.`)
   head
-    //- refer to webpack.common.js PNG rule for how this path is determined
+    //- note 1: the favicon path below is relative to the /src/pages/{pageFilename}.pug file
+    //- that includes the <head/> mixin file, _not_ this <head/> mixin file itself
+    //- note 2: refer to webpack.common.js PNG rule for how the favicon path is determined
     link(
-      href="/components/head/favicons/favicon-blue-180x180.png"
+      href=require('../../components/head/favicons/favicon-blue-180x180.png').default
       rel="icon"
       sizes="180x180"
       type="image/png"
