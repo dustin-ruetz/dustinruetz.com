@@ -15,6 +15,9 @@ module.exports = webpackMerge(webpackConfigCommon, webpackConfigDev, {
       /* eslint-disable no-console */
       console.log('Network server:')
       logURL(networkURL)
+      console.log(
+        '(append `/webpack-dev-server` to the above URL to view the hierarchical tree of server files)',
+      )
       console.log('') // print empty line
       /* eslint-enable no-console */
     },
