@@ -144,6 +144,24 @@ module.exports = {
     ],
   },
   output: {
+    /**
+     * I had previously set `output.clean` here under the assumption that it would
+     * delete the directories/files that were no longer being required. While it
+     * did perform that task, it also had two adverse side effects:
+     *
+     * 1. In development it was causing the dev server to lose image require()s;
+     *    images would initially be outputted on the server but would then be
+     *    removed after modifying and saving files/reloading pages.
+     *
+     * 2. In production it was removing everything within the the root ./www/
+     *    output directory as a result of running the build script; this
+     *    caused the `build` GitHub Action to fail because there were no
+     *    files to commit to the Git branch/worktree.
+     *
+     * For these reasons I'm not including `output.clean` here; it doesn't have
+     * much impact in development, and in production the `build` GitHub Action
+     * already removes the ./www/ directory prior to running the build script.
+     */
     filename: `${filenameTemplate}.js`,
     path: path.resolve(__dirname, '../www/'),
   },
