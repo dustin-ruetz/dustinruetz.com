@@ -44,7 +44,8 @@ function createPage(route) {
         default: return `./${route}/index.html`
       }
     },
-    // set the base path that will be prepended to <link href/> and <script src/> tag attributes
+    // set the base path that will be prepended on all relative-path tag attributes
+    // ex: <img src/>, <link href/>, <script src/>, etc.
     publicPath: '/',
     /**
      * set `scriptLoading` to output <script defer/> tag attributes
