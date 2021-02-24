@@ -4,5 +4,11 @@
   "// ./config/": "1) making changes to nodemon/Webpack configuration files",
   "// ./package.json": "2) installing new/updating existing NPM packages",
   "// ./package-lock.json": "3) fixing security issues identified by NPM audit",
-  "watch": ["./config/", "./package.json", "./package-lock.json"]
+  "// ./src/config/url.js": "4) modifying the local/network development URLs",
+  "watch": [
+    "./config/",
+    "./package.json",
+    "./package-lock.json",
+    "./src/config/url.js"
+  ]
 }
