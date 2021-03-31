@@ -10,7 +10,7 @@ Dustin Ruetz's website.
   - [Use HTTPS in local development](#use-https-in-local-development)
 - [Development](#development)
 - [Build](#build)
-- [Hosting](#hosting)
+- [Hosting and Deployment](#hosting-and-deployment)
   - [GitHub Pages/Git worktree](#github-pagesgit-worktree)
   - [Domain registrar DNS records](#domain-registrar-dns-records)
 - [Notes](#notes)
@@ -39,13 +39,13 @@ Dustin Ruetz's website.
 
 ## Development
 
-From the root of the repo use `npm run dev` to start the development servers (i.e. local and network) with live reloading.
+From the root of the repo use `npm run dev` to start the development servers (i.e. local and network).
 
 ## Build
 
 From the root of the repo use `npm run build` to compile the site to the `./www/` output directory of static files (note that this folder is listed in `.gitignore` to keep these files out of version control).
 
-## Hosting
+## Hosting and Deployment
 
 The repo is configured so that the `gh-pages` branch is a Git worktree that tracks the `./www/` directory; GitHub Pages hosts the site's files by sourcing from this branch. Continuous deployment/integration is handled by the [`build` GitHub Action][ga-build]; the site is compiled and deployed every time a commit is pushed to the `main` branch.
 
