@@ -1,7 +1,7 @@
 const webpackMerge = require('webpack-merge').merge
 const {getURL, URL} = require('../src/config/url.js')
 const webpackConfigCommon = require('./webpack.common.js')
-const webpackConfigDev = require('./webpack.dev.js')
+const webpackConfigDev = require('./webpack.development.js')
 const {logURL} = require('./utils/log-url.js')
 
 const networkURL = getURL('network')
