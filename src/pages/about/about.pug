@@ -9,6 +9,7 @@ block content
   -
     const {NAME} = require('../../config/constants.js')
     const content = require('./about.json')
+    const imageSrc = require('./images/digital-ceo-award-grayscale.jpg').default
 
 block head
   +head({pageName: "about", pageTitle: content.pageTitle})
@@ -24,7 +25,7 @@ block main
           const unitalicizeText = (text) => `<span class="img__caption--unitalicize">${text}</span>`
           const caption = content.image.caption.replace('_award_', unitalicizeText(content.image.award))
         //- image resized down to 800x800 due to max-width of 40rem
-        +img({alt: content.image.alt, src: require('./images/digital-ceo-award-grayscale.jpg').default, caption})
+        +img({alt: content.image.alt, src: imageSrc, caption})
       .about__bio-container
         -
           const currentYear = new Date().getFullYear()

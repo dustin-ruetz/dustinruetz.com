@@ -6,7 +6,9 @@ include ../../components/link/link.pug
 include ../../components/main/main.pug
 
 block content
-  - const content = require('./404.json')
+  -
+    const content = require('./404.json')
+    const imageSrc = require('./images/you-are-being-monitored-blue.png').default
 
 block head
   +head({pageName: "404", pageTitle: content.pageTitle})
@@ -20,4 +22,4 @@ block main
         +link({href: content.homepageLink.href, label: content.homepageLink.label})
       .error-404__image-container
         //- swapped image's dominant color from yellow to blue using lunapic.com 'do-replace-color' action
-        +img({alt: content.image.alt, src: require('./images/you-are-being-monitored-blue.png').default, border: false})
+        +img({alt: content.image.alt, src: imageSrc, border: false})
