@@ -2,10 +2,9 @@
 module.exports = {
   // https://webpack.js.org/guides/development/
   mode: 'development',
+  // tip: navigate to `/webpack-dev-server/` on the host server to view its hierarchical tree of files
   // https://webpack.js.org/configuration/dev-server/
   devServer: {
-    // enable gzip compression for everything served
-    compress: true,
     // serve the '404 page not found' HTML file in the event of a 404 error
     historyApiFallback: {
       rewrites: [
@@ -16,13 +15,18 @@ module.exports = {
         },
       ],
     },
-    // reload the page when file changes are detected (`devServer.hot` option must be disabled)
-    liveReload: true,
-    // suppress Webpack messages and bundle information (errors and warnings will still be shown)
-    noInfo: true,
+    // disable serving static files from default '/public/' directory
+    static: false,
   },
   // https://webpack.js.org/guides/development/#using-source-maps
   devtool: 'inline-source-map',
+  // disable unneccessary logging output while running webpack-dev-server
+  // https://webpack.js.org/configuration/stats/
+  stats: {
+    assets: false,
+    entrypoints: false,
+    modules: false,
+  },
   // plugins: [
   //   // https://webpack.js.org/plugins/define-plugin/
   //   new webpack.DefinePlugin({
