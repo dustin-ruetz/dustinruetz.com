@@ -1,12 +1,12 @@
 const webpackMerge = require('webpack-merge').merge
 const {getURL, URL} = require('../src/config/url.js')
 const webpackConfigCommon = require('./webpack.common.js')
-const webpackConfigDev = require('./webpack.development.js')
+const webpackConfigDevelopment = require('./webpack.development.js')
 const {logURL} = require('./utils/log-url.js')
 
 const networkURL = getURL('network')
 
-module.exports = webpackMerge(webpackConfigCommon, webpackConfigDev, {
+module.exports = webpackMerge(webpackConfigCommon, webpackConfigDevelopment, {
   devServer: {
     // specify host to access server from other devices on the network
     host: URL.domain.network,

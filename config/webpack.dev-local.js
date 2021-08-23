@@ -2,12 +2,12 @@ const {readFileSync} = require('fs')
 const webpackMerge = require('webpack-merge').merge
 const {getURL, URL} = require('../src/config/url.js')
 const webpackConfigCommon = require('./webpack.common.js')
-const webpackConfigDev = require('./webpack.development.js')
+const webpackConfigDevelopment = require('./webpack.development.js')
 const {logURL} = require('./utils/log-url.js')
 
 const localURL = getURL('local')
 
-module.exports = webpackMerge(webpackConfigCommon, webpackConfigDev, {
+module.exports = webpackMerge(webpackConfigCommon, webpackConfigDevelopment, {
   devServer: {
     // define certicate and key to use HTTPS in local development
     https: {
