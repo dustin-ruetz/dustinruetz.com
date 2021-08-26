@@ -7,5 +7,7 @@ module.exports = webpackMerge(webpackConfigCommon, webpackConfigDevelopment, {
     // specify host as 'local-ip' to try and resolve the local IPv4 address
     // note: port is determined automatically
     host: 'local-ip',
+    // use a self-signed certificate to use HTTPS for network clients
+    https: true,
   },
 })
