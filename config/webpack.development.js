@@ -20,13 +20,9 @@ module.exports = {
   },
   // https://webpack.js.org/guides/development/#using-source-maps
   devtool: 'inline-source-map',
-  // disable unneccessary logging output while running webpack-dev-server
+  // reduce logging output to only errors and warnings while running webpack-dev-server
   // https://webpack.js.org/configuration/stats/
-  stats: {
-    assets: false,
-    entrypoints: false,
-    modules: false,
-  },
+  stats: 'errors-warnings',
   // plugins: [
   //   // https://webpack.js.org/plugins/define-plugin/
   //   new webpack.DefinePlugin({
