@@ -18,8 +18,9 @@ module.exports = {
     // disable serving static files from default '/public/' directory
     static: false,
   },
-  // https://webpack.js.org/guides/development/#using-source-maps
-  devtool: 'inline-source-map',
+  // specify devtool as 'eval-source-map' to yield the highest quality SourceMap files in development
+  // https://webpack.js.org/configuration/devtool/#development
+  devtool: 'eval-source-map',
   // reduce logging output to only errors and warnings while running webpack-dev-server
   // https://webpack.js.org/configuration/stats/
   stats: 'errors-warnings',
