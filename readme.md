@@ -50,7 +50,7 @@ From the root of the repo use `npm run build` to compile the site to the `./www/
 
 ## Hosting and Deployment
 
-The repo is configured so that the `gh-pages` branch is a Git worktree that tracks the `./www/` directory; GitHub Pages hosts the site's files by sourcing from this branch. Continuous deployment/integration is handled by the [`build` GitHub Action][ga-build]; the site is compiled and deployed every time a commit is pushed to the `main` branch.
+The repo is configured so that the `www` branch is a Git worktree that tracks the `./www/` directory; GitHub Pages hosts the site's files by sourcing from this branch. Continuous deployment/integration is handled by the [`build` GitHub Action][ga-build]; the site is compiled and deployed every time a commit is pushed to the `main` branch.
 
 ### GitHub Pages/Git worktree
 

@@ -15,7 +15,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
-      # use GitHub Pages to host the site's files by sourcing from the gh-pages branch
+      # use GitHub Pages to host the site's files by sourcing from the www branch
       # adapted from "Using git worktree to deploy GitHub Pages"
       # https://sangsoonam.github.io/2019/02/08/using-git-worktree-to-deploy-github-pages.html
       - name: Git configure identity
@@ -25,16 +25,17 @@ jobs:
       # note: if ever the GitHub Actions pipeline is broken/erroring/unavailable,
       # you can still deploy the site by running the individual commands below
       # from the root of the repo using the terminal on your local machine
-      - name: Git checkout orphaned gh-pages branch
+      - name: Git checkout orphaned www branch
         run: |
-          git checkout --orphan gh-pages
+          git checkout --orphan www
           git reset --hard
-          git commit --allow-empty -m "feat: initial commit for gh-pages branch"
+          git commit --allow-empty -m "feat: initial commit for www branch"
           git checkout main
+      # add ./www/ directory to www branch
       - name: Create Git worktree
         run: |
           rm -rf ./www/
-          git worktree add ./www/ gh-pages
+          git worktree add ./www/ www
       - name: Install dependencies
         run: npm ci
       - name: Build site
@@ -44,7 +45,7 @@ jobs:
           cd ./www/
           git add --all
           git commit -m "build: dustinruetz.com on `date +\"%Y-%b-%d at %T UTC\"`"
-          git push origin gh-pages --force
+          git push origin www --force
       # note: if you're trying to deploy the site from your local machine and you receive a
       # `fatal: not a git repository` error when running the `remove ./www/` command,
       # run `cd ./../` first and then try to remove the worktree again after that
