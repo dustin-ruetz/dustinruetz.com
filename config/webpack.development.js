@@ -15,6 +15,10 @@ module.exports = {
         },
       ],
     },
+    // reload/refresh the page when file changes are detected; note that
+    // hot must be disabled in order for liveReload to take effect
+    hot: false,
+    liveReload: true,
     // disable serving static files from default '/public/' directory
     static: false,
   },
