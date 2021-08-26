@@ -28,10 +28,13 @@ Dustin Ruetz's website.
 ### Use HTTPS in local development
 
 1. Prerequisite: Have [mkcert][mkcert] installed.
-2. From the root of the repo, run the following command to generate a certificate and a key (note that the `./ssl/` directory is listed in `.gitignore` to keep these files out of version control):
-   ```
-   mkdir ./ssl/ && mkcert -cert-file ./ssl/public.crt -key-file ./ssl/private.key development.dustinruetz.com
-   ```
+2. From the root of the repo, run the following commands 1) to create the `./ssl/` directory, and 2) to generate certificate and key files for the local development domain. (ℹ️ Note: `./ssl/` is listed in `.gitignore` to keep these files out of version control.)
+
+```
+mkdir ./ssl/
+mkcert -cert-file ./ssl/public.crt -key-file ./ssl/private.key development.dustinruetz.com
+```
+
 3. Add the following line to your `hosts` file:
    ```
    127.0.0.1 development.dustinruetz.com
@@ -43,7 +46,7 @@ From the root of the repo use `npm run dev` to start the development servers (i.
 
 ## Build
 
-From the root of the repo use `npm run build` to compile the site to the `./www/` output directory of static files (note that this folder is listed in `.gitignore` to keep these files out of version control).
+From the root of the repo use `npm run build` to compile the site to the `./www/` output directory of static files. (ℹ️ Note: `./www/` is listed in `.gitignore` to keep these files out of version control.)
 
 ## Hosting and Deployment
 
@@ -52,22 +55,22 @@ The repo is configured so that the `gh-pages` branch is a Git worktree that trac
 ### GitHub Pages/Git worktree
 
 - [Managing a custom domain for your GitHub Pages site][ghp-custom-domain] (especially the [configuring a subdomain][ghp-configure-subdomain] and [configuring an apex domain][ghp-configure-apex-domain] sections)
-- Note: To enable secure redirects (from the apex domain with no protocol/subdomain/`http`/`http://www`/`www` to `https://www`) it's important that the build script copy the CNAME file (with a value of `www.dustinruetz.com`) to the root of the output directory.
+- ℹ️ Note: To enable secure redirects (from the apex domain with no protocol/subdomain/`http`/`http://www`/`www` to `https://www`) it's important that the build script copy the CNAME file (with a value of `www.dustinruetz.com`) to the root of the output directory.
 - [Using git worktree to deploy GitHub Pages][ghp-using-git-worktree]
 
 ### Domain registrar DNS records
 
 - Search "{name of domain registrar} DNS record types" for detailed documentation on how to configure the A and CNAME records.
 - Configure four A records, one for each of GitHub Pages' four IP addresses; "host" is `@`, "value" is the IP address.
-  - Note: An A record (Address record) associates an apex domain with an IPv4 address.
+  - ℹ️ Note: An A record (Address record) associates an apex domain with an IPv4 address.
 - Configure one CNAME record; "host" is `www`, "value" is `dustin-ruetz.github.io`.
-  - Note: A trailing period (".") may be automatically appended to the CNAME domain value; this syntax is valid.
+  - ℹ️ Note: A trailing period (".") may be automatically appended to the CNAME domain value; this syntax is valid.
 
 ## Notes
 
 - Attempting to `require()` a string variable causes Pug/Webpack to throw an error, but requiring a template literal (specifically a string literal containing an embedded expression) works. Example:
-  - Doesn't work: `require(imageFilename)`
-  - Does work: `` require(`./images/${imageFilename}`) ``
+  - ❌ Doesn't work: `require(imageFilename)`
+  - ✅ Does work: `` require(`./images/${imageFilename}`) ``
 - Use the `!{variable}` syntax (i.e. the [Pug interpolation][pug-interpolation] feature) to buffer unescaped values into your template files. This is useful when combined with [Webpack's svg-inline-loader][webpack-svg-inline-loader] to output SVG code directly into the compiled HTML. Example:
 
 ```pug
