@@ -128,10 +128,10 @@ module.exports = {
         ],
       },
       // SVGs
-      // https://webpack.js.org/loaders/svg-inline-loader/
+      // https://webpack.js.org/guides/asset-modules/
       {
         test: /\.svg$/,
-        loader: 'svg-inline-loader',
+        type: 'asset/source',
       },
       // styles
       // https://webpack.js.org/plugins/mini-css-extract-plugin/

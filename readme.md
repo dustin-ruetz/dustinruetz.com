@@ -71,7 +71,7 @@ The repo is configured so that the `www` branch is a Git worktree that tracks th
 - Attempting to `require()` a string variable causes Pug/Webpack to throw an error, but requiring a template literal (specifically a string literal containing an embedded expression) works. Example:
   - ❌ Doesn't work: `require(imageFilename)`
   - ✅ Does work: `` require(`./images/${imageFilename}`) ``
-- Use the `!{variable}` syntax (i.e. the [Pug interpolation][pug-interpolation] feature) to buffer unescaped values into your template files. This is useful when combined with [Webpack's svg-inline-loader][webpack-svg-inline-loader] to output SVG code directly into the compiled HTML. Example:
+- Use the `!{variable}` syntax (i.e. the [Pug interpolation][pug-interpolation] feature) to buffer unescaped values into your template files. This is useful when combined with [Webpack's Asset Modules][webpack-asset-modules] to output SVG code directly into the compiled HTML. Example:
 
 ```pug
 - const icon = require("./icons/icon.svg")
@@ -91,6 +91,6 @@ figure
 [npm]: https://www.npmjs.com/get-npm/
 [nodejs]: https://nodejs.org/en/download/
 [pug-interpolation]: https://pugjs.org/language/interpolation.html
+[webpack-asset-modules]: https://webpack.js.org/guides/asset-modules/
 [webpack-resolve-url-loader]: https://github.com/bholloway/resolve-url-loader/
 [webpack-sass-loader-url-problems]: https://webpack.js.org/loaders/sass-loader/#problems-with-url
-[webpack-svg-inline-loader]: https://webpack.js.org/loaders/svg-inline-loader/
