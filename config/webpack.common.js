@@ -81,38 +81,40 @@ module.exports = {
   module: {
     rules: [
       // images
-      // https://webpack.js.org/loaders/file-loader/
-      // https://github.com/tcoopman/image-webpack-loader/
       {
         test: /\.(jpg|png)$/,
+        // https://webpack.js.org/guides/asset-modules/
+        type: 'asset/resource',
+        generator: {
+          filename: (pathData) => {
+            const [filePathAndFileName, fileExtension] =
+              pathData.filename.split('.')
+            const assetType =
+              filePathAndFileName.includes('/favicons/') && 'favicons'
+
+            // preserve directory/filename structure of assets as much as possible
+            // in order to output cleanly-mapped directory/file names on build
+            let assetPath
+            switch (assetType) {
+              // favicons are used on all pages, so output them in their own dedicated directory
+              case 'favicons':
+                assetPath = filePathAndFileName.replace('src/', '')
+                break
+              // output all other assets as nested within their respective page directories
+              default:
+                assetPath = filePathAndFileName.replace('src/pages/', '')
+                break
+            }
+
+            // use the image's filepath/filename and contenthash as its URL filename
+            // (useful for cache-busting when the contents of the file change)
+            return `${assetPath}.${pathData.contentHash}.${fileExtension}`
+          },
+        },
+        // configure additional loader(s) for processing images
         use: [
           {
-            loader: 'file-loader',
-            options: {
-              /**
-               * use `name` and `outputPath` to specify how and where images should be outputted
-               *
-               * 1. use the image's filepath to set the URL path from which it's served
-               * 2. use the image's filename and contenthash to set its URL filename
-               *    (useful for cache-busting when the contents of the file change)
-               */
-              name: '[path][name].[contenthash].[ext]',
-              outputPath: (url) => {
-                const assetType = url.includes('/favicons/') && 'favicons'
-
-                // preserve directory/filename structure of assets as much as possible
-                // in order to output cleanly mapped directory/file names on build
-                switch (assetType) {
-                  case 'favicons':
-                    return url.replace('src/', '')
-                  // output all other assets as nested within their respective page directories
-                  default:
-                    return url.replace('src/pages/', '')
-                }
-              },
-            },
-          },
-          {
+            // https://github.com/tcoopman/image-webpack-loader/
             loader: 'image-webpack-loader',
             /**
              * the image-webpack-loader docs recommend setting `options.disable = true` while
