@@ -12,9 +12,9 @@ jobs:
       - name: Git checkout
         uses: actions/checkout@v2
       - name: Set up Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: 'lts/*'
       # use GitHub Pages to host the site's files by sourcing from the www branch
       # adapted from "Using git worktree to deploy GitHub Pages"
       # https://sangsoonam.github.io/2019/02/08/using-git-worktree-to-deploy-github-pages.html
