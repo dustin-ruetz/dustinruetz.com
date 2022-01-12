@@ -1,4 +1,3 @@
-const {readFileSync} = require('fs')
 const webpackMerge = require('webpack-merge').merge
 const {URL} = require('../src/config/url.js')
 const webpackConfigCommon = require('./webpack.common.js')
@@ -10,10 +9,13 @@ module.exports = webpackMerge(webpackConfigCommon, webpackConfigDevelopment, {
     // specify local development host
     // note: server will automatically find a free port to use
     host: `${URL.subdomain.local}.${URL.domain.local}`,
-    // define certicate and key to use HTTPS for local clients
-    https: {
-      cert: readFileSync('./ssl/public.crt'),
-      key: readFileSync('./ssl/private.key'),
+    server: {
+      type: 'https',
+      options: {
+        // define certicate and key to use HTTPS for local clients
+        cert: './ssl/public.cert',
+        key: './ssl/private.key',
+      },
     },
   },
 })

@@ -10,6 +10,6 @@ module.exports = webpackMerge(webpackConfigCommon, webpackConfigDevelopment, {
     // note: server will automatically find a free port to use
     host: 'local-ip',
     // use a self-signed certificate to use HTTPS for network clients
-    https: true,
+    server: 'https',
   },
 })

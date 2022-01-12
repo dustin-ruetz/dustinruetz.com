@@ -32,7 +32,7 @@ Dustin Ruetz's website.
 
 ```
 mkdir ./ssl/
-mkcert -cert-file ./ssl/public.crt -key-file ./ssl/private.key development.dustinruetz.com
+mkcert -cert-file ./ssl/public.cert -key-file ./ssl/private.key development.dustinruetz.com
 ```
 
 3. Add the following line to your `hosts` file:
@@ -74,7 +74,7 @@ The repo is configured so that the `www` branch is a Git worktree that tracks th
 - Use the `!{variable}` syntax (i.e. the [Pug interpolation][pug-interpolation] feature) to buffer unescaped values into your template files. This is useful when combined with [Webpack's svg-inline-loader][webpack-svg-inline-loader] to output SVG code directly into the compiled HTML. Example:
 
 ```pug
-- const icon = require('./icons/icon.svg')
+- const icon = require("./icons/icon.svg")
 //- this will output the icon.svg code as an <svg/> HTML element
 figure
   | !{icon}
