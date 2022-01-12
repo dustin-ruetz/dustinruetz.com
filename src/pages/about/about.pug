@@ -17,7 +17,7 @@ block head
 block main
   +main
     +heading({level: "h1"})= content.pageTitle
-    - const introSentence = content.introSentence.replace('{name}', NAME)
+    - const introSentence = content.introSentence.replace("{name}", NAME)
     p.about__intro-sentence= introSentence
     .about__image-bio-container
       .about__image-container

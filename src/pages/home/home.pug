@@ -28,7 +28,7 @@ block main
           )
             //- wrap each character from the hero title in its own <span/> to
             //- create overlapping text-shadow on each character via CSS
-            - const heroTitleCharacters = line.split('')
+            - const heroTitleCharacters = line.split("")
             each character in heroTitleCharacters
               span.home__hero-title-character
                 = character

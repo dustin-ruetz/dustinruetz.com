@@ -1,14 +1,14 @@
 // require CSS reset styles first so that they're overridden by subsequent stylesheets
-@use "./page/reset.scss";
+@use './page/reset.scss';
 // styles needed on every page
-@use "./page/page.scss";
+@use './page/page.scss';
 // styles needed for components that appear on every page
-@use "./external-links/external-links.scss";
-@use "./footer/footer.scss";
-@use "./header/header.scss";
-@use "./heading/heading.scss";
-@use "./img/img.scss";
-@use "./link/link.scss";
-@use "./list/list.scss";
-@use "./main/main.scss";
-@use "./nav/nav.scss";
+@use './external-links/external-links.scss';
+@use './footer/footer.scss';
+@use './header/header.scss';
+@use './heading/heading.scss';
+@use './img/img.scss';
+@use './link/link.scss';
+@use './list/list.scss';
+@use './main/main.scss';
+@use './nav/nav.scss';

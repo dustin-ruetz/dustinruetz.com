@@ -1,7 +1,7 @@
-@use "../../config/colors.scss";
-@use "../../config/fonts.scss";
-@use "../../config/spacing.scss";
-@use "../nav/nav.scss";
+@use '../../config/colors.scss';
+@use '../../config/fonts.scss';
+@use '../../config/spacing.scss';
+@use '../nav/nav.scss';
 
 .footer {
   padding-top: spacing.$s-4;

@@ -4,7 +4,7 @@ include ../../components/heading/heading.pug
 include ../../components/main/main.pug
 
 block content
-  - const content = require('./contact.json')
+  - const content = require("./contact.json")
 
 block head
   +head({pageName: "contact", pageTitle: content.pageTitle})
