@@ -92,23 +92,23 @@ module.exports = {
             const assetType =
               filePathAndFileName.includes('/favicons/') && 'favicons'
 
-            // preserve directory/filename structure of assets as much as possible
+            // preserve directory/filename structure of images as much as possible
             // in order to output cleanly-mapped directory/file names on build
-            let assetPath
+            let assetPathAndName
             switch (assetType) {
               // favicons are used on all pages, so output them in their own dedicated directory
               case 'favicons':
-                assetPath = filePathAndFileName.replace('src/', '')
+                assetPathAndName = filePathAndFileName.replace('src/', '')
                 break
               // output all other assets as nested within their respective page directories
               default:
-                assetPath = filePathAndFileName.replace('src/pages/', '')
+                assetPathAndName = filePathAndFileName.replace('src/pages/', '')
                 break
             }
 
             // use the image's filepath/filename and contenthash as its URL filename
             // (useful for cache-busting when the contents of the file change)
-            return `${assetPath}.${pathData.contentHash}.${fileExtension}`
+            return `${assetPathAndName}.${pathData.contentHash}.${fileExtension}`
           },
         },
         // configure additional loader(s) for processing images
