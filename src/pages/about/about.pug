@@ -12,7 +12,7 @@ block content
     const imageSrc = require('./images/digital-ceo-award-grayscale.jpg')
 
 block head
-  +head({pageName: "about", pageTitle: content.pageTitle})
+  +head({metadata: content.metadata})
 
 block main
   +main

@@ -11,7 +11,7 @@ block content
     const imageSrc = require('./images/you-are-being-monitored-blue.png')
 
 block head
-  +head({pageName: "404", pageTitle: content.pageTitle})
+  +head({metadata: content.metadata})
 
 block main
   +main

@@ -1,5 +1,9 @@
 {
-  "pageTitle": "dustinruetz.com",
+  "metadata": {
+    "canonicalURL": "https://www.dustinruetz.com",
+    "description": "Hello! 👋 My name is Dustin Ruetz, and I am a full-stack JavaScript developer living in Toronto, Canada.",
+    "title": "dustinruetz.com"
+  },
   "heroTitle": {
     "lines": ["Web dev.", "Music. Coffee.", "Biking. Beer.*"],
     "asterix": "* priorities subject to change at any time"

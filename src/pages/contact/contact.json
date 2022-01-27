@@ -1,5 +1,9 @@
 {
-  "pageTitle": "Contact",
+  "metadata": {
+    "canonicalURL": "https://www.dustinruetz.com/contact/",
+    "description": "Need to get in touch? Send me an email and I'll respond as soon as I can.",
+    "title": "Contact | dustinruetz.com"
+  },
   "paragraph": {
     "sentence": "Need to get in touch? Send an email to {emailAddress} and I'll respond as soon as I can.",
     "emailAddress": "dtj.ruetz@gmail.com"

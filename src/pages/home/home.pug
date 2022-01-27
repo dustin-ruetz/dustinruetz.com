@@ -9,7 +9,7 @@ block content
     const content = require('./home.json')
 
 block head
-  +head({pageName: "home", pageTitle: content.pageTitle})
+  +head({metadata: content.metadata})
 
 block main
   +main({setClassModifier: "home"})

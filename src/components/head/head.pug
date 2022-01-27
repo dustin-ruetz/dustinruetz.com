@@ -2,18 +2,31 @@ mixin head(params = {})
   //- refer to webpack.common.js `createPage` function for how
   //- <head/>'s CSS <link/> and JS <script/> are injected
   -
-    const {pageName, pageTitle} = params
-    if (typeof pageName !== 'string')
-      throw new Error(`+head({pageName}) must be of type string; received ${typeof pageName}.`)
-    if (!pageName)
-      throw new Error(`+head({pageName}) requires a non-empty string argument; received ${pageName}.`)
-    if (typeof pageTitle !== 'string')
-      throw new Error(`+head({pageTitle}) must be of type string; received ${typeof pageTitle}.`)
-    if (!pageTitle)
-      throw new Error(`+head({pageTitle}) requires a non-empty string argument; received ${pageTitle}.`)
+    const {DOMAIN} = require('../../config/constants.js')
+    const {metadata} = params
+    if (!metadata.canonicalURL)
+      throw new Error(`+head({metadata.canonicalURL}) requires a non-empty string; received ${metadata.canonicalURL}.`)
+    if (!metadata.description)
+      throw new Error(`+head({metadata.description}) requires a non-empty string; received ${metadata.description}.`)
+    if (!metadata.title)
+      throw new Error(`+head({metadata.title}) requires a non-empty string; received ${metadata.title}.`)
+    //- "Google generally truncates [page meta description] snippets to ~155-160 characters.
+    //- It's best to keep meta descriptions long enough that they're sufficiently
+    //- descriptive, so we recommend descriptions between 50 and 160 characters."
+    //- https://moz.com/learn/seo/meta-description/
+    const metadataDescriptionMaxLength = 150
+    if (metadata.description.length > metadataDescriptionMaxLength)
+      throw new Error(`+head({metadata.title}) must be less than ${metadataDescriptionMaxLength} characters in length; received ${metadata.description.length} characters.`)
+    //- homepage title can be equal to the domain, while the format
+    //- for other page titles should be `{title} | domain`
+    if (
+      metadata.title !== DOMAIN
+      && !metadata.title.includes(` | ${DOMAIN}`)
+    )
+      throw new Error(`+head({metadata.title}) must include ${DOMAIN}; received ${metadata.title}.`)
   head
-    //- note 1: the favicon path below is relative to the /src/pages/{pageFilename}.pug file
-    //- that includes the <head/> mixin file, _not_ this <head/> mixin file itself
+    //- note 1: the favicon path below is relative to the /src/pages/{pageFilename}.pug file; i.e.
+    //- the page .pug file includes the <head/> mixin file, _not_ this <head/> mixin file itself
     //- note 2: refer to webpack.common.js PNG rule for how the favicon path is determined
     link(
       href=require("../../components/head/favicons/favicon-blue-180x180.png")
@@ -40,12 +53,52 @@ mixin head(params = {})
       href=remoteFonts.href()
       rel="stylesheet"
     )
+    link(
+      href=metadata.canonicalURL
+      rel="canonical"
+    )
     meta(charset="utf-8")
+    meta(
+      content=metadata.description
+      name="description"
+    )
     meta(
       content="width=device-width, initial-scale=1.0"
       name="viewport"
     )
-    -
-      const {DOMAIN} = require('../../config/constants.js')
-      const isHomepage = pageTitle === DOMAIN
-    title= isHomepage ? pageTitle : `${pageTitle} | ${DOMAIN}`
+    title= metadata.title
+    //- https://css-tricks.com/essential-meta-tags-social-media/
+    //- essential meta tags
+    meta(
+      content=metadata.title
+      property="og:title"
+    )
+    meta(
+      content=metadata.description
+      property="og:description"
+    )
+    //- TODO: Facebook Open Graph image
+      meta(
+      content=""
+      property="og:image"
+      )
+    meta(
+      content=metadata.canonicalURL
+      property="og:url"
+    )
+    //- TODO: Twitter card image display format
+      meta(
+      content="summary_large_image"
+      name="twitter:card"
+      )
+    //- non-essential (but still recommended) meta tags
+    //- TODO: Facebook Open Graph site name
+      meta(
+      content=""
+      property="og:site_name"
+      )
+    //- TODO: Twitter card image alt text description
+      meta(
+      content=""
+      name="twitter:image:alt"
+      )

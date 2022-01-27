@@ -1,5 +1,9 @@
 {
-  "pageTitle": "About",
+  "metadata": {
+    "canonicalURL": "https://www.dustinruetz.com/about/",
+    "description": "Learn more about my professional work as a web developer.",
+    "title": "About | dustinruetz.com"
+  },
   "introSentence": "Hello! 👋 I'm {name}.*",
   "image": {
     "alt": "",
