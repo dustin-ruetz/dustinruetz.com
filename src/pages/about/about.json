@@ -4,6 +4,7 @@
     "description": "Learn more about my professional work as a web developer.",
     "title": "About | dustinruetz.com"
   },
+  "pageTitle": "About",
   "introSentence": "Hello! 👋 I'm {name}.*",
   "image": {
     "alt": "",
