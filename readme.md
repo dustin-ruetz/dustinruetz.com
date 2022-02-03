@@ -71,6 +71,13 @@ The repo is configured so that the `www` branch is a Git worktree that tracks th
 - Attempting to `require()` a string variable causes Pug/Webpack to throw an error, but requiring a template literal (specifically a string literal containing an embedded expression) works. Example:
   - ❌ Doesn't work: `require(imageFilename)`
   - ✅ Does work: `` require(`./images/${imageFilename}`) ``
+- Use [Pug's buffered code][pug-buffered-code] feature in combination with `JSON.stringify()` if you need to print out some data in a Pug template file. Example:
+
+```pug
+- const content = {title: "The page title", description: "The page description"}
+div= JSON.stringify(content)
+```
+
 - Use the `!{variable}` syntax (i.e. the [Pug interpolation][pug-interpolation] feature) to buffer unescaped values into your template files. This is useful when combined with [Webpack's Asset Modules][webpack-asset-modules] to output SVG code directly into the compiled HTML. Example:
 
 ```pug
@@ -90,6 +97,7 @@ figure
 [mkcert]: https://github.com/FiloSottile/mkcert/
 [npm]: https://www.npmjs.com/get-npm/
 [nodejs]: https://nodejs.org/en/download/
+[pug-buffered-code]: https://pugjs.org/language/code.html#buffered-code
 [pug-interpolation]: https://pugjs.org/language/interpolation.html
 [webpack-asset-modules]: https://webpack.js.org/guides/asset-modules/
 [webpack-resolve-url-loader]: https://github.com/bholloway/resolve-url-loader/
