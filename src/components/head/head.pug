@@ -3,6 +3,10 @@ mixin head(params = {})
   //- <head/>'s CSS <link/> and JS <script/> are injected
   -
     const {DOMAIN} = require('../../config/constants.js')
+    //- note 1: the favicon path below is relative to the /src/pages/{pageFilename}.pug file
+    //-         that requires the head mixin from this file
+    //- note 2: refer to webpack.common.js PNG rule for how the favicon path is determined
+    const faviconHref = require('../../components/head/favicons/favicon-blue-180x180.png')
     const {metadata} = params
     if (!metadata.canonicalURL)
       throw new Error(`+head({metadata.canonicalURL}) requires a non-empty string; received ${metadata.canonicalURL}.`)
@@ -25,11 +29,8 @@ mixin head(params = {})
     )
       throw new Error(`+head({metadata.title}) must include ${DOMAIN}; received ${metadata.title}.`)
   head
-    //- note 1: the favicon path below is relative to the /src/pages/{pageFilename}.pug file; i.e.
-    //- the page .pug file includes the <head/> mixin file, _not_ this <head/> mixin file itself
-    //- note 2: refer to webpack.common.js PNG rule for how the favicon path is determined
     link(
-      href=require("../../components/head/favicons/favicon-blue-180x180.png")
+      href=faviconHref
       rel="icon"
       sizes="180x180"
       type="image/png"
