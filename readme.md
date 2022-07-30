@@ -22,8 +22,8 @@ Dustin Ruetz's website.
 ### Application
 
 1. Prerequisite: Have [Node.js][nodejs] and [NPM][npm] installed.
-1. Clone the repository.
-1. From the root of the repo, run: `npm install`.
+1. Clone the repository and `cd` into it.
+1. Run `npm install`.
 
 ### Use HTTPS in local development
 
