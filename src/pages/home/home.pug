@@ -49,14 +49,14 @@ block main
         | !{aboutMeTitle}
       p.home__about-me-paragraph
         -
+          const {employer} = content.aboutMe.paragraph
           const aboutMeParagraph = content.aboutMe.paragraph.sentence
-            .replace("**company**", strongText(content.aboutMe.paragraph.company))
-            .replace("**companyParent**", strongText(content.aboutMe.paragraph.companyParent))
+            .replace("**employer**", strongText(
+              `<a class="link" href=${employer.href} target="_blank">${employer.name}</a>`
+            ))
             .replace("**technology1**", strongText(content.aboutMe.paragraph.technology1))
-            .replace("**technology2**", strongText(content.aboutMe.paragraph.technology2))
             .replace("_and_", emphasizeText(content.aboutMe.paragraph.emphasizedAnd))
-            .replace("**technology3**", strongText(content.aboutMe.paragraph.technology3))
-            .replace("**technology4**", strongText(content.aboutMe.paragraph.technology4))
+            .replace("**technology2**", strongText(content.aboutMe.paragraph.technology2))
             .replace("**interest1**", strongText(content.aboutMe.paragraph.interest1))
             .replace("**interest2**", strongText(content.aboutMe.paragraph.interest2))
             .replace("**interest3**", strongText(content.aboutMe.paragraph.interest3))

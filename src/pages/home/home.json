@@ -15,14 +15,14 @@
       "city": "Toronto"
     },
     "paragraph": {
-      "sentence": "Currently I work at **company** (a subsidiary of **companyParent**) where I use **technology1** and **technology2** to build web applications. (Fun fact: I also happen to be one of those weirdo devs who likes writing both **technology3** _and_ **technology4** files.) Outside of work my interests include discovering the classics of **interest1**, staying up-to-date with **interest2**, and **interest3** regardless of season.",
-      "company": "Koodo Mobile",
-      "companyParent": "TELUS",
-      "technology1": "React",
-      "technology2": "Express",
-      "technology3": "unit tests",
+      "sentence": "Currently I work at **employer**. (Fun fact: I also happen to be one of those weirdo devs who likes writing both **technology1** _and_ **technology2**.) Outside of work my interests include discovering the classics of **interest1**, staying up-to-date with **interest2**, and **interest3** regardless of season.",
+      "employer": {
+        "href": "https://1password.com",
+        "name": "1Password"
+      },
+      "technology1": "unit tests",
       "emphasizedAnd": "and",
-      "technology4": "Webpack config",
+      "technology2": "Webpack config files",
       "interest1": "blues/jazz/R&B/rock",
       "interest2": "technology news",
       "interest3": "enjoying the outdoors"
