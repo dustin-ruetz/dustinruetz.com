@@ -40,7 +40,7 @@
     "mini-css-extract-plugin": "^2.6.0",
     "nodemon": "^2.0.16",
     "pug": "^3.0.2",
-    "pug-loader": "^2.4.0",
+    "pug-loader": "github:dustin-ruetz/pug-loader",
     "sass": "^1.51.0",
     "sass-loader": "^12.6.0",
     "webpack": "^5.72.1",
