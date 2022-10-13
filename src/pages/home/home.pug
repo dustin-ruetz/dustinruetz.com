@@ -34,9 +34,9 @@ block main
                 = character
     p.home__hero-asterix
       = content.heroTitle.asterix
-    .home__external-links
+    div.home__external-links
       include ../../components/external-links/external-links.pug
-    .home__about-me
+    div.home__about-me
       -
         const emphasizeText = (text) => `<em>${text}</em>`
         const strongText = (text) => `<strong class="home__about-me-strong-text">${text}</strong>`

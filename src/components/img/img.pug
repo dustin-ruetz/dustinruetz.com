@@ -30,9 +30,9 @@ mixin img(params = {border: true})
 
   figure
     img(
+      alt=alt
       class="img__image"
       class=border ? "img__image--border" : null
-      alt=alt
       src=src
     )
     if caption
