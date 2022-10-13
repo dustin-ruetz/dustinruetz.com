@@ -22,7 +22,7 @@
       "Database: MongoDB",
       "Framework: Gatsby, Next.js",
       "Frontend: Pug, React, Sass",
-      "Tooling: Jest, Webpack"
+      "Tooling: esbuild, Jest, TypeScript, Webpack"
     ]
   },
   "namePronunciation": "* Wondering how to say my last name? It's pronounced \"Ritz\", like the swanky hotels; no affiliation."
