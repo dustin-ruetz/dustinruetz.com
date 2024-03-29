@@ -2,6 +2,7 @@ const {readdirSync, statSync} = require('fs')
 const path = require('path')
 const copyWebpackPlugin = require('copy-webpack-plugin')
 const htmlWebpackPlugin = require('html-webpack-plugin')
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 const miniCssExtractPlugin = require('mini-css-extract-plugin')
 
 /**
@@ -111,21 +112,6 @@ module.exports = {
             return `${assetPathAndName}.${pathData.contentHash}.${fileExtension}`
           },
         },
-        // configure additional loader(s) for processing images
-        use: [
-          {
-            // https://github.com/tcoopman/image-webpack-loader/
-            loader: 'image-webpack-loader',
-            /**
-             * the image-webpack-loader docs recommend setting `options.disable = true` while
-             * working in your development environment in order to speed up compilations
-             *
-             * I've chosen to keep image compression enabled in development in order to maintain more similarity
-             * between my development and production environments; keeping it enabled also gives me
-             * more accurate information in the browser on metrics like file size and loading time
-             */
-          },
-        ],
       },
       // SVGs
       // https://webpack.js.org/guides/asset-modules/
@@ -144,6 +130,34 @@ module.exports = {
       // templates
       // https://github.com/pugjs/pug-loader/
       {test: /\.pug$/, use: 'pug-loader'},
+    ],
+  },
+  optimization: {
+    minimizer: [
+      // specify `'...'` to ensure that the TerserPlugin is used to significantly reduce the file size of the compiled JavaScript bundles
+      // paraphrased excerpt from https://webpack.js.org/configuration/optimization/#optimizationminimizer:
+      // > By default, webpack configures `optimization.minimizer` to use `TerserPlugin`. This configuration
+      // > can be accessed with `'...'` if you want to keep it when customizing this setting.
+      '...',
+      // https://github.com/webpack-contrib/image-minimizer-webpack-plugin/#optimize-with-sharp
+      new ImageMinimizerPlugin({
+        minimizer: {
+          implementation: ImageMinimizerPlugin.sharpMinify,
+          options: {
+            encodeOptions: {
+              jpeg: {
+                quality: 90,
+              },
+              png: {
+                // excerpt from https://sharp.pixelplumbing.com/api-output#png:
+                // > CPU effort, between 1 (fastest) and 10 (slowest).
+                effort: 10,
+                quality: 90,
+              },
+            },
+          },
+        },
+      }),
     ],
   },
   output: {
