@@ -9,10 +9,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Git checkout
-        uses: actions/checkout@v3
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: 🛒 Git checkout repository
+        uses: actions/checkout@v4
+      - name: ⬢ Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
       # use GitHub Pages to host the site's files by sourcing from the www branch
