@@ -17,5 +17,8 @@ mixin heading(params = {})
           throw new Error(`+heading({level}) requires one of [${validLevelArgs}] as an argument; received ${invalidLevelArg}.`)
         }
       }
-  #{level}(class="heading" class=level)
+  #{level}(
+    class="heading"
+    class=level
+  )
     block
