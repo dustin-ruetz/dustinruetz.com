@@ -37,36 +37,36 @@
     position: relative;
   }
 
-  &__hero-title-line-animation {
-    @keyframes hero-title-line-animation {
-      0% {
-        width: 0;
-        left: 0;
-        opacity: 0;
-      }
-      50% {
-        width: 100%;
-        left: 0;
-        opacity: 1;
-      }
-      55% {
-        animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        width: 100%;
-        left: auto;
-        right: 0;
-        opacity: 1;
-        transform: translateX(0);
-      }
-      100% {
-        animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        width: 0;
-        left: auto;
-        right: 0;
-        opacity: 0;
-        transform: translateX(20rem);
-      }
+  @keyframes hero-title-line-animation {
+    0% {
+      width: 0;
+      left: 0;
+      opacity: 0;
     }
+    50% {
+      width: 100%;
+      left: 0;
+      opacity: 1;
+    }
+    55% {
+      animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      width: 100%;
+      left: auto;
+      right: 0;
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      width: 0;
+      left: auto;
+      right: 0;
+      opacity: 0;
+      transform: translateX(20rem);
+    }
+  }
 
+  &__hero-title-line-animation {
     animation-duration: 1850ms;
     animation-direction: alternate;
     animation-fill-mode: forwards;
@@ -93,23 +93,23 @@
     }
   }
 
-  &__hero-title-line-content {
-    @keyframes hero-title-line-content {
-      0% {
-        left: 0;
-        opacity: 0;
-      }
-      80% {
-        left: 5rem;
-        opacity: 0;
-      }
-      100% {
-        animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        left: 0;
-        opacity: 1;
-      }
+  @keyframes hero-title-line-content {
+    0% {
+      left: 0;
+      opacity: 0;
     }
+    80% {
+      left: 5rem;
+      opacity: 0;
+    }
+    100% {
+      animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      left: 0;
+      opacity: 1;
+    }
+  }
 
+  &__hero-title-line-content {
     animation-duration: 1500ms;
     animation-direction: alternate;
     animation-fill-mode: forwards;
@@ -134,20 +134,21 @@
   }
 
   &__hero-title-character {
-    text-shadow: colors.$black-000-with-shadow -2rem 1rem 1rem,
+    text-shadow:
+      colors.$black-000-with-shadow -2rem 1rem 1rem,
       colors.$black-000-with-shadow 0 2rem 5rem;
   }
 
-  &__hero-asterix {
-    @keyframes hero-asterix {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
+  @keyframes hero-asterix {
+    0% {
+      opacity: 0;
     }
+    100% {
+      opacity: 1;
+    }
+  }
 
+  &__hero-asterix {
     // show the hero asterix content after the hero title animations are done
     animation-delay: 2750ms;
     animation-duration: 500ms;
@@ -162,17 +163,18 @@
     }
   }
 
-  &__external-links {
-    @keyframes external-links {
-      0% {
-        opacity: 0;
-        left: 10vh;
-      }
-      100% {
-        opacity: 1;
-        left: 0;
-      }
+  @keyframes external-links {
+    0% {
+      opacity: 0;
+      left: 10vh;
     }
+    100% {
+      opacity: 1;
+      left: 0;
+    }
+  }
+
+  &__external-links {
     // show the external links after the hero asterix animation is done
     animation-delay: 3000ms;
     animation-duration: 500ms;
@@ -210,18 +212,18 @@
     }
   }
 
-  &__about-me {
-    @keyframes about-me {
-      0% {
-        opacity: 0;
-        top: 10vh;
-      }
-      100% {
-        opacity: 1;
-        top: 0;
-      }
+  @keyframes about-me {
+    0% {
+      opacity: 0;
+      top: 10vh;
     }
+    100% {
+      opacity: 1;
+      top: 0;
+    }
+  }
 
+  &__about-me {
     // show the about me content after the external links animation is done
     animation-delay: 3250ms;
     animation-duration: 500ms;
