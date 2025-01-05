@@ -7,7 +7,6 @@
 *.md   text
 *.pug  text
 *.scss text
-*.sh   text
 *.svg  text
 *.yaml text
 
