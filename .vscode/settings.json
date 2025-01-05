@@ -1,0 +1,16 @@
+{
+	"eslint.options": {
+		"overrideConfigFile": "node_modules/web-devdeps/lib/config/eslint.config.js"
+	},
+	"material-icon-theme.files.associations": {
+		".caches/.prettiercache": "Prettier"
+	},
+	"material-icon-theme.folders.associations": {
+		".caches": "Temp",
+		".caches/.jestcache": "Test"
+	},
+	"prettier.configPath": "node_modules/web-devdeps/lib/config/prettier.config.js",
+	"prettier.ignorePath": ".gitignore",
+	"stylelint.configFile": "node_modules/web-devdeps/lib/config/stylelint.config.js",
+	"stylelint.validate": ["css", "scss"]
+}

@@ -1,8 +1,8 @@
 {
-  "recommendations": [
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
-    "redhat.vscode-yaml",
-    "stylelint.vscode-stylelint"
-  ]
+	"recommendations": [
+		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode",
+		"redhat.vscode-yaml",
+		"stylelint.vscode-stylelint"
+	]
 }
