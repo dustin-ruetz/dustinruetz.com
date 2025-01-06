@@ -1,4 +1,4 @@
-const DOMAIN = 'dustinruetz.com'
-const NAME = 'Dustin Ruetz'
+const DOMAIN = "dustinruetz.com";
+const NAME = "Dustin Ruetz";
 
-module.exports = {DOMAIN, NAME}
+module.exports = {DOMAIN, NAME};

@@ -1,105 +1,79 @@
 mixin head(params = {})
-  //- refer to webpack.common.js `createPage` function for how
-  //- <head/>'s CSS <link/> and JS <script/> are injected
-  -
-    const {DOMAIN} = require('../../config/constants.js')
-    //- note 1: the favicon path below is relative to the /src/pages/{pageFilename}.pug file
-    //-         that requires the head mixin from this file
-    //- note 2: refer to webpack.common.js PNG rule for how the favicon path is determined
-    const faviconHref = require('../../components/head/favicons/favicon-blue-180x180.png')
-    const {metadata} = params
-    if (!metadata.canonicalURL)
-      throw new Error(`+head({metadata.canonicalURL}) requires a non-empty string; received ${metadata.canonicalURL}.`)
-    if (!metadata.description)
-      throw new Error(`+head({metadata.description}) requires a non-empty string; received ${metadata.description}.`)
-    if (!metadata.title)
-      throw new Error(`+head({metadata.title}) requires a non-empty string; received ${metadata.title}.`)
-    //- "Google generally truncates [page meta description] snippets to ~155-160 characters.
-    //- It's best to keep meta descriptions long enough that they're sufficiently
-    //- descriptive, so we recommend descriptions between 50 and 160 characters."
-    //- https://moz.com/learn/seo/meta-description/
-    const metadataDescriptionMaxLength = 150
-    if (metadata.description.length > metadataDescriptionMaxLength)
-      throw new Error(`+head({metadata.title}) must be less than ${metadataDescriptionMaxLength} characters in length; received ${metadata.description.length} characters.`)
-    //- homepage title can be equal to the domain, while the format
-    //- for other page titles should be `{title} | domain`
-    if (
-      metadata.title !== DOMAIN
-      && !metadata.title.includes(` | ${DOMAIN}`)
-    )
-      throw new Error(`+head({metadata.title}) must include ${DOMAIN}; received ${metadata.title}.`)
-  head
-    link(
-      href=faviconHref
-      rel="icon"
-      sizes="180x180"
-      type="image/png"
-    )
-    -
-      //- https://developers.google.com/fonts/docs/css2/
-      const remoteFonts = {
-        baseUrl: 'https://fonts.googleapis.com/css2',
-        fonts: {
-          droidSerif: 'family=Droid+Serif:wght@400;700',
-          roboto: 'family=Roboto:wght@400;700',
-        },
-        options: {
-          display: 'display=swap',
-        },
-        href: function() {
-          return `${this.baseUrl}?${this.fonts.droidSerif}&${this.fonts.roboto}&${this.options.display}`
-        }
-      }
-    link(
-      href=remoteFonts.href()
-      rel="stylesheet"
-    )
-    link(
-      href=metadata.canonicalURL
-      rel="canonical"
-    )
-    meta(charset="utf-8")
-    meta(
-      content=metadata.description
-      name="description"
-    )
-    meta(
-      content="width=device-width, initial-scale=1.0"
-      name="viewport"
-    )
-    title= metadata.title
-    //- https://css-tricks.com/essential-meta-tags-social-media/
-    //- essential meta tags
-    meta(
-      content=metadata.title
-      property="og:title"
-    )
-    meta(
-      content=metadata.description
-      property="og:description"
-    )
-    //- TODO: Facebook Open Graph image
-      meta(
-      content=""
-      property="og:image"
-      )
-    meta(
-      content=metadata.canonicalURL
-      property="og:url"
-    )
-    //- TODO: Twitter card image display format
-      meta(
-      content="summary_large_image"
-      name="twitter:card"
-      )
-    //- non-essential (but still recommended) meta tags
-    //- TODO: Facebook Open Graph site name
-      meta(
-      content=""
-      property="og:site_name"
-      )
-    //- TODO: Twitter card image alt text description
-      meta(
-      content=""
-      name="twitter:image:alt"
-      )
+	//- refer to webpack.common.js `createPage` function for how
+	//- <head/>'s CSS <link/> and JS <script/> are injected
+	-
+		const {DOMAIN} = require('../../config/constants.js')
+		//- note 1: the favicon path below is relative to the /src/pages/{pageFilename}.pug file
+		//-         that requires the head mixin from this file
+		//- note 2: refer to webpack.common.js PNG rule for how the favicon path is determined
+		const faviconHref = require('../../components/head/favicons/favicon-blue-180x180.png')
+		const {metadata} = params
+		if (!metadata.canonicalURL)
+		  throw new Error(`+head({metadata.canonicalURL}) requires a non-empty string; received ${metadata.canonicalURL}.`)
+		if (!metadata.description)
+		  throw new Error(`+head({metadata.description}) requires a non-empty string; received ${metadata.description}.`)
+		if (!metadata.title)
+		  throw new Error(`+head({metadata.title}) requires a non-empty string; received ${metadata.title}.`)
+		//- "Google generally truncates [page meta description] snippets to ~155-160 characters.
+		//- It's best to keep meta descriptions long enough that they're sufficiently
+		//- descriptive, so we recommend descriptions between 50 and 160 characters."
+		//- https://moz.com/learn/seo/meta-description/
+		const metadataDescriptionMaxLength = 150
+		if (metadata.description.length > metadataDescriptionMaxLength)
+		  throw new Error(`+head({metadata.title}) must be less than ${metadataDescriptionMaxLength} characters in length; received ${metadata.description.length} characters.`)
+		//- homepage title can be equal to the domain, while the format
+		//- for other page titles should be `{title} | domain`
+		if (
+		  metadata.title !== DOMAIN
+		  && !metadata.title.includes(` | ${DOMAIN}`)
+		)
+		  throw new Error(`+head({metadata.title}) must include ${DOMAIN}; received ${metadata.title}.`)
+	head
+		link(href=faviconHref rel="icon" sizes="180x180" type="image/png")
+		-
+			//- https://developers.google.com/fonts/docs/css2/
+			const remoteFonts = {
+			  baseUrl: 'https://fonts.googleapis.com/css2',
+			  fonts: {
+			    droidSerif: 'family=Droid+Serif:wght@400;700',
+			    roboto: 'family=Roboto:wght@400;700',
+			  },
+			  options: {
+			    display: 'display=swap',
+			  },
+			  href: function() {
+			    return `${this.baseUrl}?${this.fonts.droidSerif}&${this.fonts.roboto}&${this.options.display}`
+			  }
+			}
+		link(href=remoteFonts.href() rel="stylesheet")
+		link(href=metadata.canonicalURL rel="canonical")
+		meta(charset="utf-8")
+		meta(content=metadata.description name="description")
+		meta(content="width=device-width, initial-scale=1.0" name="viewport")
+		title= metadata.title
+		//- https://css-tricks.com/essential-meta-tags-social-media/
+		//- essential meta tags
+		meta(content=metadata.title property="og:title")
+		meta(content=metadata.description property="og:description")
+		//- TODO: Facebook Open Graph image
+			meta(
+			content=""
+			property="og:image"
+			)
+		meta(content=metadata.canonicalURL property="og:url")
+		//- TODO: Twitter card image display format
+			meta(
+			content="summary_large_image"
+			name="twitter:card"
+			)
+		//- non-essential (but still recommended) meta tags
+		//- TODO: Facebook Open Graph site name
+			meta(
+			content=""
+			property="og:site_name"
+			)
+		//- TODO: Twitter card image alt text description
+			meta(
+			content=""
+			name="twitter:image:alt"
+			)

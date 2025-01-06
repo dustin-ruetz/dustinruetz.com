@@ -1,27 +1,27 @@
-@use '../../config/spacing.scss';
+@use "../../config/spacing.scss";
 
 .main {
-  max-width: 120rem;
-  padding: spacing.$s-4 spacing.$s-2;
-  margin: 0 auto;
+	max-width: 120rem;
+	padding: spacing.$s-4 spacing.$s-2;
+	margin: 0 auto;
 
-  &__inner {
-    max-width: 90rem;
-    margin: 0 auto;
-  }
+	&__inner {
+		max-width: 90rem;
+		margin: 0 auto;
+	}
 
-  // set `min-height` in order to space out main content and footer on pages that don't have much content
-  @media screen and (min-width: 667px) {
-    min-height: 50vh;
-  }
+	// set `min-height` in order to space out main content and footer on pages that don't have much content
+	@media screen and (min-width: 667px) {
+		min-height: 50vh;
+	}
 
-  @media screen and (min-width: 1024px) {
-    padding: spacing.$s-4;
-  }
+	@media screen and (min-width: 1024px) {
+		padding: spacing.$s-4;
+	}
 
-  // remove `padding-left/right` when it's no longer necessary due to <main/> `max-width`
-  @media screen and (min-width: 1280px) {
-    padding-left: unset;
-    padding-right: unset;
-  }
+	// remove `padding-left/right` when it's no longer necessary due to <main/> `max-width`
+	@media screen and (min-width: 1280px) {
+		padding-left: unset;
+		padding-right: unset;
+	}
 }

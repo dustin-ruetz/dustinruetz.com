@@ -1,21 +1,21 @@
-@use '../../config/spacing.scss';
+@use "../../config/spacing.scss";
 
 .error-404 {
-  &__description-link-container {
-    margin-bottom: spacing.$s-4;
-  }
+	&__description-link-container {
+		margin-bottom: spacing.$s-4;
+	}
 
-  &__description {
-    margin-bottom: spacing.$s-2;
-  }
+	&__description {
+		margin-bottom: spacing.$s-2;
+	}
 
-  &__requested-page {
-    font-family: monospace;
-    text-decoration: underline;
-  }
+	&__requested-page {
+		font-family: monospace;
+		text-decoration: underline;
+	}
 
-  &__image-container {
-    max-width: 40rem;
-    margin: 0 auto;
-  }
+	&__image-container {
+		max-width: 40rem;
+		margin: 0 auto;
+	}
 }

@@ -1,53 +1,53 @@
-@use '../../config/colors.scss';
-@use '../../config/fonts.scss';
-@use '../../config/spacing.scss';
-@use '../nav/nav.scss';
+@use "../../config/colors.scss";
+@use "../../config/fonts.scss";
+@use "../../config/spacing.scss";
+@use "../nav/nav.scss";
 
 .footer {
-  padding-top: spacing.$s-4;
-  // footer `padding-bottom` must account for the nav height
-  // (nav is `position: fixed` to the bottom of the page)
-  padding-bottom: calc(#{nav.$nav-mobile-height} + #{spacing.$s-4});
-  color: colors.$grey;
-  font-family: fonts.$roboto;
-  font-size: 1.4rem;
-  text-align: center;
+	padding-top: spacing.$s-4;
+	// footer `padding-bottom` must account for the nav height
+	// (nav is `position: fixed` to the bottom of the page)
+	padding-bottom: calc(#{nav.$nav-mobile-height} + #{spacing.$s-4});
+	color: colors.$grey;
+	font-family: fonts.$roboto;
+	font-size: 1.4rem;
+	text-align: center;
 
-  @media screen and (min-width: 667px) {
-    padding-bottom: spacing.$s-4;
-  }
+	@media screen and (min-width: 667px) {
+		padding-bottom: spacing.$s-4;
+	}
 
-  &__copyright {
-    &:before,
-    &:after {
-      content: '';
-      display: block;
-      margin: 0 auto;
-    }
+	&__copyright {
+		&:before,
+		&:after {
+			content: "";
+			display: block;
+			margin: 0 auto;
+		}
 
-    $decorative-icon-margin: 2.5rem;
-    $decorative-icon-square-dimension: 3.5rem;
+		$decorative-icon-margin: 2.5rem;
+		$decorative-icon-square-dimension: 3.5rem;
 
-    // decorative rotated square
-    &:before {
-      height: $decorative-icon-square-dimension;
-      width: $decorative-icon-square-dimension;
-      border: 1px solid colors.$blue;
-      margin-bottom: $decorative-icon-margin;
-      // use `transform` instead of `rotate` because the latter is
-      // still experimental and not widely-supported in browsers
-      // https://caniuse.com/?search=rotate
-      transform: rotate(45deg);
-    }
+		// decorative rotated square
+		&:before {
+			height: $decorative-icon-square-dimension;
+			width: $decorative-icon-square-dimension;
+			border: 1px solid colors.$blue;
+			margin-bottom: $decorative-icon-margin;
+			// use `transform` instead of `rotate` because the latter is
+			// still experimental and not widely-supported in browsers
+			// https://caniuse.com/?search=rotate
+			transform: rotate(45deg);
+		}
 
-    // decorative line
-    &:after {
-      height: 0.1rem;
-      width: 12.5%;
-      max-width: 21rem;
-      margin-top: $decorative-icon-margin;
-      margin-bottom: $decorative-icon-margin;
-      background-color: colors.$blue;
-    }
-  }
+		// decorative line
+		&:after {
+			height: 0.1rem;
+			width: 12.5%;
+			max-width: 21rem;
+			margin-top: $decorative-icon-margin;
+			margin-bottom: $decorative-icon-margin;
+			background-color: colors.$blue;
+		}
+	}
 }

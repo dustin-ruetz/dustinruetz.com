@@ -1,42 +1,42 @@
-@use '../../config/spacing.scss';
+@use "../../config/spacing.scss";
 
 .about {
-  &__intro-sentence,
-  &__image-bio-container,
-  &__image-container,
-  &__skills-and-tech-intro-sentence,
-  &__skills-and-tech-list-container {
-    margin-bottom: spacing.$s-2;
-  }
+	&__intro-sentence,
+	&__image-bio-container,
+	&__image-container,
+	&__skills-and-tech-intro-sentence,
+	&__skills-and-tech-list-container {
+		margin-bottom: spacing.$s-2;
+	}
 
-  &__image-container {
-    max-width: 40rem;
-  }
+	&__image-container {
+		max-width: 40rem;
+	}
 
-  &__name-pronunciation {
-    font-size: 1.4rem;
-  }
+	&__name-pronunciation {
+		font-size: 1.4rem;
+	}
 
-  @media screen and (min-width: 440px) {
-    &__image-container {
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
+	@media screen and (min-width: 440px) {
+		&__image-container {
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
 
-  @media screen and (min-width: 768px) {
-    &__image-bio-container {
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content: space-between;
-      margin: 2.5rem 0;
-    }
-    &__image-container {
-      width: 35%;
-      margin: unset;
-    }
-    &__bio-container {
-      width: 60%;
-    }
-  }
+	@media screen and (min-width: 768px) {
+		&__image-bio-container {
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: space-between;
+			margin: 2.5rem 0;
+		}
+		&__image-container {
+			width: 35%;
+			margin: unset;
+		}
+		&__bio-container {
+			width: 60%;
+		}
+	}
 }

@@ -1,46 +1,46 @@
-@use '../../config/colors.scss';
+@use "../../config/colors.scss";
 
 .external-links {
-  display: flex;
-  justify-content: center;
-  list-style: none;
+	display: flex;
+	justify-content: center;
+	list-style: none;
 
-  &__link-container {
-    margin-right: 0.5rem;
+	&__link-container {
+		margin-right: 0.5rem;
 
-    &:last-child {
-      margin-right: unset;
-    }
-  }
+		&:last-child {
+			margin-right: unset;
+		}
+	}
 
-  &__link {
-    display: block;
-    padding: 0.5rem;
-    line-height: 1;
-    outline: 1px dashed transparent;
-    text-decoration: none;
-    transition: outline 250ms ease-out;
+	&__link {
+		display: block;
+		padding: 0.5rem;
+		line-height: 1;
+		outline: 1px dashed transparent;
+		text-decoration: none;
+		transition: outline 250ms ease-out;
 
-    @media screen and (min-width: 667px) {
-      padding: 1.5rem;
-    }
+		@media screen and (min-width: 667px) {
+			padding: 1.5rem;
+		}
 
-    &:focus {
-      outline: 1px dashed colors.$blue;
-    }
+		&:focus {
+			outline: 1px dashed colors.$blue;
+		}
 
-    &:hover {
-      color: colors.$blue;
+		&:hover {
+			color: colors.$blue;
 
-      .external-links__link-icon {
-        fill: colors.$blue;
-      }
-    }
-  }
+			.external-links__link-icon {
+				fill: colors.$blue;
+			}
+		}
+	}
 
-  &__link-icon {
-    width: 2.4rem;
-    fill: colors.$grey-1;
-    transition: fill 250ms ease-out;
-  }
+	&__link-icon {
+		width: 2.4rem;
+		fill: colors.$grey-1;
+		transition: fill 250ms ease-out;
+	}
 }

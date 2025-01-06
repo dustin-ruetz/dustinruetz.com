@@ -2,40 +2,35 @@
 //- (includes settings for lossless compression, quality, resizing)
 
 mixin img(params = {border: true})
-  -
-    //- required arguments
-    const {alt, src} = params
+	-
+		//- required arguments
+		const {alt, src} = params
 
-    if (typeof alt !== 'string')
-      throw new Error(`+img({alt}) must be of type string; received ${typeof alt}.`)
-    if (!alt && alt !== '')
-      throw new Error(`+img({alt}) is a required argument (note that it can be an empty string); received ${alt}.`)
-    if (typeof src !== 'string')
-      throw new Error(`+img({src}) must be of type string; received ${typeof src}.`)
-    if (!src)
-      throw new Error(`+img({src}) requires a non-empty string argument; received ${src}.`)
+		if (typeof alt !== 'string')
+		  throw new Error(`+img({alt}) must be of type string; received ${typeof alt}.`)
+		if (!alt && alt !== '')
+		  throw new Error(`+img({alt}) is a required argument (note that it can be an empty string); received ${alt}.`)
+		if (typeof src !== 'string')
+		  throw new Error(`+img({src}) must be of type string; received ${typeof src}.`)
+		if (!src)
+		  throw new Error(`+img({src}) requires a non-empty string argument; received ${src}.`)
 
-    //- optional arguments (can be undefined)
-    let {border} = params
-    const {caption} = params
+		//- optional arguments (can be undefined)
+		let {border} = params
+		const {caption} = params
 
-    if (typeof border !== 'boolean' && typeof border !== 'undefined')
-      throw new Error(`+img({border}) must be of type boolean; received ${typeof border}.`)
-    //- default `border` to true unless it's explicitly set to false
-    if (border !== false)
-      border = true
+		if (typeof border !== 'boolean' && typeof border !== 'undefined')
+		  throw new Error(`+img({border}) must be of type boolean; received ${typeof border}.`)
+		//- default `border` to true unless it's explicitly set to false
+		if (border !== false)
+		  border = true
 
-    if (typeof caption !== 'string' && typeof caption !== 'undefined')
-      throw new Error(`+img({caption}) must be of type string/undefined; received ${typeof caption}.`)
+		if (typeof caption !== 'string' && typeof caption !== 'undefined')
+		  throw new Error(`+img({caption}) must be of type string/undefined; received ${typeof caption}.`)
 
-  figure
-    img(
-      alt=alt
-      class="img__image"
-      class=border ? "img__image--border" : null
-      src=src
-    )
-    if caption
-      figcaption.img__caption
-        //- buffer unescaped code directly into the Pug template
-        | !{caption}
+	figure
+		img.img__image(alt=alt class=border ? "img__image--border" : null src=src)
+		if caption
+			figcaption.img__caption
+				//- buffer unescaped code directly into the Pug template
+				| !{caption}

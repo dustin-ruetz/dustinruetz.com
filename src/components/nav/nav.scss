@@ -1,6 +1,6 @@
-@use '../../config/colors.scss';
-@use '../../config/fonts.scss';
-@use '../../config/z-index.scss';
+@use "../../config/colors.scss";
+@use "../../config/fonts.scss";
+@use "../../config/z-index.scss";
 
 $nav-line-height: 1.6rem;
 $link-border: 0.1rem;
@@ -9,108 +9,108 @@ $link-font-size: 1rem;
 $link-icon-dimension: 2rem;
 // sum of mobile nav-/link-related dimensions + 0.3rem = 5.8rem
 $nav-mobile-height: $nav-line-height + $link-border + $link-padding-top-bottom +
-  $link-font-size + $link-icon-dimension + 0.3rem;
+	$link-font-size + $link-icon-dimension + 0.3rem;
 
 .nav {
-  height: $nav-mobile-height;
-  width: 100%;
-  // set `background-color` and `z-index` because `position` is set
-  background-color: colors.$black-2;
-  position: fixed;
-  bottom: 0;
-  z-index: z-index.$nav;
-  line-height: $nav-line-height;
+	height: $nav-mobile-height;
+	width: 100%;
+	// set `background-color` and `z-index` because `position` is set
+	background-color: colors.$black-2;
+	position: fixed;
+	bottom: 0;
+	z-index: z-index.$nav;
+	line-height: $nav-line-height;
 
-  // unset the styles when the tablet/desktop viewport becomes active
-  @media screen and (min-width: 667px) {
-    height: unset;
-    width: unset;
-    background-color: unset;
-    position: unset;
-    bottom: unset;
-    z-index: unset;
-  }
+	// unset the styles when the tablet/desktop viewport becomes active
+	@media screen and (min-width: 667px) {
+		height: unset;
+		width: unset;
+		background-color: unset;
+		position: unset;
+		bottom: unset;
+		z-index: unset;
+	}
 
-  @function set-link-border($color) {
-    @return $link-border solid $color;
-  }
+	@function set-link-border($color) {
+		@return $link-border solid $color;
+	}
 
-  &__links {
-    display: flex;
-    justify-content: space-between;
-    border-top: set-link-border(colors.$black-1);
+	&__links {
+		display: flex;
+		justify-content: space-between;
+		border-top: set-link-border(colors.$black-1);
 
-    @media screen and (min-width: 667px) {
-      height: 100%;
-      align-items: center;
-      border-top: unset;
-    }
-  }
+		@media screen and (min-width: 667px) {
+			height: 100%;
+			align-items: center;
+			border-top: unset;
+		}
+	}
 
-  &__link-container {
-    // set `width: 100%` to make all of these flex children equal width
-    width: 100%;
-    border-right: set-link-border(colors.$black-1);
+	&__link-container {
+		// set `width: 100%` to make all of these flex children equal width
+		width: 100%;
+		border-right: set-link-border(colors.$black-1);
 
-    &:last-child {
-      // set `border-right: transparent` to maintain equal width on the last-child
-      border-right: set-link-border(transparent);
-    }
+		&:last-child {
+			// set `border-right: transparent` to maintain equal width on the last-child
+			border-right: set-link-border(transparent);
+		}
 
-    @media screen and (min-width: 667px) {
-      border-right: none;
+		@media screen and (min-width: 667px) {
+			border-right: none;
 
-      &--home {
-        display: none;
-        visibility: hidden;
-      }
+			&--home {
+				display: none;
+				visibility: hidden;
+			}
 
-      &:last-child {
-        border-right: unset;
-      }
-    }
-  }
+			&:last-child {
+				border-right: unset;
+			}
+		}
+	}
 
-  &__link {
-    display: block;
-    padding: $link-padding-top-bottom 0;
-    color: colors.$grey-2;
-    outline: 1px dashed transparent;
-    font-family: fonts.$roboto;
-    font-size: $link-font-size;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: all 250ms ease-out;
+	&__link {
+		display: block;
+		padding: $link-padding-top-bottom 0;
+		color: colors.$grey-2;
+		outline: 1px dashed transparent;
+		font-family: fonts.$roboto;
+		font-size: $link-font-size;
+		text-align: center;
+		text-decoration: none;
+		text-transform: uppercase;
+		transition: all 250ms ease-out;
 
-    @media screen and (min-width: 667px) {
-      padding: 1.5rem 2rem;
-      color: colors.$white-fff;
-      font-size: 1.8rem;
-      font-weight: 700;
-      text-transform: capitalize;
-    }
+		@media screen and (min-width: 667px) {
+			padding: 1.5rem 2rem;
+			color: colors.$white-fff;
+			font-size: 1.8rem;
+			font-weight: 700;
+			text-transform: capitalize;
+		}
 
-    &:focus {
-      outline: 1px dashed colors.$blue;
-    }
+		&:focus {
+			outline: 1px dashed colors.$blue;
+		}
 
-    &:hover {
-      color: colors.$blue;
+		&:hover {
+			color: colors.$blue;
 
-      .nav__link-icon {
-        fill: colors.$blue;
-      }
-    }
-  }
+			.nav__link-icon {
+				fill: colors.$blue;
+			}
+		}
+	}
 
-  &__link-icon {
-    width: $link-icon-dimension;
-    fill: colors.$grey-2;
+	&__link-icon {
+		width: $link-icon-dimension;
+		fill: colors.$grey-2;
 
-    @media screen and (min-width: 667px) {
-      display: none;
-      visibility: hidden;
-    }
-  }
+		@media screen and (min-width: 667px) {
+			display: none;
+			visibility: hidden;
+		}
+	}
 }

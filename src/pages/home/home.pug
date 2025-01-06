@@ -4,61 +4,59 @@ include ../../components/link/link.pug
 include ../../components/main/main.pug
 
 block content
-  -
-    const {NAME} = require('../../config/constants.js')
-    const content = require('./home.json')
+	-
+		const {NAME} = require('../../config/constants.js')
+		const content = require('./home.json')
 
 block head
-  +head({metadata: content.metadata})
+	+head({metadata: content.metadata})
 
 block main
-  +main({setClassModifier: "home"})
-    h1.home__hero-title
-      each line, index in content.heroTitle.lines
-        span.home__hero-title-line
-          //- use class modifiers to specify line numbers because CSS
-          //- doesn't support *-of-type pseudo-selectors on classes
-          span(
-            class="home__hero-title-line-animation"
-            class=`home__hero-title-line-animation--line-${index + 1}`
-          )
-          span(
-            class="home__hero-title-line-content"
-            class=`home__hero-title-line-content--line-${index + 1}`
-          )
-            //- wrap each character from the hero title in its own <span/> to
-            //- create overlapping text-shadow on each character via CSS
-            - const heroTitleCharacters = line.split("")
-            each character in heroTitleCharacters
-              span.home__hero-title-character
-                = character
-    p.home__hero-asterix
-      = content.heroTitle.asterix
-    div.home__external-links
-      include ../../components/external-links/external-links.pug
-    div.home__about-me
-      -
-        const emphasizeText = (text) => `<em>${text}</em>`
-        const strongText = (text) => `<strong class="home__about-me-strong-text">${text}</strong>`
-      p.home__about-me-title
-        -
-          const aboutMeTitle = content.aboutMe.title.sentence
-            .replace("**name**", strongText(NAME))
-            .replace("**occupation**", strongText(content.aboutMe.title.occupation))
-            .replace("**city**", strongText(content.aboutMe.title.city))
-        | !{aboutMeTitle}
-      p.home__about-me-paragraph
-        -
-          const {employer} = content.aboutMe.paragraph
-          const aboutMeParagraph = content.aboutMe.paragraph.sentence
-            .replace("**employer**", strongText(
-              `<a class="link" href=${employer.href} target="_blank">${employer.name}</a>`
-            ))
-            .replace("**technology1**", strongText(content.aboutMe.paragraph.technology1))
-            .replace("_and_", emphasizeText(content.aboutMe.paragraph.emphasizedAnd))
-            .replace("**technology2**", strongText(content.aboutMe.paragraph.technology2))
-            .replace("**interest1**", strongText(content.aboutMe.paragraph.interest1))
-            .replace("**interest2**", strongText(content.aboutMe.paragraph.interest2))
-            .replace("**interest3**", strongText(content.aboutMe.paragraph.interest3))
-        | !{aboutMeParagraph}
-      +link({href: content.aboutMe.link.href, label: content.aboutMe.link.label})
+	+main({setClassModifier: "home"})
+		h1.home__hero-title
+			each line, index in content.heroTitle.lines
+				span.home__hero-title-line
+					//- use class modifiers to specify line numbers because CSS
+					//- doesn't support *-of-type pseudo-selectors on classes
+					span.home__hero-title-line-animation(
+						class=`home__hero-title-line-animation--line-${index + 1}`
+					)
+					span.home__hero-title-line-content(
+						class=`home__hero-title-line-content--line-${index + 1}`
+					)
+						//- wrap each character from the hero title in its own <span/> to
+						//- create overlapping text-shadow on each character via CSS
+						- const heroTitleCharacters = line.split("");
+						each character in heroTitleCharacters
+							span.home__hero-title-character
+								= character
+		p.home__hero-asterix
+			= content.heroTitle.asterix
+		div.home__external-links
+			include ../../components/external-links/external-links.pug
+		div.home__about-me
+			-
+				const emphasizeText = (text) => `<em>${text}</em>`
+				const strongText = (text) => `<strong class="home__about-me-strong-text">${text}</strong>`
+			p.home__about-me-title
+				-
+					const aboutMeTitle = content.aboutMe.title.sentence
+					  .replace("**name**", strongText(NAME))
+					  .replace("**occupation**", strongText(content.aboutMe.title.occupation))
+					  .replace("**city**", strongText(content.aboutMe.title.city))
+				| !{aboutMeTitle}
+			p.home__about-me-paragraph
+				-
+					const {employer} = content.aboutMe.paragraph
+					const aboutMeParagraph = content.aboutMe.paragraph.sentence
+					  .replace("**employer**", strongText(
+					    `<a class="link" href=${employer.href} target="_blank">${employer.name}</a>`
+					  ))
+					  .replace("**technology1**", strongText(content.aboutMe.paragraph.technology1))
+					  .replace("_and_", emphasizeText(content.aboutMe.paragraph.emphasizedAnd))
+					  .replace("**technology2**", strongText(content.aboutMe.paragraph.technology2))
+					  .replace("**interest1**", strongText(content.aboutMe.paragraph.interest1))
+					  .replace("**interest2**", strongText(content.aboutMe.paragraph.interest2))
+					  .replace("**interest3**", strongText(content.aboutMe.paragraph.interest3))
+				| !{aboutMeParagraph}
+			+link({href: content.aboutMe.link.href, label: content.aboutMe.link.label})

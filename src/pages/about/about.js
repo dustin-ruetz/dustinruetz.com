@@ -1,3 +1,3 @@
-require('../../components/index.js')
-require('../../components/index.scss')
-require('./about.scss')
+require("../../components/index.js");
+require("../../components/index.scss");
+require("./about.scss");

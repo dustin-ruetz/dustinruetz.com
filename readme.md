@@ -74,17 +74,17 @@ The repo is configured so that the `www` branch is a Git worktree that tracks th
 - Use [Pug's buffered code][pug-buffered-code] feature in combination with `JSON.stringify()` if you need to print out some data in a Pug template file. Example:
 
 ```pug
-- const content = {title: "The page title", description: "The page description"}
+- const content = {title: "The page title", description: "The page description"};
 div= JSON.stringify(content)
 ```
 
 - Use the `!{variable}` syntax (i.e. the [Pug interpolation][pug-interpolation] feature) to buffer unescaped values into your template files. This is useful when combined with [Webpack's Asset Modules][webpack-asset-modules] to output SVG code directly into the compiled HTML. Example:
 
 ```pug
-- const icon = require("./icons/icon.svg")
+- const icon = require("./icons/icon.svg");
 //- this will output the icon.svg code as an <svg/> HTML element
 figure
-  | !{icon}
+	| !{icon}
 ```
 
 - Sass implementations don't provide URL rewriting, and [this issue also applies to Webpack's sass-loader][webpack-sass-loader-url-problems]. Use [Webpack's resolve-url-loader][webpack-resolve-url-loader] to solve this issue, which rewrites relative paths in `url()` statements relative to the original source file; this is useful when loading fonts via CSS.

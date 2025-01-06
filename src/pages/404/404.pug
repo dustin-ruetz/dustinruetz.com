@@ -6,20 +6,20 @@ include ../../components/link/link.pug
 include ../../components/main/main.pug
 
 block content
-  -
-    const content = require('./404.json')
-    const imageSrc = require('./images/you-are-being-monitored-blue.png')
+	-
+		const content = require('./404.json')
+		const imageSrc = require('./images/you-are-being-monitored-blue.png')
 
 block head
-  +head({metadata: content.metadata})
+	+head({metadata: content.metadata})
 
 block main
-  +main
-    div.error-404
-      +heading({level: "h1"})= content.pageTitle
-      div.error-404__description-link-container
-        p.error-404__description= content.description
-        +link({href: content.homepageLink.href, label: content.homepageLink.label})
-      div.error-404__image-container
-        //- swapped image's dominant color from yellow to blue using lunapic.com 'do-replace-color' action
-        +img({alt: content.image.alt, src: imageSrc, border: false})
+	+main
+		div.error-404
+			+heading({level: "h1"})= content.pageTitle
+			div.error-404__description-link-container
+				p.error-404__description= content.description
+				+link({href: content.homepageLink.href, label: content.homepageLink.label})
+			div.error-404__image-container
+				//- swapped image's dominant color from yellow to blue using lunapic.com 'do-replace-color' action
+				+img({alt: content.image.alt, src: imageSrc, border: false})

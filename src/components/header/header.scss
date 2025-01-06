@@ -1,73 +1,73 @@
-@use '../../config/colors.scss';
-@use '../../config/fonts.scss';
-@use '../../config/spacing.scss';
+@use "../../config/colors.scss";
+@use "../../config/fonts.scss";
+@use "../../config/spacing.scss";
 
 .header {
-  @media screen and (min-width: 667px) {
-    padding: spacing.$s-2;
+	@media screen and (min-width: 667px) {
+		padding: spacing.$s-2;
 
-    &__inner {
-      display: flex;
-      justify-content: space-between;
-    }
-  }
+		&__inner {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
 
-  @media screen and (min-width: 1024px) {
-    padding: spacing.$s-4;
-  }
+	@media screen and (min-width: 1024px) {
+		padding: spacing.$s-4;
+	}
 
-  // remove `padding-left/right` when it's no longer necessary due to .header__inner `max-width`
-  @media screen and (min-width: 1280px) {
-    padding-left: unset;
-    padding-right: unset;
+	// remove `padding-left/right` when it's no longer necessary due to .header__inner `max-width`
+	@media screen and (min-width: 1280px) {
+		padding-left: unset;
+		padding-right: unset;
 
-    &__inner {
-      max-width: 120rem;
-      margin: 0 auto;
-    }
-  }
+		&__inner {
+			max-width: 120rem;
+			margin: 0 auto;
+		}
+	}
 
-  &__link {
-    display: flex;
-    // set `width: max-content` to prevent link from spanning the entire viewport width
-    width: max-content;
-    outline: 1px dashed transparent;
-    font-family: fonts.$roboto;
-    font-size: 1.8rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: outline 250ms ease-out;
+	&__link {
+		display: flex;
+		// set `width: max-content` to prevent link from spanning the entire viewport width
+		width: max-content;
+		outline: 1px dashed transparent;
+		font-family: fonts.$roboto;
+		font-size: 1.8rem;
+		font-weight: 700;
+		text-decoration: none;
+		transition: outline 250ms ease-out;
 
-    &:focus {
-      outline: 1px dashed colors.$blue;
-    }
+		&:focus {
+			outline: 1px dashed colors.$blue;
+		}
 
-    &:hover {
-      .header__link-name {
-        color: colors.$blue;
-      }
-    }
-  }
+		&:hover {
+			.header__link-name {
+				color: colors.$blue;
+			}
+		}
+	}
 
-  $link-icon-dimension: 6rem;
+	$link-icon-dimension: 6rem;
 
-  &__link-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: $link-icon-dimension;
-    width: $link-icon-dimension;
-    background-color: colors.$blue;
-    color: colors.$black-2;
-  }
+	&__link-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: $link-icon-dimension;
+		width: $link-icon-dimension;
+		background-color: colors.$blue;
+		color: colors.$black-2;
+	}
 
-  &__link-name {
-    // set `display: flex` and `align-items: center` to make header__link-name the same height
-    // as header__link-icon (which makes header__link into a rectangular target box)
-    display: flex;
-    align-items: center;
-    padding: 0 2rem;
-    color: colors.$white-fff;
-    transition: color 250ms ease-out;
-  }
+	&__link-name {
+		// set `display: flex` and `align-items: center` to make header__link-name the same height
+		// as header__link-icon (which makes header__link into a rectangular target box)
+		display: flex;
+		align-items: center;
+		padding: 0 2rem;
+		color: colors.$white-fff;
+		transition: color 250ms ease-out;
+	}
 }

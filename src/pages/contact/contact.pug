@@ -4,18 +4,18 @@ include ../../components/heading/heading.pug
 include ../../components/main/main.pug
 
 block content
-  - const content = require("./contact.json")
+	- const content = require("./contact.json");
 
 block head
-  +head({metadata: content.metadata})
+	+head({metadata: content.metadata})
 
 block main
-  +main
-    +heading({level: "h1"})= content.pageTitle
-    -
-      const emailLink = (emailAddress) => `<a class="link" href="mailto:${emailAddress}">${emailAddress}</a>`
-      const contactParagraph = content.paragraph.sentence
-        .replace('{emailAddress}', emailLink(content.paragraph.emailAddress))
-    p
-      //- buffer unescaped code directly into the Pug template
-      | !{contactParagraph}
+	+main
+		+heading({level: "h1"})= content.pageTitle
+		-
+			const emailLink = (emailAddress) => `<a class="link" href="mailto:${emailAddress}">${emailAddress}</a>`
+			const contactParagraph = content.paragraph.sentence
+			  .replace('{emailAddress}', emailLink(content.paragraph.emailAddress))
+		p
+			//- buffer unescaped code directly into the Pug template
+			| !{contactParagraph}

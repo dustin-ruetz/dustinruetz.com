@@ -1,18 +1,18 @@
-@use '../../config/colors.scss';
-@use '../../config/spacing.scss';
+@use "../../config/colors.scss";
+@use "../../config/spacing.scss";
 
 .heading {
-  color: colors.$white-fff;
+	color: colors.$white-fff;
 }
 
 .h1 {
-  margin-bottom: spacing.$s-4;
-  font-size: calc(3rem + 55 * ((100vw - 32rem) / 1360));
-  font-weight: 900;
-  letter-spacing: -0.1rem;
-  line-height: 1.26;
+	margin-bottom: spacing.$s-4;
+	font-size: calc(3rem + 55 * ((100vw - 32rem) / 1360));
+	font-weight: 900;
+	letter-spacing: -0.1rem;
+	line-height: 1.26;
 
-  @media screen and (min-width: 1680px) {
-    font-size: 8.4rem;
-  }
+	@media screen and (min-width: 1680px) {
+		font-size: 8.4rem;
+	}
 }

@@ -1,12 +1,12 @@
 {
-  "links": [
-    {
-      "href": "https://github.com/dustin-ruetz/",
-      "name": "GitHub"
-    },
-    {
-      "href": "https://ca.linkedin.com/in/dustinruetz/",
-      "name": "LinkedIn"
-    }
-  ]
+	"links": [
+		{
+			"href": "https://github.com/dustin-ruetz/",
+			"name": "GitHub"
+		},
+		{
+			"href": "https://ca.linkedin.com/in/dustinruetz/",
+			"name": "LinkedIn"
+		}
+	]
 }

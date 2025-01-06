@@ -1,16 +1,16 @@
 {
-  "metadata": {
-    "canonicalURL": "https://www.dustinruetz.com/404/",
-    "description": "The requested page was not found on this server.",
-    "title": "Page not found | dustinruetz.com"
-  },
-  "pageTitle": "Page not found",
-  "description": "The requested page {requestedPage} was not found on this server.",
-  "image": {
-    "alt": "The 'you are being monitored' internet meme. One stick figure cowers in fear of another stick figure, the latter of which is menacingly holding a heavy CRT computer monitor over their head as though they are going to use it as a bludgeon."
-  },
-  "homepageLink": {
-    "href": "/",
-    "label": "Let's go home."
-  }
+	"metadata": {
+		"canonicalURL": "https://www.dustinruetz.com/404/",
+		"description": "The requested page was not found on this server.",
+		"title": "Page not found | dustinruetz.com"
+	},
+	"pageTitle": "Page not found",
+	"description": "The requested page {requestedPage} was not found on this server.",
+	"image": {
+		"alt": "The 'you are being monitored' internet meme. One stick figure cowers in fear of another stick figure, the latter of which is menacingly holding a heavy CRT computer monitor over their head as though they are going to use it as a bludgeon."
+	},
+	"homepageLink": {
+		"href": "/",
+		"label": "Let's go home."
+	}
 }

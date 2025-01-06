@@ -1,40 +1,40 @@
 -
-  /**
-   * specify the array of route names and the order in which they should appear in the nav
-   *
-   * originally I tried requiring the nav routes dynamically using `getRoutes()` and then
-   * filtering them by route name; this approach failed due to Pug template files
-   * having limited ability to resolve relative filesystem paths
-  */
-  const routes = ['home', 'about', 'contact', 'work']
-    .map((route) => {
-      const routeObject = {}
+	/**
+	 * specify the array of route names and the order in which they should appear in the nav
+	 *
+	 * originally I tried requiring the nav routes dynamically using `getRoutes()` and then
+	 * filtering them by route name; this approach failed due to Pug template files
+	 * having limited ability to resolve relative filesystem paths
+	*/
+	const routes = ['home', 'about', 'contact', 'work']
+	  .map((route) => {
+	    const routeObject = {}
 
-      if (route === 'home') {
-        routeObject.href = '/'
-      } else {
-        routeObject.href = `/${route}/`
-      }
+	    if (route === 'home') {
+	      routeObject.href = '/'
+	    } else {
+	      routeObject.href = `/${route}/`
+	    }
 
-      routeObject.icon = `${route}.svg`
-      routeObject.label = route
+	    routeObject.icon = `${route}.svg`
+	    routeObject.label = route
 
-      return routeObject
-    })
+	    return routeObject
+	  })
 
 nav.nav
-  ul.nav__links
-    each route in routes
-      li.nav__link-container(class=`nav__link-container--${route.label}`)
-        a.nav__link(href=route.href)
-          -
-            const routeIcon = {
-              module: require(`./icons/${route.icon}`),
-              svgCode: function() {
-                return this.module.replace('svg', 'svg class="nav__link-icon"')
-              }
-            }
-          figure
-            //- buffer unescaped SVG code directly into the Pug template
-            | !{routeIcon.svgCode()}
-            figcaption= route.label
+	ul.nav__links
+		each route in routes
+			li.nav__link-container(class=`nav__link-container--${route.label}`)
+				a.nav__link(href=route.href)
+					-
+						const routeIcon = {
+						  module: require(`./icons/${route.icon}`),
+						  svgCode: function() {
+						    return this.module.replace('svg', 'svg class="nav__link-icon"')
+						  }
+						}
+					figure
+						//- buffer unescaped SVG code directly into the Pug template
+						| !{routeIcon.svgCode()}
+						figcaption= route.label

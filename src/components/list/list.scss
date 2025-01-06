@@ -1,6 +1,6 @@
-@use '../../config/spacing.scss';
+@use "../../config/spacing.scss";
 
 .list {
-  // set `padding-left` to match <main/> element padding
-  padding-left: spacing.$s-2;
+	// set `padding-left` to match <main/> element padding
+	padding-left: spacing.$s-2;
 }

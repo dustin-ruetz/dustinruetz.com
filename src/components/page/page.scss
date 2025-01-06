@@ -1,32 +1,32 @@
-@use '../../config/colors.scss';
-@use '../../config/fonts.scss';
+@use "../../config/colors.scss";
+@use "../../config/fonts.scss";
 
 $font-size: 1.8rem;
 
 html {
-  box-sizing: border-box;
-  font-size: 10px;
+	box-sizing: border-box;
+	font-size: 10px;
 }
 
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+	box-sizing: inherit;
 }
 
 body {
-  padding: 0;
-  margin: 0;
-  background-color: colors.$black-2;
-  color: colors.$grey-2;
-  font-family: fonts.$droid-serif;
-  font-size: $font-size;
-  line-height: 1.8;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
+	padding: 0;
+	margin: 0;
+	background-color: colors.$black-2;
+	color: colors.$grey-2;
+	font-family: fonts.$droid-serif;
+	font-size: $font-size;
+	line-height: 1.8;
+	text-rendering: optimizeLegibility;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
 
-  @media screen and (min-width: 768px) {
-    font-size: 2rem;
-  }
+	@media screen and (min-width: 768px) {
+		font-size: 2rem;
+	}
 }

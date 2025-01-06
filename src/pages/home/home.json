@@ -1,35 +1,35 @@
 {
-  "metadata": {
-    "canonicalURL": "https://www.dustinruetz.com",
-    "description": "Hello! 👋 My name is Dustin Ruetz, and I am a full-stack JavaScript developer living in Toronto, Canada.",
-    "title": "dustinruetz.com"
-  },
-  "heroTitle": {
-    "lines": ["Web dev.", "Music. Coffee.", "Biking. Beer.*"],
-    "asterix": "* priorities subject to change at any time"
-  },
-  "aboutMe": {
-    "title": {
-      "sentence": "Hello! 👋 My name is **name**, and I am a **occupation** living in **city**, Canada.",
-      "occupation": "full-stack JavaScript developer",
-      "city": "Toronto"
-    },
-    "paragraph": {
-      "sentence": "Currently I work at **employer**. (Fun fact: I also happen to be one of those weirdo devs who likes writing both **technology1** _and_ **technology2**.) Outside of work my interests include discovering the classics of **interest1**, staying up-to-date with **interest2**, and **interest3** regardless of season.",
-      "employer": {
-        "href": "https://1password.com",
-        "name": "1Password"
-      },
-      "technology1": "unit tests",
-      "emphasizedAnd": "and",
-      "technology2": "Webpack config files",
-      "interest1": "blues/jazz/R&B/rock",
-      "interest2": "technology news",
-      "interest3": "enjoying the outdoors"
-    },
-    "link": {
-      "href": "/about/",
-      "label": "Learn more about me."
-    }
-  }
+	"metadata": {
+		"canonicalURL": "https://www.dustinruetz.com",
+		"description": "Hello! 👋 My name is Dustin Ruetz, and I am a full-stack JavaScript developer living in Toronto, Canada.",
+		"title": "dustinruetz.com"
+	},
+	"heroTitle": {
+		"lines": ["Web dev.", "Music. Coffee.", "Biking. Beer.*"],
+		"asterix": "* priorities subject to change at any time"
+	},
+	"aboutMe": {
+		"title": {
+			"sentence": "Hello! 👋 My name is **name**, and I am a **occupation** living in **city**, Canada.",
+			"occupation": "full-stack JavaScript developer",
+			"city": "Toronto"
+		},
+		"paragraph": {
+			"sentence": "Currently I work at **employer**. (Fun fact: I also happen to be one of those weirdo devs who likes writing both **technology1** _and_ **technology2**.) Outside of work my interests include discovering the classics of **interest1**, staying up-to-date with **interest2**, and **interest3** regardless of season.",
+			"employer": {
+				"href": "https://1password.com",
+				"name": "1Password"
+			},
+			"technology1": "unit tests",
+			"emphasizedAnd": "and",
+			"technology2": "Webpack config files",
+			"interest1": "blues/jazz/R&B/rock",
+			"interest2": "technology news",
+			"interest3": "enjoying the outdoors"
+		},
+		"link": {
+			"href": "/about/",
+			"label": "Learn more about me."
+		}
+	}
 }
