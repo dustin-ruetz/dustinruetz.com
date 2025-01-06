@@ -3,7 +3,6 @@
 	"version": "0.0.0-semantically-released",
 	"description": "Dustin Ruetz's website.",
 	"scripts": {
-		"prebuild": "npm run clean/www",
 		"build": "webpack --config ./config/webpack.production.js",
 		"check": "npm-run-all2 --parallel check/*",
 		"check/format": "npm run format -- --check ./",
