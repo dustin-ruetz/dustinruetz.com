@@ -45,6 +45,11 @@ const URL = {
 	},
 };
 
+/**
+ * @param {string} environment - The environment that the site is being run in.
+ * @returns {string} - The site's URL.
+ * @throws - An error if the passed `environment` argument is invalid.
+ */
 function getURL(environment) {
 	switch (environment) {
 		case "local":
