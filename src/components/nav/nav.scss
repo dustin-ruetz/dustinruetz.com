@@ -7,9 +7,10 @@ $link-border: 0.1rem;
 $link-padding-top-bottom: 0.8rem;
 $link-font-size: 1rem;
 $link-icon-dimension: 2rem;
+
 // sum of mobile nav-/link-related dimensions + 0.3rem = 5.8rem
-$nav-mobile-height: $nav-line-height + $link-border + $link-padding-top-bottom +
-	$link-font-size + $link-icon-dimension + 0.3rem;
+// prettier-ignore
+$nav-mobile-height: $nav-line-height + $link-border + $link-padding-top-bottom + $link-font-size + $link-icon-dimension + 0.3rem;
 
 .nav {
 	height: $nav-mobile-height;
@@ -22,7 +23,7 @@ $nav-mobile-height: $nav-line-height + $link-border + $link-padding-top-bottom +
 	line-height: $nav-line-height;
 
 	// unset the styles when the tablet/desktop viewport becomes active
-	@media screen and (min-width: 667px) {
+	@media screen and (width >= 667px) {
 		height: unset;
 		width: unset;
 		background-color: unset;
@@ -40,7 +41,7 @@ $nav-mobile-height: $nav-line-height + $link-border + $link-padding-top-bottom +
 		justify-content: space-between;
 		border-top: set-link-border(colors.$black-1);
 
-		@media screen and (min-width: 667px) {
+		@media screen and (width >= 667px) {
 			height: 100%;
 			align-items: center;
 			border-top: unset;
@@ -57,7 +58,7 @@ $nav-mobile-height: $nav-line-height + $link-border + $link-padding-top-bottom +
 			border-right: set-link-border(transparent);
 		}
 
-		@media screen and (min-width: 667px) {
+		@media screen and (width >= 667px) {
 			border-right: none;
 
 			&--home {
@@ -83,7 +84,7 @@ $nav-mobile-height: $nav-line-height + $link-border + $link-padding-top-bottom +
 		text-transform: uppercase;
 		transition: all 250ms ease-out;
 
-		@media screen and (min-width: 667px) {
+		@media screen and (width >= 667px) {
 			padding: 1.5rem 2rem;
 			color: colors.$white-fff;
 			font-size: 1.8rem;
@@ -104,11 +105,13 @@ $nav-mobile-height: $nav-line-height + $link-border + $link-padding-top-bottom +
 		}
 	}
 
+	// stylelint-disable-next-line no-descending-specificity -- The `nav__link-icon` style above
+	// adjusts the hover state color of the link, so descending specificity is fine here.
 	&__link-icon {
 		width: $link-icon-dimension;
 		fill: colors.$grey-2;
 
-		@media screen and (min-width: 667px) {
+		@media screen and (width >= 667px) {
 			display: none;
 			visibility: hidden;
 		}

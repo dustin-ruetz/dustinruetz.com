@@ -12,7 +12,7 @@
 	letter-spacing: -0.1rem;
 	line-height: 1.26;
 
-	@media screen and (min-width: 1680px) {
+	@media screen and (width >= 1680px) {
 		font-size: 8.4rem;
 	}
 }

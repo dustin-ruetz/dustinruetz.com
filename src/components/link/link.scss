@@ -9,7 +9,7 @@
 	transition: outline 250ms ease-out;
 
 	// :after + :hover = sliding link underline effect
-	&:after {
+	&::after {
 		content: "";
 		height: 0.2rem;
 		width: 0;
@@ -25,7 +25,7 @@
 	}
 
 	&:hover {
-		&:after {
+		&::after {
 			width: 100%;
 		}
 	}

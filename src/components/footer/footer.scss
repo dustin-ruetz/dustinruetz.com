@@ -13,13 +13,13 @@
 	font-size: 1.4rem;
 	text-align: center;
 
-	@media screen and (min-width: 667px) {
+	@media screen and (width >= 667px) {
 		padding-bottom: spacing.$s-4;
 	}
 
 	&__copyright {
-		&:before,
-		&:after {
+		&::before,
+		&::after {
 			content: "";
 			display: block;
 			margin: 0 auto;
@@ -29,7 +29,7 @@
 		$decorative-icon-square-dimension: 3.5rem;
 
 		// decorative rotated square
-		&:before {
+		&::before {
 			height: $decorative-icon-square-dimension;
 			width: $decorative-icon-square-dimension;
 			border: 1px solid colors.$blue;
@@ -41,7 +41,7 @@
 		}
 
 		// decorative line
-		&:after {
+		&::after {
 			height: 0.1rem;
 			width: 12.5%;
 			max-width: 21rem;

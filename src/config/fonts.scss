@@ -3,5 +3,8 @@
 // * https://www.cssfontstack.com/Georgia (macOS, Windows)
 // * https://www.cssfontstack.com/Helvetica (macOS)
 
+// stylelint-disable value-keyword-case -- Font names should be capitalized
+// since they're proper nouns.
 $droid-serif: "Droid Serif", Georgia, serif;
-$roboto: Roboto, Helvetica, Arial, sans-serif;
+$roboto: roboto, helvetica, Arial, sans-serif;
+/* stylelint-enable value-keyword-case */

@@ -23,10 +23,11 @@
 		letter-spacing: calc(-0.125rem - 10 * (100vw - 32rem) / 1080);
 		line-height: 0.9;
 
-		@media screen and (min-width: 667px) {
+		@media screen and (width >= 667px) {
 			font-size: calc(4rem + 108 * (100vw - 32rem) / 1080);
 		}
-		@media screen and (min-width: 1400px) {
+
+		@media screen and (width >= 1400px) {
 			font-size: 15.5rem;
 			letter-spacing: -1.5rem;
 		}
@@ -43,11 +44,13 @@
 			left: 0;
 			opacity: 0;
 		}
+
 		50% {
 			width: 100%;
 			left: 0;
 			opacity: 1;
 		}
+
 		55% {
 			animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 			width: 100%;
@@ -56,6 +59,7 @@
 			opacity: 1;
 			transform: translateX(0);
 		}
+
 		100% {
 			animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 			width: 0;
@@ -80,14 +84,17 @@
 		@function set-animation-delay($line-number) {
 			@return $line-number * 200ms;
 		}
+
 		// use class modifiers to specify line numbers because CSS
 		// doesn't support *-of-type pseudo-selectors on classes
 		&--line-1 {
 			animation-delay: set-animation-delay(1);
 		}
+
 		&--line-2 {
 			animation-delay: set-animation-delay(2);
 		}
+
 		&--line-3 {
 			animation-delay: set-animation-delay(3);
 		}
@@ -98,10 +105,12 @@
 			left: 0;
 			opacity: 0;
 		}
+
 		80% {
 			left: 5rem;
 			opacity: 0;
 		}
+
 		100% {
 			animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 			left: 0;
@@ -120,14 +129,17 @@
 		@function set-animation-delay($line-number) {
 			@return $line-number * 200ms + 100ms;
 		}
+
 		// use class modifiers to specify line numbers because CSS
 		// doesn't support *-of-type pseudo-selectors on classes
 		&--line-1 {
 			animation-delay: set-animation-delay(1);
 		}
+
 		&--line-2 {
 			animation-delay: set-animation-delay(2);
 		}
+
 		&--line-3 {
 			animation-delay: set-animation-delay(3);
 		}
@@ -143,6 +155,7 @@
 		0% {
 			opacity: 0;
 		}
+
 		100% {
 			opacity: 1;
 		}
@@ -158,7 +171,7 @@
 		font-size: 1.4rem;
 		opacity: 0;
 
-		@media screen and (min-width: 667px) {
+		@media screen and (width >= 667px) {
 			font-size: 1.6rem;
 		}
 	}
@@ -168,6 +181,7 @@
 			opacity: 0;
 			left: 10vh;
 		}
+
 		100% {
 			opacity: 1;
 			left: 0;
@@ -182,6 +196,7 @@
 		animation-name: external-links;
 
 		$decorative-line-width: 12.5%;
+
 		padding-left: calc(#{$decorative-line-width} + 1rem);
 		margin-bottom: spacing.$s-4;
 		opacity: 0;
@@ -192,13 +207,13 @@
 		.external-links {
 			justify-content: start;
 
-			@media screen and (min-width: 1200px) {
+			@media screen and (width >= 1200px) {
 				width: 91.7%;
 				left: 8.3%;
 			}
 
 			// decorative line
-			&:before {
+			&::before {
 				content: "";
 				height: 0.1rem;
 				width: $decorative-line-width;
@@ -217,6 +232,7 @@
 			opacity: 0;
 			top: 10vh;
 		}
+
 		100% {
 			opacity: 1;
 			top: 0;
@@ -233,13 +249,13 @@
 		position: relative;
 		top: 10vh;
 
-		@media screen and (min-width: 667px) {
+		@media screen and (width >= 667px) {
 			width: 87.5%;
 			left: 12.5%;
 		}
 
 		// decorative quotation mark
-		&:before {
+		&::before {
 			content: "‘‘";
 			color: #1a1a1a;
 			position: absolute;

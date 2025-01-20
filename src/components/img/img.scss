@@ -18,7 +18,7 @@
 			font-style: normal;
 		}
 
-		@media screen and (min-width: 1400px) {
+		@media screen and (width >= 1400px) {
 			font-size: 1.6rem;
 		}
 	}

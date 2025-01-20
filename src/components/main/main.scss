@@ -11,16 +11,16 @@
 	}
 
 	// set `min-height` in order to space out main content and footer on pages that don't have much content
-	@media screen and (min-width: 667px) {
+	@media screen and (width >= 667px) {
 		min-height: 50vh;
 	}
 
-	@media screen and (min-width: 1024px) {
+	@media screen and (width >= 1024px) {
 		padding: spacing.$s-4;
 	}
 
 	// remove `padding-left/right` when it's no longer necessary due to <main/> `max-width`
-	@media screen and (min-width: 1280px) {
+	@media screen and (width >= 1280px) {
 		padding-left: unset;
 		padding-right: unset;
 	}

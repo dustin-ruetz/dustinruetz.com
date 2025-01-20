@@ -3,7 +3,7 @@
 @use "../../config/spacing.scss";
 
 .header {
-	@media screen and (min-width: 667px) {
+	@media screen and (width >= 667px) {
 		padding: spacing.$s-2;
 
 		&__inner {
@@ -12,12 +12,12 @@
 		}
 	}
 
-	@media screen and (min-width: 1024px) {
+	@media screen and (width >= 1024px) {
 		padding: spacing.$s-4;
 	}
 
 	// remove `padding-left/right` when it's no longer necessary due to .header__inner `max-width`
-	@media screen and (min-width: 1280px) {
+	@media screen and (width >= 1280px) {
 		padding-left: unset;
 		padding-right: unset;
 
@@ -61,6 +61,8 @@
 		color: colors.$black-2;
 	}
 
+	// stylelint-disable-next-line no-descending-specificity -- The `header__link-name` style above
+	// adjusts the hover state color of the link, so descending specificity is fine here.
 	&__link-name {
 		// set `display: flex` and `align-items: center` to make header__link-name the same height
 		// as header__link-icon (which makes header__link into a rectangular target box)

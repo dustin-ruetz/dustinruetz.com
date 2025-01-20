@@ -113,10 +113,10 @@ q {
 	quotes: none;
 }
 
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
 	content: "";
 	content: none;
 }
@@ -141,7 +141,7 @@ mark {
 	background-color: #ff9;
 	color: #000;
 	font-style: italic;
-	font-weight: bold;
+	font-weight: 700;
 }
 
 del {
@@ -164,7 +164,8 @@ hr {
 	display: block;
 	height: 1px;
 	border: 0;
-	border-top: 1px solid #cccccc;
+	border-top: 1px solid #ccc;
+	// stylelint-disable-next-line unit-disallowed-list -- Ignore the `em` unit since this is from an external CSS reset.
 	margin: 1em 0;
 	padding: 0;
 }

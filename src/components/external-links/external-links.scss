@@ -21,7 +21,7 @@
 		text-decoration: none;
 		transition: outline 250ms ease-out;
 
-		@media screen and (min-width: 667px) {
+		@media screen and (width >= 667px) {
 			padding: 1.5rem;
 		}
 
@@ -38,6 +38,8 @@
 		}
 	}
 
+	// stylelint-disable-next-line no-descending-specificity -- The `external-links__link-icon` style above
+	// adjusts the hover state color of the link, so descending specificity is fine here.
 	&__link-icon {
 		width: 2.4rem;
 		fill: colors.$grey-1;
