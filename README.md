@@ -2,21 +2,6 @@
 
 Dustin Ruetz's website.
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-- [Installation](#installation)
-  - [Application](#application)
-  - [Use HTTPS in local development](#use-https-in-local-development)
-- [Development](#development)
-- [Build](#build)
-- [Hosting and Deployment](#hosting-and-deployment)
-  - [GitHub Pages/Git worktree](#github-pagesgit-worktree)
-  - [Domain registrar DNS records](#domain-registrar-dns-records)
-- [Notes](#notes)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 ## Installation
 
 ### Application
