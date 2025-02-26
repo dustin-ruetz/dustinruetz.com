@@ -6,9 +6,9 @@ Dustin Ruetz's website.
 
 ### Application
 
-1. Prerequisite: Have [Node.js][nodejs] and [NPM][npm] installed.
+1. Prerequisite: Have [Node.js][nodejs] and [pnpm][pnpm] installed.
 1. Clone the repository and `cd` into it.
-1. Run `npm install`.
+1. Run `pnpm install`.
 
 ### Use HTTPS in local development
 
@@ -27,11 +27,11 @@ mkcert -cert-file ./ssl/public.cert -key-file ./ssl/private.key development.dust
 
 ## Development
 
-From the root of the repo use `npm run dev` to start the development servers (i.e. local and network).
+From the root of the repo use `pnpm dev` to start the development servers (i.e. local and network).
 
 ## Build
 
-From the root of the repo use `npm run build` to compile the site to the `./www/` output directory of static files. (ℹ️ Note: `./www/` is listed in `.gitignore` to keep these files out of version control.)
+From the root of the repo use `pnpm build` to compile the site to the `./www/` output directory of static files. (ℹ️ Note: `./www/` is listed in `.gitignore` to keep these files out of version control.)
 
 ## Hosting and Deployment
 
@@ -80,8 +80,8 @@ figure
 [ghp-custom-domain]: https://docs.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/
 [ghp-using-git-worktree]: https://sangsoonam.github.io/2019/02/08/using-git-worktree-to-deploy-github-pages.html
 [mkcert]: https://github.com/FiloSottile/mkcert/
-[npm]: https://www.npmjs.com/get-npm/
 [nodejs]: https://nodejs.org/en/download/
+[pnpm]: https://pnpm.io/installation#using-corepack
 [pug-buffered-code]: https://pugjs.org/language/code.html#buffered-code
 [pug-interpolation]: https://pugjs.org/language/interpolation.html
 [webpack-asset-modules]: https://webpack.js.org/guides/asset-modules/

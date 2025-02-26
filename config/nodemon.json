@@ -2,8 +2,8 @@
 	"// watch-1": "path to files/folders to watch relative to where nodemon is executed, i.e. the root of the repo",
 	"// watch-2": "dev server must be restarted after:",
 	"// ./config/": "1) making changes to nodemon/Webpack configuration files",
-	"// ./package.json": "2) installing new/updating existing NPM packages",
-	"// ./package-lock.json": "3) fixing security issues identified by NPM audit",
+	"// ./package.json": "2) installing new/updating existing packages",
+	"// ./package-lock.json": "3) fixing security issues identified via package audit",
 	"// ./src/config/url.js": "4) modifying the local/network development URLs",
 	"watch": [
 		"./config/",

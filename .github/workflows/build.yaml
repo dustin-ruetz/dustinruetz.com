@@ -9,10 +9,12 @@ jobs:
     steps:
       - name: 🛒 Git checkout repository
         uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
       - name: ⬢ Setup Node.js
         uses: actions/setup-node@v4
         with:
-          cache: npm
+          cache: pnpm
           node-version-file: .node-version
       # - Use GitHub Pages to host the site's files by sourcing from the `www` branch.
       # - Adapted from "Using Git Worktree to Deploy GitHub Pages":
@@ -36,11 +38,11 @@ jobs:
           rm -rf ./www/
           git worktree add ./www/ www
       - name: ⬇️ Install dependencies
-        run: npm clean-install
+        run: pnpm install
       - name: 👀 Audit dependency signatures
         run: npm audit signatures
       - name: 🛠️ Build site
-        run: npm run build
+        run: pnpm build
       - name: 🚢 Deploy site
         run: |
           cd ./www/
