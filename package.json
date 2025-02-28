@@ -10,7 +10,7 @@
 		"check.lint.styles": "pnpm lint.styles '**/*.{css,scss}'",
 		"clean": "pnpm --parallel /clean.*/",
 		"clean.caches": "jest --clear-cache && web-devdeps clean ./.caches/",
-		"clean.deps": "web-devdeps clean ./node_modules/ ./package-lock.json",
+		"clean.deps": "web-devdeps clean ./node_modules/ ./pnpm-lock.yaml",
 		"clean.www": "web-devdeps clean ./www/",
 		"// dev-1": "Use Nodemon to operate/restart both development servers.",
 		"// dev-2": "Note that the single ampersand (&) runs the scripts in parallel (works on macOS but not Windows).",
