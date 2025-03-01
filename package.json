@@ -54,7 +54,7 @@
 		"mini-css-extract-plugin": "2.9.2",
 		"nodemon": "3.1.9",
 		"pug": "3.0.3",
-		"pug-loader": "github:dustin-ruetz/pug-loader",
+		"pug-loader": "2.4.0",
 		"sass": "1.85.1",
 		"sass-loader": "16.0.5",
 		"sharp": "0.33.5",
@@ -63,5 +63,12 @@
 		"webpack-cli": "6.0.1",
 		"webpack-dev-server": "5.2.0",
 		"webpack-merge": "6.0.1"
+	},
+	"pnpm": {
+		"peerDependencyRules": {
+			"allowedVersions": {
+				"pug": "^2.0.0 || ^3.0.0"
+			}
+		}
 	}
 }
