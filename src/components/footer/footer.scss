@@ -34,10 +34,7 @@
 			width: $decorative-icon-square-dimension;
 			border: 1px solid colors.$blue;
 			margin-bottom: $decorative-icon-margin;
-			// Use `transform` instead of `rotate` because the latter is
-			// still experimental and not widely-supported in browsers.
-			// https://caniuse.com/?search=rotate
-			transform: rotate(45deg);
+			rotate: 45deg;
 		}
 
 		// Decorative line.
