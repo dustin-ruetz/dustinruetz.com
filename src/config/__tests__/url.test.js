@@ -16,7 +16,7 @@ test("getURL function", () => {
 
 	// Verify that it throws an error when passed a non-existent environment.
 	expect(() => getURL("invalidEnvironmentArg")).toThrow(
-		"getURL(environment) requires one of [local,network,production] as an argument; received 'invalidEnvironmentArg'.",
+		`getURL(environment) requires one of [local,network,production] as an argument; received "invalidEnvironmentArg".`,
 	);
 
 	// Verify that it throws an error when passed nothing.
