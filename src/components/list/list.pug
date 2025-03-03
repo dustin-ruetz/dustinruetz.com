@@ -1,17 +1,17 @@
 mixin list(params = {})
 	-
-		const {type, items} = params
+		const {type, items} = params;
 		switch (type) {
-		  case 'ol':
-		  case 'ul':
-		    break
-		  default:
-		    const invalidTypeArg = typeof type === 'string' ? `'${type}'` : type
-		    const validTypeArgs = ['ol', 'ul']
-		    throw new Error(`+list({type}) requires one of [${validTypeArgs}] as an argument; received ${invalidTypeArg}.`)
+			case "ol":
+			case "ul":
+				break
+			default:
+				const invalidTypeArg = typeof type === "string" ? `"${type}"` : type
+				const validTypeArgs = ["ol", "ul"]
+				throw new Error(`+list({type}) requires one of [${validTypeArgs}] as an argument; received ${invalidTypeArg}.`);
 		}
 		if (!items || !items.length || items.length < 1) {
-		  throw new Error(`+list({items}) requires an array with at least one item.`)
+			throw new Error(`+list({items}) requires an array with at least one item.`);
 		}
 	#{type}.list
 		each item in items

@@ -10,7 +10,7 @@
 		margin: 0 auto;
 	}
 
-	// set `min-height` in order to space out main content and footer on pages that don't have much content
+	// Set `min-height` in order to space out main content and footer on pages that don't have much content.
 	@media screen and (width >= 667px) {
 		min-height: 50vh;
 	}
@@ -19,7 +19,7 @@
 		padding: spacing.$s-4;
 	}
 
-	// remove `padding-left/right` when it's no longer necessary due to <main/> `max-width`
+	// Remove `padding-left/right` when they're no longer necessary due to <main/> `max-width`.
 	@media screen and (width >= 1280px) {
 		padding-left: unset;
 		padding-right: unset;

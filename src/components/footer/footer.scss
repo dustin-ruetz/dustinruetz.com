@@ -5,8 +5,8 @@
 
 .footer {
 	padding-top: spacing.$s-4;
-	// footer `padding-bottom` must account for the nav height
-	// (nav is `position: fixed` to the bottom of the page)
+	// Footer `padding-bottom` must account for the nav height
+	// (nav is `position: fixed` to the bottom of the page).
 	padding-bottom: calc(#{nav.$nav-mobile-height} + #{spacing.$s-4});
 	color: colors.$grey;
 	font-family: fonts.$roboto;
@@ -28,19 +28,19 @@
 		$decorative-icon-margin: 2.5rem;
 		$decorative-icon-square-dimension: 3.5rem;
 
-		// decorative rotated square
+		// Decorative rotated square.
 		&::before {
 			height: $decorative-icon-square-dimension;
 			width: $decorative-icon-square-dimension;
 			border: 1px solid colors.$blue;
 			margin-bottom: $decorative-icon-margin;
-			// use `transform` instead of `rotate` because the latter is
-			// still experimental and not widely-supported in browsers
+			// Use `transform` instead of `rotate` because the latter is
+			// still experimental and not widely-supported in browsers.
 			// https://caniuse.com/?search=rotate
 			transform: rotate(45deg);
 		}
 
-		// decorative line
+		// Decorative line.
 		&::after {
 			height: 0.1rem;
 			width: 12.5%;

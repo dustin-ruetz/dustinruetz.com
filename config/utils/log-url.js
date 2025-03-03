@@ -1,7 +1,7 @@
 /**
  * @param {string} url - The URL to log out.
  */
-function logURL(url) {
+const logURL = (url) => {
 	// Colorizing the console output adapted from Bud Damyanov's 2016-Dec-31 answer on Stack Overflow.
 	// https://stackoverflow.com/questions/9781218/how-to-change-node-jss-console-font-color/#41407246
 
@@ -12,6 +12,6 @@ function logURL(url) {
 
 	// eslint-disable-next-line no-console
 	console.log(`${colorBlue}%s${colorReset}`, url);
-}
+};
 
 module.exports = {logURL};

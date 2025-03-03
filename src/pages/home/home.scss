@@ -2,13 +2,13 @@
 @use "../../config/spacing.scss";
 @use "../../config/z-index.scss";
 
-// use class modifier to apply different styles specific to the homepage <main/> element
+// Use class modifier to apply different styles specific to the homepage <main/> element.
 .main--home {
-	// homepage requires additional padding due to the large hero elements
+	// Homepage requires additional padding due to the large hero elements.
 	padding-top: spacing.$s-8;
 	padding-bottom: spacing.$s-8;
-	// hide overflow on both x- and y-axis to prevent over-scrolling during line animations;
-	// over-scrolling is caused by position top/left/right animation changes
+	// Hide overflow on both x- and y-axis to prevent over-scrolling during line animations;
+	// over-scrolling is caused by position top/left/right animation changes.
 	overflow: hidden;
 }
 
@@ -85,8 +85,8 @@
 			@return $line-number * 200ms;
 		}
 
-		// use class modifiers to specify line numbers because CSS
-		// doesn't support *-of-type pseudo-selectors on classes
+		// Use class modifiers to specify line numbers because CSS
+		// doesn't support *-of-type pseudo-selectors on classes.
 		&--line-1 {
 			animation-delay: set-animation-delay(1);
 		}
@@ -130,8 +130,8 @@
 			@return $line-number * 200ms + 100ms;
 		}
 
-		// use class modifiers to specify line numbers because CSS
-		// doesn't support *-of-type pseudo-selectors on classes
+		// Use class modifiers to specify line numbers because CSS
+		// doesn't support *-of-type pseudo-selectors on classes.
 		&--line-1 {
 			animation-delay: set-animation-delay(1);
 		}
@@ -162,7 +162,7 @@
 	}
 
 	&__hero-asterix {
-		// show the hero asterix content after the hero title animations are done
+		// Show the hero asterix content after the hero title animations are done.
 		animation-delay: 2750ms;
 		animation-duration: 500ms;
 		animation-fill-mode: forwards;
@@ -189,7 +189,7 @@
 	}
 
 	&__external-links {
-		// show the external links after the hero asterix animation is done
+		// Show the external links after the hero asterix animation is done.
 		animation-delay: 3000ms;
 		animation-duration: 500ms;
 		animation-fill-mode: forwards;
@@ -212,7 +212,7 @@
 				left: 8.3%;
 			}
 
-			// decorative line
+			// Decorative line.
 			&::before {
 				content: "";
 				height: 0.1rem;
@@ -240,7 +240,7 @@
 	}
 
 	&__about-me {
-		// show the about me content after the external links animation is done
+		// Show the about me content after the external links animation is done.
 		animation-delay: 3250ms;
 		animation-duration: 500ms;
 		animation-fill-mode: forwards;
@@ -254,7 +254,7 @@
 			left: 12.5%;
 		}
 
-		// decorative quotation mark
+		// Decorative quotation mark.
 		&::before {
 			content: "‘‘";
 			color: #1a1a1a;

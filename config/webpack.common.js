@@ -6,16 +6,16 @@ const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const miniCssExtractPlugin = require("mini-css-extract-plugin");
 
 /**
- * note that `getRoutes()` uses two synchronous Node.js filesystem methods: `readdirSync` and `statSync`
+ * Note that `getRoutes()` uses two synchronous Node.js filesystem methods: `readdirSync` and `statSync`.
  *
- * while this means that the function blocks the main thread during execution, this isn't
- * a concern because it's only run locally via the Webpack build and development scripts
+ * While this means that the function blocks the main thread during execution, this isn't
+ * a concern because it's only run locally via the Webpack build and development scripts.
  *
- * originally I had `getRoutes()` using asynchronous fs methods, but the combination of
+ * Originally I had `getRoutes()` using asynchronous fs methods, but the combination of
  * Webpack config files and webpack-merge did not work well with async code/promises.
  * @returns {[string]} - Array of routes representing the folders in the `src/pages/` directory.
  */
-function getRoutes() {
+const getRoutes = () => {
 	const pagesDirectory = path.resolve(__dirname, "../src/pages/");
 	const pagesDirectoryItems = readdirSync(pagesDirectory);
 
@@ -26,63 +26,63 @@ function getRoutes() {
 	});
 
 	return routes;
-}
+};
 
-function createPage(route) {
+const createPage = (route) => {
 	// https://webpack.js.org/plugins/html-webpack-plugin/
 	const page = new htmlWebpackPlugin({
-		// set `chunks` and `inject` to insert the route-specific script and stylesheet in the <head>
-		// (if `chunks` is not set then every route's CSS and JS bundle files will be injected)
+		// Set `chunks` and `inject` to insert the route-specific script and stylesheet in the <head>
+		// (if `chunks` is not set then every route's CSS and JS bundle files will be injected).
 		chunks: [route],
 		inject: "head",
-		// specify how and where HTML files should be outputted to enable routes with trailing slashes
+		// Specify how and where HTML files should be outputted to enable routes with trailing slashes.
 		filename: () => {
 			// prettier-ignore
 			switch (route) {
-        // 404 page must be placed in the root of the output directory with the '404.html'
-        // filename in order to use the 'custom 404 page' feature of GitHub Pages
-        case '404': return './404.html'
-        case 'home': return './index.html'
+        // 404 page must be placed in the root of the output directory with the "404.html"
+        // filename in order to use the "custom 404 page" feature of GitHub Pages.
+        case "404": return "./404.html"
+        case "home": return "./index.html"
         default: return `./${route}/index.html`
       }
 		},
-		// set the base path that will be prepended on all relative-path tag attributes
+		// Set the base path that will be prepended on all relative-path tag attributes.
 		// ex: <img src/>, <link href/>, <script src/>, etc.
 		publicPath: "/",
 		/**
-		 * set `scriptLoading` to output <script defer/> tag attributes
-		 * in order to avoid parser-blocking JavaScript code
+		 * Set `scriptLoading` to output <script defer/> tag attributes
+		 * in order to avoid parser-blocking JavaScript code.
 		 *
 		 * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/#Attributes
 		 * https://flaviocopes.com/javascript-async-defer/
 		 */
-		scriptLoading: "defer", // default = 'defer'
+		scriptLoading: "defer", // default = "defer"
 		template: `./src/pages/${route}/${route}.pug`,
 	});
 	return page;
-}
+};
 
 /**
- * specify how and where CSS and JS bundle files should be outputted
+ * Specify how and where CSS and JS bundle files should be outputted.
  *
- * 1. use the entrypoint/route-specific JS filename (ex: about.js, home.js, etc.)
- *    to set both the filepath and the first part of the filename
- * 2. use the file's contenthash to set the second part of the filename
- *    (useful for cache-busting when the contents of the file change)
+ * 1. Use the entrypoint/route-specific JS filename (ex: about.js, home.js, etc.)
+ *    to set both the filepath and the first part of the filename.
+ * 2. Use the file's contenthash to set the second part of the filename
+ *    (useful for cache-busting when the contents of the file change).
  *
  * https://webpack.js.org/configuration/output/#template-strings
  */
 const filenameTemplate = "[name]/[name].[contenthash]";
 
 module.exports = {
-	// reduce the array of routes to create the Webpack entry points object
+	// Reduce the array of routes to create the Webpack entry points object.
 	entry: getRoutes().reduce((routesObject, route) => {
 		routesObject[route] = `./src/pages/${route}/${route}.js`;
 		return routesObject;
 	}, {}),
 	module: {
 		rules: [
-			// images
+			// Images
 			{
 				test: /\.(jpg|png)$/,
 				// https://webpack.js.org/guides/asset-modules/
@@ -94,15 +94,15 @@ module.exports = {
 						const assetType =
 							filePathAndFileName.includes("/favicons/") && "favicons";
 
-						// preserve directory/filename structure of images as much as possible
-						// in order to output cleanly-mapped directory/file names on build
+						// Preserve directory/filename structure of images as much as possible
+						// in order to output cleanly-mapped directory/file names on build.
 						let assetPathAndName;
 						switch (assetType) {
-							// favicons are used on all pages, so output them in their own dedicated directory
+							// Favicons are used on all pages, so output them in their own dedicated directory.
 							case "favicons":
 								assetPathAndName = filePathAndFileName.replace("src/", "");
 								break;
-							// output all other assets as nested within their respective page directories
+							// Output all other assets as nested within their respective page directories.
 							default:
 								assetPathAndName = filePathAndFileName.replace(
 									"src/pages/",
@@ -111,8 +111,8 @@ module.exports = {
 								break;
 						}
 
-						// use the image's filepath/filename and contenthash as its URL filename
-						// (useful for cache-busting when the contents of the file change)
+						// Use the image's filepath/filename and contenthash as its URL filename
+						// (useful for cache-busting when the contents of the file change).
 						return `${assetPathAndName}.${pathData.contentHash}.${fileExtension}`;
 					},
 				},
@@ -123,7 +123,7 @@ module.exports = {
 				test: /\.svg$/,
 				type: "asset/source",
 			},
-			// styles
+			// Styles
 			// https://webpack.js.org/plugins/mini-css-extract-plugin/
 			// https://webpack.js.org/loaders/css-loader/
 			// https://webpack.js.org/loaders/sass-loader/
@@ -131,17 +131,18 @@ module.exports = {
 				test: /\.scss$/,
 				use: [miniCssExtractPlugin.loader, "css-loader", "sass-loader"],
 			},
-			// templates
+			// Templates
 			// https://github.com/pugjs/pug-loader/
 			{test: /\.pug$/, use: "pug-loader"},
 		],
 	},
 	optimization: {
 		minimizer: [
-			// specify `'...'` to ensure that the TerserPlugin is used to significantly reduce the file size of the compiled JavaScript bundles
-			// paraphrased excerpt from https://webpack.js.org/configuration/optimization/#optimizationminimizer:
+			// Specify `"..."` to ensure that the TerserPlugin is used to significantly
+			// reduce the file size of the compiled JavaScript bundles.
+			// Paraphrased excerpt from https://webpack.js.org/configuration/optimization/#optimizationminimizer:
 			// > By default, webpack configures `optimization.minimizer` to use `TerserPlugin`. This configuration
-			// > can be accessed with `'...'` if you want to keep it when customizing this setting.
+			// > can be accessed with `"..."` if you want to keep it when customizing this setting.
 			"...",
 			// https://github.com/webpack-contrib/image-minimizer-webpack-plugin/#optimize-with-sharp
 			new ImageMinimizerPlugin({
@@ -153,7 +154,7 @@ module.exports = {
 								quality: 90,
 							},
 							png: {
-								// excerpt from https://sharp.pixelplumbing.com/api-output#png:
+								// Excerpt from https://sharp.pixelplumbing.com/api-output#png:
 								// > CPU effort, between 1 (fastest) and 10 (slowest).
 								effort: 10,
 								quality: 90,
@@ -187,13 +188,12 @@ module.exports = {
 		path: path.resolve(__dirname, "../www/"),
 	},
 	plugins: [
-		// take the resulting mapped array of routes and spread each item as its own plugin;
-		// essentially this compiles to `createPage('route1'), createPage('route2'), (etc.)`
+		// Take the resulting mapped array of routes and spread each item as its own plugin.
 		...getRoutes().map((route) => createPage(route)),
 		// https://webpack.js.org/plugins/copy-webpack-plugin/
 		new copyWebpackPlugin({
-			// copy the CNAME text file to the root of the output directory
-			// to enable secure redirects when hosting with GitHub Pages
+			// Copy the CNAME text file to the root of the output directory
+			// to enable secure redirects when hosting with GitHub Pages.
 			patterns: [{from: "./src/config/CNAME", to: "../www/"}],
 		}),
 		// https://webpack.js.org/plugins/mini-css-extract-plugin/

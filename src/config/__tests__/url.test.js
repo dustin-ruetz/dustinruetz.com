@@ -1,62 +1,62 @@
 const {getURL, URL} = require("../url.js");
 
 test("getURL function", () => {
-	// verify that it returns the correct local development URL
+	// Verify that it returns the correct local development URL.
 	expect(getURL("local")).toBe("https://development.dustinruetz.com:4444");
 
-	// verify that it returns the correct network development URL
+	// Verify that it returns the correct network development URL.
 	const networkURL = getURL("network");
-	// TODO: figure out how to mock Node.js os.networkInterfaces module
-	// expect(networkURL).toEqual('http://a.valid.IPv4.address:5555')
+	// @todo Figure out how to mock Node.js os.networkInterfaces module.
+	// expect(networkURL).toBe("http://a.valid.IPv4.address:5555");
 	expect(networkURL).toContain("http://");
 	expect(networkURL).toContain(":5555");
 
-	// verify that it returns the correct production URL
+	// Verify that it returns the correct production URL.
 	expect(getURL("production")).toBe("https://www.dustinruetz.com");
 
-	// verify that it throws an error when passed a non-existent environment
+	// Verify that it throws an error when passed a non-existent environment.
 	expect(() => getURL("invalidEnvironmentArg")).toThrow(
 		"getURL(environment) requires one of [local,network,production] as an argument; received 'invalidEnvironmentArg'.",
 	);
 
-	// verify that it throws an error when passed nothing
+	// Verify that it throws an error when passed nothing.
 	expect(getURL).toThrow(
 		"getURL(environment) requires one of [local,network,production] as an argument; received undefined.",
 	);
 
-	// verify that it is of the correct type
+	// Verify that it is of the correct type.
 	expect(typeof getURL).toBe("function");
 });
 
 test("URL configuration", () => {
-	// verify the connection protocols
+	// Verify the connection protocols.
 	expect(URL.protocol.local).toBe("https");
 	expect(URL.protocol.network).toBe("http");
 	expect(URL.protocol.production).toBe("https");
 
-	// verify that the subdomains are correct
+	// Verify that the subdomains are correct.
 	expect(URL.subdomain.local).toBe("development");
 	expect(URL.subdomain.network).toBeNull();
 	expect(URL.subdomain.production).toBe("www");
 
-	// verify that the domains are correct
+	// Verify that the domains are correct.
 	expect(URL.domain.local).toBe("dustinruetz.com");
-	// TODO: figure out how to mock Node.js os.networkInterfaces module
-	// expect(URL.domain.network).toEqual('a.valid.IPv4.address')
+	// @todo Figure out how to mock Node.js os.networkInterfaces module.
+	// expect(URL.domain.network).toBe("a.valid.IPv4.address");
 	expect(URL.domain.production).toBe("dustinruetz.com");
 
-	// verify that the ports are correct
+	// Verify that the ports are correct.
 	expect(URL.port.local).toBe(4444);
 	expect(URL.port.network).toBe(5555);
 	expect(URL.port.production).toBeNull();
 
 	/**
-	 * NOTE: can't assert that `typeof variable === 'null'` due to
-	 * an error in the original JavaScript language specification
+	 * Note: Can't assert that `typeof variable === "null"` due to
+	 * an error in the original JavaScript language specification:
 	 * https://stackoverflow.com/questions/18808226/why-is-typeof-null-object
 	 */
 
-	// verify that all of URL configuration variables are of the correct type
+	// Verify that all of URL configuration variables are of the correct type.
 	expect(typeof URL).toBe("object");
 
 	expect(typeof URL.protocol).toBe("object");

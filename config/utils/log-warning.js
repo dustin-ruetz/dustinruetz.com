@@ -1,7 +1,7 @@
 /**
  * @param {string} warning - The warning text to log out.
  */
-function logWarning(warning) {
+const logWarning = (warning) => {
 	// Colorizing the console output adapted from Bud Damyanov's 2016-Dec-31 answer on Stack Overflow.
 	// https://stackoverflow.com/questions/9781218/how-to-change-node-jss-console-font-color/#41407246
 
@@ -12,6 +12,6 @@ function logWarning(warning) {
 
 	// eslint-disable-next-line no-console
 	console.warn(`${colorYellow}%s${colorReset}`, `Warning: ${warning}`);
-}
+};
 
 module.exports = {logWarning};

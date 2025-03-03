@@ -15,10 +15,10 @@ switch (os.type()) {
 	default:
 		logWarning(
 			"os.networkInterfaces() has only been tested on " +
-				"'Darwin' (i.e. macOS) and 'Windows_NT' platforms.",
+				`"Darwin" (i.e. macOS) and "Windows_NT" platforms.`,
 		);
 		throw new Error(
-			`Expected os.type() to be 'Darwin' or 'Windows_NT'; received '${os.type()}'.`,
+			`Expected os.type() to be "Darwin" or "Windows_NT"; received "${os.type()}".`,
 		);
 }
 
@@ -60,7 +60,7 @@ function getURL(environment) {
 			return `${URL.protocol.production}://${URL.subdomain.production}.${URL.domain.production}`;
 		default: {
 			const invalidEnvironmentArg =
-				typeof environment === "string" ? `'${environment}'` : environment;
+				typeof environment === "string" ? `"${environment}"` : environment;
 			const validEnvironmentArgs = ["local", "network", "production"];
 			throw new Error(
 				`getURL(environment) requires one of [${validEnvironmentArgs}] as an argument; received ${invalidEnvironmentArg}.`,

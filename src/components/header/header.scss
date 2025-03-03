@@ -16,7 +16,7 @@
 		padding: spacing.$s-4;
 	}
 
-	// remove `padding-left/right` when it's no longer necessary due to .header__inner `max-width`
+	// Remove `padding-left/right` when it's no longer necessary due to .header__inner `max-width`.
 	@media screen and (width >= 1280px) {
 		padding-left: unset;
 		padding-right: unset;
@@ -29,7 +29,7 @@
 
 	&__link {
 		display: flex;
-		// set `width: max-content` to prevent link from spanning the entire viewport width
+		// Set `width: max-content` to prevent link from spanning the entire viewport width.
 		width: max-content;
 		outline: 1px dashed transparent;
 		font-family: fonts.$roboto;
@@ -64,8 +64,8 @@
 	// stylelint-disable-next-line no-descending-specificity -- The `header__link-name` style above
 	// adjusts the hover state color of the link, so descending specificity is fine here.
 	&__link-name {
-		// set `display: flex` and `align-items: center` to make header__link-name the same height
-		// as header__link-icon (which makes header__link into a rectangular target box)
+		// Set `display: flex` and `align-items: center` to make header__link-name the same height
+		// as header__link-icon (which makes header__link into a rectangular target box).
 		display: flex;
 		align-items: center;
 		padding: 0 2rem;

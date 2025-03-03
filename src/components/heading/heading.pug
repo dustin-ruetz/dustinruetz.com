@@ -1,21 +1,22 @@
 mixin heading(params = {})
 	-
 		const {level} = params
-		  if (typeof level !== 'string')
-		    throw new Error(`+heading({level}) must be of type string; received ${typeof level}.`)
-		  switch (level) {
-		    case 'h1':
-		    case 'h2':
-		    case 'h3':
-		    case 'h4':
-		    case 'h5':
-		    case 'h6':
-		      break
-		    default: {
-		      const invalidLevelArg = typeof level === 'string' ? `'${level}'` : level
-		      const validLevelArgs = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
-		      throw new Error(`+heading({level}) requires one of [${validLevelArgs}] as an argument; received ${invalidLevelArg}.`)
-		    }
-		  }
+			if (typeof level !== 'string') {
+				throw new Error(`+heading({level}) must be of type string; received ${typeof level}.`);
+			}
+			switch (level) {
+				case 'h1':
+				case 'h2':
+				case 'h3':
+				case 'h4':
+				case 'h5':
+				case 'h6':
+					break;
+				default: {
+					const invalidLevelArg = typeof level === "string" ? `"${level}"` : level;
+					const validLevelArgs = ["h1", "h2", "h3", "h4", "h5", "h6"];
+					throw new Error(`+heading({level}) requires one of [${validLevelArgs}] as an argument; received ${invalidLevelArg}.`);
+				}
+			}
 	#{level}.heading(class=level)
 		block
