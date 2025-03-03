@@ -13,8 +13,8 @@ module.exports = webpackMerge(webpackConfigCommon, webpackConfigDevelopment, {
 			type: "https",
 			options: {
 				// Define certificate and key to use HTTPS for local clients.
-				cert: "./ssl/public.cert",
-				key: "./ssl/private.key",
+				cert: "./tls/public.cert",
+				key: "./tls/private.key",
 			},
 		},
 	},

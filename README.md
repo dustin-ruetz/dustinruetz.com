@@ -13,11 +13,11 @@ Dustin Ruetz's website.
 ### Use HTTPS in local development
 
 1. Prerequisite: Have [mkcert][mkcert] installed.
-2. From the root of the repo, run the following commands 1) to create the `./ssl/` directory, and 2) to generate certificate and key files for the local development domain. (ℹ️ Note: `./ssl/` is listed in `.gitignore` to keep these files out of version control.)
+2. From the root of the repo, run the following commands 1) to create the `./tls/` directory, and 2) to generate certificate and key files for the local development domain. (ℹ️ Note: `./tls/` is listed in `.gitignore` to keep these files out of version control.)
 
 ```
-mkdir ./ssl/
-mkcert -cert-file ./ssl/public.cert -key-file ./ssl/private.key development.dustinruetz.com
+mkdir ./tls/
+mkcert -cert-file ./tls/public.cert -key-file ./tls/private.key development.dustinruetz.com
 ```
 
 3. Add the following line to your `hosts` file:
