@@ -8,6 +8,7 @@
 		"check.format": "pnpm format --check ./",
 		"check.lint.js-ts": "pnpm lint.js-ts ./",
 		"check.lint.styles": "pnpm lint.styles '**/*.{css,scss}'",
+		"check.types": "echo 'Info: `check.types` script not implemented (non-TypeScript repo)'",
 		"clean": "pnpm --parallel /clean.*/",
 		"clean.caches": "pnpx jest --clear-cache && pnpx web-devdeps clean ./.caches/",
 		"clean.deps": "pnpx web-devdeps clean ./node_modules/ ./pnpm-lock.yaml",
