@@ -96,20 +96,16 @@ module.exports = {
 
 						// Preserve directory/filename structure of images as much as possible
 						// in order to output cleanly-mapped directory/file names on build.
-						let assetPathAndName;
-						switch (assetType) {
-							// Favicons are used on all pages, so output them in their own dedicated directory.
-							case "favicons":
-								assetPathAndName = filePathAndFileName.replace("src/", "");
-								break;
-							// Output all other assets as nested within their respective page directories.
-							default:
-								assetPathAndName = filePathAndFileName.replace(
-									"src/pages/",
-									"",
-								);
-								break;
-						}
+						const assetPathAndName = (() => {
+							switch (assetType) {
+								// Favicons are used on all pages, so output them in their own dedicated directory.
+								case "favicons":
+									return filePathAndFileName.replace("src/", "");
+								// Output all other assets as nested within their respective page directories.
+								default:
+									return filePathAndFileName.replace("src/pages/", "");
+							}
+						})();
 
 						// Use the image's filepath/filename and contenthash as its URL filename
 						// (useful for cache-busting when the contents of the file change).

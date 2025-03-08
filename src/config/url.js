@@ -2,25 +2,24 @@ const os = require("os");
 const {logWarning} = require("../../config/utils/log-warning.js");
 const {DOMAIN} = require("./constants.js");
 
-let localIPconfig;
-const IPv4config = (ipConfig) => ipConfig.family === "IPv4";
+const isIPv4config = (ipConfig) => ipConfig.family === "IPv4";
 
-switch (os.type()) {
-	case "Darwin":
-		localIPconfig = os.networkInterfaces().en0.find(IPv4config);
-		break;
-	case "Windows_NT":
-		localIPconfig = os.networkInterfaces()["Wi-Fi"].find(IPv4config);
-		break;
-	default:
-		logWarning(
-			"os.networkInterfaces() has only been tested on " +
-				`"Darwin" (i.e. macOS) and "Windows_NT" platforms.`,
-		);
-		throw new Error(
-			`Expected os.type() to be "Darwin" or "Windows_NT"; received "${os.type()}".`,
-		);
-}
+const localIPconfig = (() => {
+	switch (os.type()) {
+		case "Darwin":
+			return os.networkInterfaces().en0.find(isIPv4config);
+		case "Windows_NT":
+			return os.networkInterfaces()["Wi-Fi"].find(isIPv4config);
+		default:
+			logWarning(
+				"os.networkInterfaces() has only been tested on " +
+					`"Darwin" (i.e. macOS) and "Windows_NT" platforms.`,
+			);
+			throw new Error(
+				`Expected os.type() to be "Darwin" or "Windows_NT"; received "${os.type()}".`,
+			);
+	}
+})();
 
 const URL = {
 	protocol: {
