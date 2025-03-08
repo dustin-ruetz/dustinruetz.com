@@ -13,7 +13,7 @@ const miniCssExtractPlugin = require("mini-css-extract-plugin");
  *
  * Originally I had `getRoutes()` using asynchronous fs methods, but the combination of
  * Webpack config files and webpack-merge did not work well with async code/promises.
- * @returns {[string]} - Array of routes representing the folders in the `src/pages/` directory.
+ * @returns {string[]} - Array of routes representing the folders in the `src/pages/` directory.
  */
 const getRoutes = () => {
 	const pagesDirectory = path.resolve(__dirname, "../src/pages/");
