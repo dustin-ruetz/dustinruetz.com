@@ -41,7 +41,7 @@
 		"npm": ">= 10",
 		"pnpm": ">=10"
 	},
-	"packageManager": "pnpm@10.5.0+sha512.11106a5916c7406fe4b8cb8e3067974b8728f47308a4f5ac5e850304afa6f57e2847d7950dfe78877d8d36bfb401d381c4215db3a4c3547ffa63c14333a6fa51",
+	"packageManager": "pnpm@10.10.0+sha512.d615db246fe70f25dcfea6d8d73dee782ce23e2245e3c4f6f888249fb568149318637dca73c2c5c8ef2a4ca0d5657fb9567188bfab47f566d1ee6ce987815c39",
 	"repository": {
 		"url": "git+ssh://git@github.com:dustin-ruetz/dustinruetz.com.git"
 	},
