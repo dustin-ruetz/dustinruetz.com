@@ -1,5 +1,6 @@
-const {readdirSync, statSync} = require("fs");
-const path = require("path");
+const {readdirSync, statSync} = require("node:fs");
+const path = require("node:path");
+
 const copyWebpackPlugin = require("copy-webpack-plugin");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");

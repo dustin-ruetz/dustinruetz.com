@@ -1,5 +1,7 @@
-const os = require("os");
+const os = require("node:os");
+
 const {logWarning} = require("../../config/utils/log-warning.js");
+
 const {DOMAIN} = require("./constants.js");
 
 const isIPv4config = (ipConfig) => ipConfig.family === "IPv4";
@@ -21,7 +23,7 @@ const localIPconfig = (() => {
 	}
 })();
 
-const URL = {
+const url = {
 	protocol: {
 		local: "https",
 		network: "http",
@@ -52,11 +54,11 @@ const URL = {
 function getURL(environment) {
 	switch (environment) {
 		case "local":
-			return `${URL.protocol.local}://${URL.subdomain.local}.${URL.domain.local}:${URL.port.local}`;
+			return `${url.protocol.local}://${url.subdomain.local}.${url.domain.local}:${url.port.local}`;
 		case "network":
-			return `${URL.protocol.network}://${URL.domain.network}:${URL.port.network}`;
+			return `${url.protocol.network}://${url.domain.network}:${url.port.network}`;
 		case "production":
-			return `${URL.protocol.production}://${URL.subdomain.production}.${URL.domain.production}`;
+			return `${url.protocol.production}://${url.subdomain.production}.${url.domain.production}`;
 		default: {
 			const invalidEnvironmentArg =
 				typeof environment === "string" ? `"${environment}"` : environment;
@@ -68,4 +70,4 @@ function getURL(environment) {
 	}
 }
 
-module.exports = {getURL, URL};
+module.exports = {getURL, url};

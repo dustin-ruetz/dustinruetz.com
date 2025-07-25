@@ -1,4 +1,4 @@
-const {getURL, URL} = require("../url.js");
+const {getURL, url} = require("../url.js");
 
 test("getURL function", () => {
 	// Verify that it returns the correct local development URL.
@@ -30,25 +30,25 @@ test("getURL function", () => {
 
 test("URL configuration", () => {
 	// Verify the connection protocols.
-	expect(URL.protocol.local).toBe("https");
-	expect(URL.protocol.network).toBe("http");
-	expect(URL.protocol.production).toBe("https");
+	expect(url.protocol.local).toBe("https");
+	expect(url.protocol.network).toBe("http");
+	expect(url.protocol.production).toBe("https");
 
 	// Verify that the subdomains are correct.
-	expect(URL.subdomain.local).toBe("development");
-	expect(URL.subdomain.network).toBeNull();
-	expect(URL.subdomain.production).toBe("www");
+	expect(url.subdomain.local).toBe("development");
+	expect(url.subdomain.network).toBeNull();
+	expect(url.subdomain.production).toBe("www");
 
 	// Verify that the domains are correct.
-	expect(URL.domain.local).toBe("dustinruetz.com");
+	expect(url.domain.local).toBe("dustinruetz.com");
 	// @todo Figure out how to mock Node.js os.networkInterfaces module.
-	// expect(URL.domain.network).toBe("a.valid.IPv4.address");
-	expect(URL.domain.production).toBe("dustinruetz.com");
+	// expect(url.domain.network).toBe("a.valid.IPv4.address");
+	expect(url.domain.production).toBe("dustinruetz.com");
 
 	// Verify that the ports are correct.
-	expect(URL.port.local).toBe(4444);
-	expect(URL.port.network).toBe(5555);
-	expect(URL.port.production).toBeNull();
+	expect(url.port.local).toBe(4444);
+	expect(url.port.network).toBe(5555);
+	expect(url.port.production).toBeNull();
 
 	/**
 	 * Note: Can't assert that `typeof variable === "null"` due to
@@ -57,23 +57,23 @@ test("URL configuration", () => {
 	 */
 
 	// Verify that all of URL configuration variables are of the correct type.
-	expect(typeof URL).toBe("object");
+	expect(typeof url).toBe("object");
 
-	expect(typeof URL.protocol).toBe("object");
-	expect(typeof URL.protocol.local).toBe("string");
-	expect(typeof URL.protocol.network).toBe("string");
-	expect(typeof URL.protocol.production).toBe("string");
+	expect(typeof url.protocol).toBe("object");
+	expect(typeof url.protocol.local).toBe("string");
+	expect(typeof url.protocol.network).toBe("string");
+	expect(typeof url.protocol.production).toBe("string");
 
-	expect(typeof URL.subdomain).toBe("object");
-	expect(typeof URL.subdomain.local).toBe("string");
-	expect(typeof URL.subdomain.production).toBe("string");
+	expect(typeof url.subdomain).toBe("object");
+	expect(typeof url.subdomain.local).toBe("string");
+	expect(typeof url.subdomain.production).toBe("string");
 
-	expect(typeof URL.domain).toBe("object");
-	expect(typeof URL.domain.local).toBe("string");
-	expect(typeof URL.domain.network).toBe("string");
-	expect(typeof URL.domain.production).toBe("string");
+	expect(typeof url.domain).toBe("object");
+	expect(typeof url.domain.local).toBe("string");
+	expect(typeof url.domain.network).toBe("string");
+	expect(typeof url.domain.production).toBe("string");
 
-	expect(typeof URL.port).toBe("object");
-	expect(typeof URL.port.local).toBe("number");
-	expect(typeof URL.port.network).toBe("number");
+	expect(typeof url.port).toBe("object");
+	expect(typeof url.port.local).toBe("number");
+	expect(typeof url.port.network).toBe("number");
 });
