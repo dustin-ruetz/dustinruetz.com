@@ -1,5 +1,7 @@
 const webpackMerge = require("webpack-merge").merge;
-const {URL} = require("../src/config/url.js");
+
+const {url} = require("../src/config/url.js");
+
 const webpackConfigCommon = require("./webpack.common.js");
 const webpackConfigDevelopment = require("./webpack.development.js");
 
@@ -8,7 +10,7 @@ module.exports = webpackMerge(webpackConfigCommon, webpackConfigDevelopment, {
 	devServer: {
 		// Specify local development host.
 		// Note: Server will automatically find a free port to use.
-		host: `${URL.subdomain.local}.${URL.domain.local}`,
+		host: `${url.subdomain.local}.${url.domain.local}`,
 		server: {
 			type: "https",
 			options: {

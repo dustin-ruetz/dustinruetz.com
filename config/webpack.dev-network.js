@@ -1,4 +1,5 @@
 const webpackMerge = require("webpack-merge").merge;
+
 const webpackConfigCommon = require("./webpack.common.js");
 const webpackConfigDevelopment = require("./webpack.development.js");
 
