@@ -35,7 +35,7 @@ From the root of the repo use `pnpm build` to compile the site to the `./www/` o
 
 ## Hosting and Deployment
 
-The repo is configured so that the `www` branch is a Git worktree that tracks the `./www/` directory; GitHub Pages hosts the site's files by sourcing from this branch. Continuous deployment/integration is handled by the [`build` GitHub Action][ga-build]; the site is compiled and deployed every time a commit is pushed to the `main` branch.
+The repo is configured so that the `www` branch is a Git worktree that tracks the `./www/` directory; GitHub Pages hosts the site's files by sourcing from this branch. Continuous deployment/integration is handled by the [`deploy` GitHub Action][ga-deploy]; the site is compiled and deployed every time a commit is pushed to the `main` branch.
 
 ### GitHub Pages/Git worktree
 
@@ -74,7 +74,7 @@ figure
 
 - Sass implementations don't provide URL rewriting, and [this issue also applies to Webpack's sass-loader][webpack-sass-loader-url-problems]. Use [Webpack's resolve-url-loader][webpack-resolve-url-loader] to solve this issue, which rewrites relative paths in `url()` statements relative to the original source file; this is useful when loading fonts via CSS.
 
-[ga-build]: /.github/workflows/build.yaml
+[ga-deploy]: /.github/workflows/deploy.yaml
 [ghp-configure-apex-domain]: https://docs.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/#configuring-an-apex-domain
 [ghp-configure-subdomain]: https://docs.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/#configuring-a-subdomain
 [ghp-custom-domain]: https://docs.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site/

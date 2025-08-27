@@ -174,11 +174,11 @@ module.exports = {
 		 *
 		 * 2. In production it was removing everything within the the root ./www/
 		 *    output directory as a result of running the build script; this
-		 *    caused the `build` GitHub Action to fail because there were no
+		 *    caused the `deploy` GitHub Action to fail because there were no
 		 *    files to commit to the Git branch/worktree.
 		 *
 		 * For these reasons I'm not including `output.clean` here; it doesn't have
-		 * much impact in development, and in production the `build` GitHub Action
+		 * much impact in development, and in production the `deploy` GitHub Action
 		 * already removes the ./www/ directory prior to running the build script.
 		 */
 		filename: `${filenameTemplate}.js`,

@@ -1,10 +1,10 @@
-name: Build
+name: Deploy
 on:
   push:
     branches:
       - main
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: 🛒 Git checkout repository
@@ -21,8 +21,8 @@ jobs:
       # - https://sangsoonam.github.io/2019/02/08/using-git-worktree-to-deploy-github-pages.html
       - name: 🪪 Git configure identity
         run: |
-          git config user.email "build-github-action@dustinruetz.com"
-          git config user.name "build GitHub Action by Dustin Ruetz"
+          git config user.email "deploy-github-action@dustinruetz.com"
+          git config user.name "deploy GitHub Action by Dustin Ruetz"
       # Note: If ever the GitHub Actions workflow is broken/erroring/unavailable, the site
       #       can still be deployed by running the individual commands below from the
       #       root of the repo using the terminal on your local machine.
@@ -47,7 +47,7 @@ jobs:
         run: |
           cd ./www/
           git add --all
-          git commit -m "build: dustinruetz.com on `date +\"%Y-%b-%d at %T UTC\"`"
+          git commit -m "deploy: dustinruetz.com on `date +\"%Y-%b-%d at %T UTC\"`"
           git push origin www --force
       # Note: If you're trying to deploy the site from your local machine and you receive a
       #       `fatal: not a git repository` error when running the `remove ./www/` command,
