@@ -40,7 +40,7 @@ The repo is configured so that the `www` branch is a Git worktree that tracks th
 ### GitHub Pages/Git worktree
 
 - [Managing a custom domain for your GitHub Pages site][ghp-custom-domain] (especially the [configuring a subdomain][ghp-configure-subdomain] and [configuring an apex domain][ghp-configure-apex-domain] sections)
-- ℹ️ Note: To enable secure redirects (from the apex domain with no protocol/subdomain/`http`/`http://www`/`www` to `https://www`) it's important that the build script copy the CNAME file (with a value of `www.dustinruetz.com`) to the root of the output directory.
+- ℹ️ Note: To enable secure redirects (from the apex domain with no protocol/subdomain/`http`/`http://www`/`www` to `https://www`) it's important that the CNAME file be copied to the root of the output directory.
 - [Using git worktree to deploy GitHub Pages][ghp-using-git-worktree]
 
 ### Domain registrar DNS records
