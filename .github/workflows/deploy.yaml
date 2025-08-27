@@ -34,15 +34,17 @@ jobs:
           git checkout main
       # Add `www/` directory to `www` branch.
       - name: 🎄 Create Git worktree
-        run: |
-          rm -rf ./www/
-          git worktree add ./www/ www
+        run: git worktree add ./www/ www
       - name: ⬇️ Install dependencies
         run: pnpm install
       - name: 👀 Audit dependency signatures
         run: npm audit signatures
       - name: 🛠️ Build site
         run: pnpm build
+      # There should be no unexpected modified files present in the working tree
+      # after building the site, so error out if Git finds any.
+      - name: 🤨 Error on Git diff
+        run: git diff --exit-code
       - name: 🚢 Deploy site
         run: |
           cd ./www/
