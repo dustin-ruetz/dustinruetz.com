@@ -1,4 +1,5 @@
 .caches/
+.pnpm-store/
 coverage/
 node_modules/
 tls/
