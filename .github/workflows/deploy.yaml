@@ -43,9 +43,9 @@ jobs:
         run: npm audit signatures
       - name: 🛠️ Build site
         run: pnpm build
-      # There should be no modified files present in the working tree
-      # after building the site, so error out if Git finds any.
-      - name: 🤨 Error on Git diff
+      # There shouldn't be any modified files present in the working tree
+      # after building the site, so error out if Git finds any changes.
+      - name: 🤨 Check for Git diff
         run: git diff --exit-code
       - name: 🚢 Deploy site
         run: |
